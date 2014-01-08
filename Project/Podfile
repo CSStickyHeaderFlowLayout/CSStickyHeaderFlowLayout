@@ -1,7 +1,2 @@
+platform :ios, '7.0'
 pod "CSStickyHeaderFlowLayout", :path => "../CSStickyHeaderFlowLayout.podspec"
-
-target "Demo" do
-end
-
-target "DemoTests" do
-end

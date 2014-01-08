@@ -19,9 +19,8 @@ Pod::Spec.new do |s|
   s.license      = 'MIT'
   s.author       = { "Jamz Tang" => "jamz@jamztang.com" }
   s.source       = { :git => "http://EXAMPLE/NAME.git", :tag => s.version.to_s }
-
-  # s.platform     = :ios, '5.0'
-  # s.ios.deployment_target = '5.0'
+  s.platform     = :ios, '7.0'
+  s.ios.deployment_target = '7.0'
   # s.osx.deployment_target = '10.7'
   s.requires_arc = true
 

@@ -12,7 +12,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="YVv-HD-P4u">
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="YVv-HD-P4u" customClass="CSStickyHeaderFlowLayout">
                             <size key="itemSize" width="320" height="80"/>
                             <size key="headerReferenceSize" width="0.0" height="50"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -69,7 +69,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cud-9j-Qcf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="27" y="119"/>
+            <point key="canvasLocation" x="80" y="76"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="EeI-38-cgl">
@@ -84,6 +84,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wFw-aA-dqz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="469" y="76"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
