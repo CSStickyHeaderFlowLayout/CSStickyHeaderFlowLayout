@@ -21,6 +21,9 @@
 		1AFE0977187D677000CA880A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AFE0959187D677000CA880A /* UIKit.framework */; };
 		1AFE097F187D677000CA880A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1AFE097D187D677000CA880A /* InfoPlist.strings */; };
 		1AFE0981187D677000CA880A /* CSStickyHeaderFlowLayoutDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AFE0980187D677000CA880A /* CSStickyHeaderFlowLayoutDemoTests.m */; };
+		1AFE098C187D681000CA880A /* CSSectionHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1AFE098B187D681000CA880A /* CSSectionHeader.xib */; };
+		1AFE098E187D683B00CA880A /* CSCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1AFE098D187D683B00CA880A /* CSCell.xib */; };
+		1AFE0992187D688300CA880A /* CSCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AFE0991187D688300CA880A /* CSCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +56,10 @@
 		1AFE097C187D677000CA880A /* CSStickyHeaderFlowLayoutDemoTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CSStickyHeaderFlowLayoutDemoTests-Info.plist"; sourceTree = "<group>"; };
 		1AFE097E187D677000CA880A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1AFE0980187D677000CA880A /* CSStickyHeaderFlowLayoutDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CSStickyHeaderFlowLayoutDemoTests.m; sourceTree = "<group>"; };
+		1AFE098B187D681000CA880A /* CSSectionHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CSSectionHeader.xib; sourceTree = "<group>"; };
+		1AFE098D187D683B00CA880A /* CSCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CSCell.xib; sourceTree = "<group>"; };
+		1AFE0990187D688300CA880A /* CSCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSCell.h; sourceTree = "<group>"; };
+		1AFE0991187D688300CA880A /* CSCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,8 +122,8 @@
 				1AFE0964187D677000CA880A /* AppDelegate.h */,
 				1AFE0965187D677000CA880A /* AppDelegate.m */,
 				1AFE0967187D677000CA880A /* Main.storyboard */,
-				1AFE096A187D677000CA880A /* ViewController.h */,
-				1AFE096B187D677000CA880A /* ViewController.m */,
+				1AFE098F187D685200CA880A /* Cell */,
+				1AFE098A187D67F500CA880A /* ViewControllers */,
 				1AFE096D187D677000CA880A /* Images.xcassets */,
 				1AFE095C187D677000CA880A /* Supporting Files */,
 			);
@@ -150,6 +157,26 @@
 				1AFE097D187D677000CA880A /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		1AFE098A187D67F500CA880A /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				1AFE096A187D677000CA880A /* ViewController.h */,
+				1AFE096B187D677000CA880A /* ViewController.m */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		1AFE098F187D685200CA880A /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				1AFE0990187D688300CA880A /* CSCell.h */,
+				1AFE0991187D688300CA880A /* CSCell.m */,
+				1AFE098B187D681000CA880A /* CSSectionHeader.xib */,
+				1AFE098D187D683B00CA880A /* CSCell.xib */,
+			);
+			name = Cell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -228,9 +255,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1AFE098C187D681000CA880A /* CSSectionHeader.xib in Resources */,
 				1AFE096E187D677000CA880A /* Images.xcassets in Resources */,
 				1AFE0960187D677000CA880A /* InfoPlist.strings in Resources */,
 				1AFE0969187D677000CA880A /* Main.storyboard in Resources */,
+				1AFE098E187D683B00CA880A /* CSCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -250,6 +279,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1AFE096C187D677000CA880A /* ViewController.m in Sources */,
+				1AFE0992187D688300CA880A /* CSCell.m in Sources */,
 				1AFE0966187D677000CA880A /* AppDelegate.m in Sources */,
 				1AFE0962187D677000CA880A /* main.m in Sources */,
 			);

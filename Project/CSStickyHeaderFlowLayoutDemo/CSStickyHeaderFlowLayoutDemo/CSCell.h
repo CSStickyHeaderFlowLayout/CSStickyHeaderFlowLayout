@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  CSCell.h
 //  CSStickyHeaderFlowLayoutDemo
 //
 //  Created by Jamz Tang on 8/1/14.
@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UICollectionViewController
+@interface CSCell : UICollectionViewCell
+
+@property (weak, nonatomic) IBOutlet UILabel *textLabel;
 
 @end
