@@ -7,18 +7,18 @@
 Pod::Spec.new do |s|
   s.name         = "CSStickyHeaderFlowLayout"
   s.version      = "0.1.0"
-  s.summary      = "A short description of CSStickyHeaderFlowLayout."
+  s.summary      = "Parallax and Sticky header done right using UICollectionViewLayout"
   s.description  = <<-DESC
                     An optional longer description of CSStickyHeaderFlowLayout
 
                     * Markdown format.
                     * Don't worry about the indent, we strip it!
                    DESC
-  s.homepage     = "http://EXAMPLE/NAME"
-  s.screenshots  = "www.example.com/screenshots_1", "www.example.com/screenshots_2"
+  s.homepage     = "http://github.com/jamztang/CSStickyHeaderFlowLayout"
+  s.screenshots  = "https://d262ilb51hltx0.cloudfront.net/max/800/1*pev9ZXJAZ2MYoF8-R_nbRA.gif"
   s.license      = 'MIT'
-  s.author       = { "Jamz Tang" => "jamz@jamztang.com" }
-  s.source       = { :git => "http://EXAMPLE/NAME.git", :tag => s.version.to_s }
+  s.author       = { "James Tang" => "jamz@jamztang.com" }
+  s.source       = { :git => "https://github.com/jamztang/CSStickyHeaderFlowLayout.git", :tag => s.version.to_s }
   s.platform     = :ios, '7.0'
   s.ios.deployment_target = '7.0'
   # s.osx.deployment_target = '10.7'
