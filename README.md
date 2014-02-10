@@ -1,5 +1,19 @@
 # CSStickyHeaderFlowLayout
 
+![](http://cl.ly/image/1D2i0746180b/1*pev9ZXJAZ2MYoF8-R_nbRA.gif)
+
+Parallax, Sticky Headers, Growing image heading, done right in one
+UICollectionViewLayout.
+
+## Documentation
+
+Coming Soon...
+
+## Installation
+
+Coming Soon...
+
+<!--
 [![Version](http://cocoapod-badges.herokuapp.com/v/CSStickyHeaderFlowLayout/badge.png)](http://cocoadocs.org/docsets/CSStickyHeaderFlowLayout)
 [![Platform](http://cocoapod-badges.herokuapp.com/p/CSStickyHeaderFlowLayout/badge.png)](http://cocoadocs.org/docsets/CSStickyHeaderFlowLayout)
 
@@ -16,9 +30,11 @@ it simply add the following line to your Podfile:
 
     pod "CSStickyHeaderFlowLayout"
 
+-->
+
 ## Author
 
-Jamz Tang, jamz@jamztang.com
+James Tang, jamz@jamztang.com
 
 ## License
 
