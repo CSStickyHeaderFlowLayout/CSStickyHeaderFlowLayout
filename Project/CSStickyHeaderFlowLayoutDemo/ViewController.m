@@ -8,10 +8,12 @@
 
 #import "ViewController.h"
 #import "CSCell.h"
+#import "CSStickyHeaderFlowLayout.h"
 
 @interface ViewController ()
 
 @property (nonatomic, strong) NSArray *sections;
+@property (nonatomic, strong) UINib *headerNib;
 
 @end
 
@@ -28,6 +30,8 @@
                           @{@"Instagram":@"http://instagram.com"},
                           @{@"Github":@"http://github.com"},
                           ];
+        
+        self.headerNib = [UINib nibWithNibName:@"CSParallaxHeader" bundle:nil];
     }
     return self;
 }
@@ -35,6 +39,17 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    CSStickyHeaderFlowLayout *layout = (id)self.collectionViewLayout;
+
+    if ([layout isKindOfClass:[CSStickyHeaderFlowLayout class]]) {
+        layout.parallexHeaderReferenceSize = CGSizeMake(320, 200);
+    }
+    
+    [self.collectionView registerNib:self.headerNib
+          forSupplementaryViewOfKind:CSStickyHeaderParallexHeader
+                 withReuseIdentifier:@"header"];
+    
 }
 
 #pragma mark UICollectionViewDataSource
@@ -70,6 +85,12 @@
         
         cell.textLabel.text = [[obj allKeys] firstObject];
 
+        return cell;
+    } else if ([kind isEqualToString:CSStickyHeaderParallexHeader]) {
+        UICollectionReusableView *cell = [collectionView dequeueReusableSupplementaryViewOfKind:kind
+                                                                            withReuseIdentifier:@"header"
+                                                                                   forIndexPath:indexPath];
+        
         return cell;
     }
     return nil;
