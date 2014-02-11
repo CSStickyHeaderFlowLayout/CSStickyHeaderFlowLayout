@@ -8,12 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-extern NSString *const CSStickyHeaderParallexHeader;
+extern NSString *const CSStickyHeaderParallaxHeader;
 
 @interface CSStickyHeaderFlowLayout : UICollectionViewFlowLayout
 
-@property (nonatomic) CGSize parallexHeaderReferenceSize;
-@property (nonatomic) CGSize parallexHeaderMinimumReferenceSize;
+@property (nonatomic) CGSize parallaxHeaderReferenceSize;
+@property (nonatomic) CGSize parallaxHeaderMinimumReferenceSize;
 @property (nonatomic) BOOL disableStickyHeaders;
 
 @end

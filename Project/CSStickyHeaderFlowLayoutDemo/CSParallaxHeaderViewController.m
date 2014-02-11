@@ -43,11 +43,11 @@
     CSStickyHeaderFlowLayout *layout = (id)self.collectionViewLayout;
 
     if ([layout isKindOfClass:[CSStickyHeaderFlowLayout class]]) {
-        layout.parallexHeaderReferenceSize = CGSizeMake(320, 200);
+        layout.parallaxHeaderReferenceSize = CGSizeMake(320, 200);
     }
     
     [self.collectionView registerNib:self.headerNib
-          forSupplementaryViewOfKind:CSStickyHeaderParallexHeader
+          forSupplementaryViewOfKind:CSStickyHeaderParallaxHeader
                  withReuseIdentifier:@"header"];
     
 }
@@ -86,7 +86,7 @@
         cell.textLabel.text = [[obj allKeys] firstObject];
 
         return cell;
-    } else if ([kind isEqualToString:CSStickyHeaderParallexHeader]) {
+    } else if ([kind isEqualToString:CSStickyHeaderParallaxHeader]) {
         UICollectionReusableView *cell = [collectionView dequeueReusableSupplementaryViewOfKind:kind
                                                                             withReuseIdentifier:@"header"
                                                                                    forIndexPath:indexPath];

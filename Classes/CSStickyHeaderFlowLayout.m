@@ -8,7 +8,7 @@
 
 #import "CSStickyHeaderFlowLayout.h"
 
-NSString *const CSStickyHeaderParallexHeader = @"CSStickyHeaderParallexHeader";
+NSString *const CSStickyHeaderParallaxHeader = @"CSStickyHeaderParallexHeader";
 
 @implementation CSStickyHeaderFlowLayout
 
@@ -20,7 +20,7 @@ NSString *const CSStickyHeaderParallexHeader = @"CSStickyHeaderParallexHeader";
 {
     // The rect should compensate the header size
     CGRect adjustedRect = rect;
-    adjustedRect.origin.y -= self.parallexHeaderReferenceSize.height;
+    adjustedRect.origin.y -= self.parallaxHeaderReferenceSize.height;
 
     NSMutableArray *allItems = [[super layoutAttributesForElementsInRect:adjustedRect] mutableCopy];
 
@@ -32,7 +32,7 @@ NSString *const CSStickyHeaderParallexHeader = @"CSStickyHeaderParallexHeader";
         UICollectionViewLayoutAttributes *attributes = obj;
 
         CGRect frame = attributes.frame;
-        frame.origin.y += self.parallexHeaderReferenceSize.height;
+        frame.origin.y += self.parallaxHeaderReferenceSize.height;
         attributes.frame = frame;
 
         NSIndexPath *indexPath = [(UICollectionViewLayoutAttributes *)obj indexPath];
@@ -65,17 +65,17 @@ NSString *const CSStickyHeaderParallexHeader = @"CSStickyHeaderParallexHeader";
     NSUInteger numberOfSections = [self.collectionView.dataSource numberOfSectionsInCollectionView:self.collectionView];
 
     // Create the attributes for the Parallex header
-    if (visibleParallexHeader && ! CGSizeEqualToSize(CGSizeZero, self.parallexHeaderReferenceSize) && numberOfSections > 0) {
-        UICollectionViewLayoutAttributes *currentAttribute = [UICollectionViewLayoutAttributes layoutAttributesForSupplementaryViewOfKind:CSStickyHeaderParallexHeader withIndexPath:[NSIndexPath indexPathForItem:0 inSection:0]];
+    if (visibleParallexHeader && ! CGSizeEqualToSize(CGSizeZero, self.parallaxHeaderReferenceSize) && numberOfSections > 0) {
+        UICollectionViewLayoutAttributes *currentAttribute = [UICollectionViewLayoutAttributes layoutAttributesForSupplementaryViewOfKind:CSStickyHeaderParallaxHeader withIndexPath:[NSIndexPath indexPathForItem:0 inSection:0]];
         CGRect frame = currentAttribute.frame;
-        frame.size.width = self.parallexHeaderReferenceSize.width;
-        frame.size.height = self.parallexHeaderReferenceSize.height;
+        frame.size.width = self.parallaxHeaderReferenceSize.width;
+        frame.size.height = self.parallaxHeaderReferenceSize.height;
 
         CGRect bounds = self.collectionView.bounds;
         CGFloat maxY = CGRectGetMaxY(frame);
 
         // make sure the frame won't be negative values
-        CGFloat y = MIN(maxY - self.parallexHeaderMinimumReferenceSize.height, bounds.origin.y + self.collectionView.contentInset.top);
+        CGFloat y = MIN(maxY - self.parallaxHeaderMinimumReferenceSize.height, bounds.origin.y + self.collectionView.contentInset.top);
         CGFloat height = MAX(0, -y + maxY);
 
         currentAttribute.frame = (CGRect){
@@ -116,14 +116,14 @@ NSString *const CSStickyHeaderParallexHeader = @"CSStickyHeaderParallexHeader";
 - (UICollectionViewLayoutAttributes *)layoutAttributesForItemAtIndexPath:(NSIndexPath *)indexPath {
     UICollectionViewLayoutAttributes *attributes = [super layoutAttributesForItemAtIndexPath:indexPath];
     CGRect frame = attributes.frame;
-    frame.origin.y += self.parallexHeaderReferenceSize.height;
+    frame.origin.y += self.parallaxHeaderReferenceSize.height;
     attributes.frame = frame;
     return attributes;
 }
 
 - (CGSize)collectionViewContentSize {
     CGSize size = [super collectionViewContentSize];
-    size.height += self.parallexHeaderReferenceSize.height;
+    size.height += self.parallaxHeaderReferenceSize.height;
     return size;
 }
 
