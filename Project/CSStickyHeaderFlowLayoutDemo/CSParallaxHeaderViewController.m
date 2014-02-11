@@ -6,18 +6,18 @@
 //  Copyright (c) 2014 Jamz Tang. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "CSParallaxHeaderViewController.h"
 #import "CSCell.h"
 #import "CSStickyHeaderFlowLayout.h"
 
-@interface ViewController ()
+@interface CSParallaxHeaderViewController ()
 
 @property (nonatomic, strong) NSArray *sections;
 @property (nonatomic, strong) UINib *headerNib;
 
 @end
 
-@implementation ViewController
+@implementation CSParallaxHeaderViewController
 
 - (id)initWithCoder:(NSCoder *)aDecoder {
     self = [super initWithCoder:aDecoder];

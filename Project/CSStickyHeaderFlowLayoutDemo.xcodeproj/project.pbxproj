@@ -16,7 +16,7 @@
 		1AFE0962187D677000CA880A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AFE0961187D677000CA880A /* main.m */; };
 		1AFE0966187D677000CA880A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AFE0965187D677000CA880A /* AppDelegate.m */; };
 		1AFE0969187D677000CA880A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1AFE0967187D677000CA880A /* Main.storyboard */; };
-		1AFE096C187D677000CA880A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AFE096B187D677000CA880A /* ViewController.m */; };
+		1AFE096C187D677000CA880A /* CSParallaxHeaderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AFE096B187D677000CA880A /* CSParallaxHeaderViewController.m */; };
 		1AFE096E187D677000CA880A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1AFE096D187D677000CA880A /* Images.xcassets */; };
 		1AFE0975187D677000CA880A /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AFE0974187D677000CA880A /* XCTest.framework */; };
 		1AFE0976187D677000CA880A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AFE0955187D677000CA880A /* Foundation.framework */; };
@@ -53,8 +53,8 @@
 		1AFE0964187D677000CA880A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		1AFE0965187D677000CA880A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		1AFE0968187D677000CA880A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		1AFE096A187D677000CA880A /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		1AFE096B187D677000CA880A /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		1AFE096A187D677000CA880A /* CSParallaxHeaderViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CSParallaxHeaderViewController.h; sourceTree = "<group>"; };
+		1AFE096B187D677000CA880A /* CSParallaxHeaderViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CSParallaxHeaderViewController.m; sourceTree = "<group>"; };
 		1AFE096D187D677000CA880A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		1AFE0973187D677000CA880A /* CSStickyHeaderFlowLayoutDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CSStickyHeaderFlowLayoutDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1AFE0974187D677000CA880A /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -174,8 +174,8 @@
 		1AFE098A187D67F500CA880A /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				1AFE096A187D677000CA880A /* ViewController.h */,
-				1AFE096B187D677000CA880A /* ViewController.m */,
+				1AFE096A187D677000CA880A /* CSParallaxHeaderViewController.h */,
+				1AFE096B187D677000CA880A /* CSParallaxHeaderViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -327,7 +327,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1AFE096C187D677000CA880A /* ViewController.m in Sources */,
+				1AFE096C187D677000CA880A /* CSParallaxHeaderViewController.m in Sources */,
 				1AFE0992187D688300CA880A /* CSCell.m in Sources */,
 				1AFE0966187D677000CA880A /* AppDelegate.m in Sources */,
 				1AFE0962187D677000CA880A /* main.m in Sources */,
