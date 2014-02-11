@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		1AC0D88518AA38380072B3F1 /* CSParallaxHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1AC0D88418AA38380072B3F1 /* CSParallaxHeader.xib */; };
 		1AC0D88718AA39B50072B3F1 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AC0D88618AA39B50072B3F1 /* MapKit.framework */; };
+		1AC0D88918AA3AF80072B3F1 /* CSSearchBarHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1AC0D88818AA3AF80072B3F1 /* CSSearchBarHeader.xib */; };
+		1AC0D88C18AA3B300072B3F1 /* CSLockedHeaderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AC0D88B18AA3B300072B3F1 /* CSLockedHeaderViewController.m */; };
 		1AFE0956187D677000CA880A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AFE0955187D677000CA880A /* Foundation.framework */; };
 		1AFE0958187D677000CA880A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AFE0957187D677000CA880A /* CoreGraphics.framework */; };
 		1AFE095A187D677000CA880A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AFE0959187D677000CA880A /* UIKit.framework */; };
@@ -42,6 +44,9 @@
 /* Begin PBXFileReference section */
 		1AC0D88418AA38380072B3F1 /* CSParallaxHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CSParallaxHeader.xib; sourceTree = "<group>"; };
 		1AC0D88618AA39B50072B3F1 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		1AC0D88818AA3AF80072B3F1 /* CSSearchBarHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CSSearchBarHeader.xib; sourceTree = "<group>"; };
+		1AC0D88A18AA3B300072B3F1 /* CSLockedHeaderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSLockedHeaderViewController.h; sourceTree = "<group>"; };
+		1AC0D88B18AA3B300072B3F1 /* CSLockedHeaderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSLockedHeaderViewController.m; sourceTree = "<group>"; };
 		1AFE0952187D677000CA880A /* CSStickyHeaderFlowLayoutDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CSStickyHeaderFlowLayoutDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1AFE0955187D677000CA880A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1AFE0957187D677000CA880A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -176,6 +181,8 @@
 			children = (
 				1AFE096A187D677000CA880A /* CSParallaxHeaderViewController.h */,
 				1AFE096B187D677000CA880A /* CSParallaxHeaderViewController.m */,
+				1AC0D88A18AA3B300072B3F1 /* CSLockedHeaderViewController.h */,
+				1AC0D88B18AA3B300072B3F1 /* CSLockedHeaderViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -188,6 +195,7 @@
 				1AFE098B187D681000CA880A /* CSSectionHeader.xib */,
 				1AFE098D187D683B00CA880A /* CSCell.xib */,
 				1AC0D88418AA38380072B3F1 /* CSParallaxHeader.xib */,
+				1AC0D88818AA3AF80072B3F1 /* CSSearchBarHeader.xib */,
 			);
 			name = Cell;
 			sourceTree = "<group>";
@@ -270,6 +278,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1AC0D88918AA3AF80072B3F1 /* CSSearchBarHeader.xib in Resources */,
 				1AFE098C187D681000CA880A /* CSSectionHeader.xib in Resources */,
 				1AFE096E187D677000CA880A /* Images.xcassets in Resources */,
 				1AFE0960187D677000CA880A /* InfoPlist.strings in Resources */,
@@ -331,6 +340,7 @@
 				1AFE0992187D688300CA880A /* CSCell.m in Sources */,
 				1AFE0966187D677000CA880A /* AppDelegate.m in Sources */,
 				1AFE0962187D677000CA880A /* main.m in Sources */,
+				1AC0D88C18AA3B300072B3F1 /* CSLockedHeaderViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
