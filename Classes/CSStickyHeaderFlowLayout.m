@@ -85,7 +85,8 @@ NSString *const CSStickyHeaderParallexHeader = @"CSStickyHeaderParallexHeader";
             height,
         };
 
-        currentAttribute.zIndex = -1;
+        // if zIndex < 0 would prevents tap from recognized right under navigation bar
+        currentAttribute.zIndex = 0;
 
         [allItems addObject:currentAttribute];
     }
