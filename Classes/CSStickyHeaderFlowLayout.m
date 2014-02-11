@@ -55,7 +55,13 @@ NSString *const CSStickyHeaderParallexHeader = @"CSStickyHeaderParallexHeader";
             }
         }
     }];
-    
+
+    // when the visible rect is at top of the screen, make sure we see
+    // the parallex header
+    if (CGRectGetMinY(rect) <= 0) {
+        visibleParallexHeader = YES;
+    }
+
     NSUInteger numberOfSections = [self.collectionView.dataSource numberOfSectionsInCollectionView:self.collectionView];
 
     // Create the attributes for the Parallex header
