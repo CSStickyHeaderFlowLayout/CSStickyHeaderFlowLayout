@@ -23,12 +23,12 @@
     self = [super initWithCoder:aDecoder];
     if (self) {
         self.sections = @[
-                          @{@"Twitter":@"http://twitter.com"},
-                          @{@"Facebook":@"http://facebook.com"},
-                          @{@"Tumblr":@"http://tumblr.com"},
-                          @{@"Pinterest":@"http://pinterest.com"},
-                          @{@"Instagram":@"http://instagram.com"},
-                          @{@"Github":@"http://github.com"},
+                          @{@"Parallax":@"Usually used for big image views or maps. It has a continously parallax effect."},
+                          @{@"Locking":@"Useful for UI elements like search bar that show up on the top of the screen, but will push away while scrolls. It \"locks\" at the top of the screen."},
+                          @{@"Grow":@"Suitable to use for profile/background pictures as heading. It almost like the parallax effect, but when you pull down further it stretches the image."},
+                          @{@"Github":@"Project page is at\nhttp://github.com/jamztang/CSStickyHeaderFlowLayout"},
+                          @{@"Credit":@"James Tang (@jamztang)"},
+                          @{@"LICENSE":@"MIT"},
                           ];
         
         self.headerNib = [UINib nibWithNibName:@"CSParallaxHeader" bundle:nil];
@@ -96,5 +96,10 @@
     return nil;
 }
 
+#pragma mark UICollectionViewDelegate
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    NSLog(@"%s %@", __PRETTY_FUNCTION__, indexPath);
+}
 
 @end
