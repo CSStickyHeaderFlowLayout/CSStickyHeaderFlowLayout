@@ -11,6 +11,15 @@ UICollectionViewLayout.
 [![Version](http://cocoapod-badges.herokuapp.com/v/CSStickyHeaderFlowLayout/badge.png)](http://cocoadocs.org/docsets/CSStickyHeaderFlowLayout)
 [![Platform](http://cocoapod-badges.herokuapp.com/p/CSStickyHeaderFlowLayout/badge.png)](http://cocoadocs.org/docsets/CSStickyHeaderFlowLayout)
 
+
+CSStickyHeaderFlowLayout is available through [CocoaPods](http://cocoapods.org), to install
+it simply add the following line to your Podfile:
+
+    pod "CSStickyHeaderFlowLayout"
+
+Alternatively, you can just drag the files from `CSStickyHeaderFlowLayout / Classes` into your own project.
+
+
 ## Usage
 
 To run the example project; clone the repo, and run `pod install` from the Project directory first.
@@ -99,15 +108,6 @@ Run the project examples and it'll shows you exactly how you achieve different e
 
 - Xcode 5
 - iOS 7 (I haven't really test on iOS 6 but it should work if you're using iOS 6 compatible Storyboard)
-
-## Installation
-
-CSStickyHeaderFlowLayout is available through [CocoaPods](http://cocoapods.org), to install
-it simply add the following line to your Podfile:
-
-    pod "CSStickyHeaderFlowLayout"
-
-Alternatively, you can just drag the files from `CSStickyHeaderFlowLayout / Classes` into your own project.
 
 
 ## Author
