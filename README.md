@@ -119,3 +119,6 @@ James Tang, jamz@jamztang.com
 CSStickyHeaderFlowLayout is available under the MIT license. See the LICENSE file for more info.
 
 [CSStickyHeaderFlowLayout.h]:https://github.com/jamztang/CSStickyHeaderFlowLayout/blob/master/Classes/CSStickyHeaderFlowLayout.h
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/jamztang/csstickyheaderflowlayout/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
