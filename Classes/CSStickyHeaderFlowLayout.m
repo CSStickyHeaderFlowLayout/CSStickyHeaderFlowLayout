@@ -62,7 +62,13 @@ NSString *const CSStickyHeaderParallaxHeader = @"CSStickyHeaderParallexHeader";
         visibleParallexHeader = YES;
     }
 
-    NSUInteger numberOfSections = [self.collectionView.dataSource numberOfSectionsInCollectionView:self.collectionView];
+
+    // This method may not be explicitly defined, default to 1
+    // https://developer.apple.com/library/ios/documentation/uikit/reference/UICollectionViewDataSource_protocol/Reference/Reference.html#jumpTo_6
+    NSUInteger numberOfSections = [self.collectionView.dataSource
+                                   respondsToSelector:@selector(numberOfSectionsInCollectionView:)]
+                                ? [self.collectionView.dataSource numberOfSectionsInCollectionView:self.collectionView]
+                                : 1;
 
     // Create the attributes for the Parallex header
     if (visibleParallexHeader && ! CGSizeEqualToSize(CGSizeZero, self.parallaxHeaderReferenceSize) && numberOfSections > 0) {
