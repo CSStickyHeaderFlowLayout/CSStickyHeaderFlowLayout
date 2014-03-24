@@ -54,6 +54,9 @@ NSString *const CSStickyHeaderParallaxHeader = @"CSStickyHeaderParallexHeader";
                 visibleParallexHeader = YES;
             }
         }
+
+        // For iOS 7.0, the cell zIndex should be above sticky section header
+        attributes.zIndex = 1;
     }];
 
     // when the visible rect is at top of the screen, make sure we see
