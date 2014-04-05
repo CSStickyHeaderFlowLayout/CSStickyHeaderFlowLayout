@@ -1,14 +1,17 @@
 PODS:
-  - CSStickyHeaderFlowLayout (0.1.0)
+  - CSStickyHeaderFlowLayout (0.1.1)
+  - URBMediaFocusViewController (0.5.3)
 
 DEPENDENCIES:
   - CSStickyHeaderFlowLayout (from `../CSStickyHeaderFlowLayout.podspec`)
+  - URBMediaFocusViewController (~> 0.5.2)
 
 EXTERNAL SOURCES:
   CSStickyHeaderFlowLayout:
     :path: ../CSStickyHeaderFlowLayout.podspec
 
 SPEC CHECKSUMS:
-  CSStickyHeaderFlowLayout: 51514d6588f4e984bfb9719c1ae147ccbc60cf00
+  CSStickyHeaderFlowLayout: a8ae07daf418c37b8716e2c69f4570648ea784b8
+  URBMediaFocusViewController: 701ba2d2212e0e9146e440af2e725806fa5005cd
 
 COCOAPODS: 0.29.0

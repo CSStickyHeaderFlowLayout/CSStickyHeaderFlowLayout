@@ -56,12 +56,7 @@ NSString *const CSStickyHeaderParallaxHeader = @"CSStickyHeaderParallexHeader";
         }
 
         // For iOS 7.0, the cell zIndex should be above sticky section header
-        
-        /*
-            Commented out as it will cause cell disappeared if dequeueReusableCellWithReuseIdentifier
-            in didSelectItemAtIndexPath.
-         */
-//        attributes.zIndex = 1;
+        attributes.zIndex = 1;
     }];
 
     // when the visible rect is at top of the screen, make sure we see

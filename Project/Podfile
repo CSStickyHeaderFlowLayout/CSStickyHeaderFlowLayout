@@ -1,2 +1,3 @@
 platform :ios, '7.0'
-pod "CSStickyHeaderFlowLayout", :path => "../CSStickyHeaderFlowLayout.podspec"
+pod 'CSStickyHeaderFlowLayout', :path => '../CSStickyHeaderFlowLayout.podspec'
+pod 'URBMediaFocusViewController', '~> 0.5.2'

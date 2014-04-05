@@ -9,11 +9,13 @@
 #import "CSGrowHeaderViewController.h"
 #import "CSCell.h"
 #import "CSStickyHeaderFlowLayout.h"
+#import "URBMediaFocusViewController.h"
 
 @interface CSGrowHeaderViewController ()
 
 @property (nonatomic, strong) NSArray *sections;
 @property (nonatomic, strong) UINib *headerNib;
+@property (nonatomic, strong) URBMediaFocusViewController *controller;
 
 @end
 
@@ -104,7 +106,24 @@
 }
 
 
+#pragma mark UICollectionViewDelegate
 
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    URBMediaFocusViewController *controller = [[URBMediaFocusViewController alloc] init];
 
+    UICollectionViewCell *cell = [collectionView cellForItemAtIndexPath:indexPath];
+
+//    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
+
+    UIImageView *imageView = (id)[cell viewWithTag:1000];
+
+    UIImage *image = imageView.image;
+
+    CGRect rect = [imageView convertRect:imageView.bounds toView:nil];
+    [controller showImage:image fromRect:rect];
+
+    self.controller = controller;
+
+}
 
 @end
