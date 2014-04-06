@@ -16,7 +16,7 @@
     CGRect frame = self.frame;
 
     [UIView beginAnimations:@"" context:nil];
-    if (frame.size.height <= 66) {
+    if (frame.size.height <= 110) {
         self.titleLabel.alpha = 1;
     } else {
         self.titleLabel.alpha = 0;

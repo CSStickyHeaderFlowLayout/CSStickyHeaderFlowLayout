@@ -60,12 +60,12 @@
     CSStickyHeaderFlowLayout *layout = (id)self.collectionViewLayout;
 
     if ([layout isKindOfClass:[CSStickyHeaderFlowLayout class]]) {
-        layout.parallaxHeaderReferenceSize = CGSizeMake(320, 390);
-        layout.parallaxHeaderMinimumReferenceSize = CGSizeMake(320, 66);
+        layout.parallaxHeaderReferenceSize = CGSizeMake(320, 426);
+        layout.parallaxHeaderMinimumReferenceSize = CGSizeMake(320, 110);
         layout.parallaxHeaderAlwaysOnTop = YES;
 
         // If we want to disable the sticky header effect
-//        layout.disableStickyHeaders = YES;
+        layout.disableStickyHeaders = YES;
     }
 
 
