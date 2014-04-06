@@ -65,6 +65,10 @@ NSString *const CSStickyHeaderParallaxHeader = @"CSStickyHeaderParallexHeader";
         visibleParallexHeader = YES;
     }
 
+    if (self.parallaxHeaderAlwaysOnTop == YES) {
+        visibleParallexHeader = YES;
+    }
+
 
     // This method may not be explicitly defined, default to 1
     // https://developer.apple.com/library/ios/documentation/uikit/reference/UICollectionViewDataSource_protocol/Reference/Reference.html#jumpTo_6
@@ -87,6 +91,18 @@ NSString *const CSStickyHeaderParallaxHeader = @"CSStickyHeaderParallexHeader";
         CGFloat y = MIN(maxY - self.parallaxHeaderMinimumReferenceSize.height, bounds.origin.y + self.collectionView.contentInset.top);
         CGFloat height = MAX(1, -y + maxY);
 
+
+        // if zIndex < 0 would prevents tap from recognized right under navigation bar
+        currentAttribute.zIndex = 0;
+
+        // When scroll passes the y-axis value of original parallax height
+
+        CGFloat insetTop = self.collectionView.contentInset.top;
+        if (self.collectionView.contentOffset.y + insetTop >= self.parallaxHeaderMinimumReferenceSize.height) {
+            y = self.collectionView.contentOffset.y + insetTop;
+            currentAttribute.zIndex = 2000;
+        }
+
         currentAttribute.frame = (CGRect){
             frame.origin.x,
             y,
@@ -94,8 +110,6 @@ NSString *const CSStickyHeaderParallaxHeader = @"CSStickyHeaderParallexHeader";
             height,
         };
 
-        // if zIndex < 0 would prevents tap from recognized right under navigation bar
-        currentAttribute.zIndex = 0;
 
         [allItems addObject:currentAttribute];
     }
@@ -153,6 +167,10 @@ NSString *const CSStickyHeaderParallaxHeader = @"CSStickyHeaderParallexHeader";
 
     CGFloat sectionMaxY = CGRectGetMaxY(lastCellAttributes.frame) - attributes.frame.size.height;
     CGFloat y = CGRectGetMaxY(currentBounds) - currentBounds.size.height + self.collectionView.contentInset.top;
+
+    if (self.parallaxHeaderAlwaysOnTop) {
+        y += self.parallaxHeaderMinimumReferenceSize.height;
+    }
 
     CGFloat maxY = MIN(MAX(y, attributes.frame.origin.y), sectionMaxY);
 

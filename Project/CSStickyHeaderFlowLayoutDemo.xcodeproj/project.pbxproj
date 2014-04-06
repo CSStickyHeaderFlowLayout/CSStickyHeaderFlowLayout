@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1A0117F418AD036800AC836F /* CSGrowHeaderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A0117F318AD036800AC836F /* CSGrowHeaderViewController.m */; };
 		1A0117F618AD037D00AC836F /* CSGrowHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A0117F518AD037D00AC836F /* CSGrowHeader.xib */; };
+		1A14657818F13832003B643B /* CSStickyParallaxHeaderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A14657718F13832003B643B /* CSStickyParallaxHeaderViewController.m */; };
 		1AC0D88518AA38380072B3F1 /* CSParallaxHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1AC0D88418AA38380072B3F1 /* CSParallaxHeader.xib */; };
 		1AC0D88718AA39B50072B3F1 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AC0D88618AA39B50072B3F1 /* MapKit.framework */; };
 		1AC0D88918AA3AF80072B3F1 /* CSSearchBarHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1AC0D88818AA3AF80072B3F1 /* CSSearchBarHeader.xib */; };
@@ -47,6 +48,8 @@
 		1A0117F218AD036800AC836F /* CSGrowHeaderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSGrowHeaderViewController.h; sourceTree = "<group>"; };
 		1A0117F318AD036800AC836F /* CSGrowHeaderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSGrowHeaderViewController.m; sourceTree = "<group>"; };
 		1A0117F518AD037D00AC836F /* CSGrowHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CSGrowHeader.xib; sourceTree = "<group>"; };
+		1A14657618F13832003B643B /* CSStickyParallaxHeaderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSStickyParallaxHeaderViewController.h; sourceTree = "<group>"; };
+		1A14657718F13832003B643B /* CSStickyParallaxHeaderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSStickyParallaxHeaderViewController.m; sourceTree = "<group>"; };
 		1AC0D88418AA38380072B3F1 /* CSParallaxHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CSParallaxHeader.xib; sourceTree = "<group>"; };
 		1AC0D88618AA39B50072B3F1 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		1AC0D88818AA3AF80072B3F1 /* CSSearchBarHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CSSearchBarHeader.xib; sourceTree = "<group>"; };
@@ -190,6 +193,8 @@
 				1AC0D88B18AA3B300072B3F1 /* CSLockedHeaderViewController.m */,
 				1A0117F218AD036800AC836F /* CSGrowHeaderViewController.h */,
 				1A0117F318AD036800AC836F /* CSGrowHeaderViewController.m */,
+				1A14657618F13832003B643B /* CSStickyParallaxHeaderViewController.h */,
+				1A14657718F13832003B643B /* CSStickyParallaxHeaderViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -350,6 +355,7 @@
 				1AFE0966187D677000CA880A /* AppDelegate.m in Sources */,
 				1AFE0962187D677000CA880A /* main.m in Sources */,
 				1A0117F418AD036800AC836F /* CSGrowHeaderViewController.m in Sources */,
+				1A14657818F13832003B643B /* CSStickyParallaxHeaderViewController.m in Sources */,
 				1AC0D88C18AA3B300072B3F1 /* CSLockedHeaderViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
