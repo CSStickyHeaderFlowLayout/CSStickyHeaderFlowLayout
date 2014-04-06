@@ -32,7 +32,7 @@
                           @{@"Github":@"http://github.com"},
                           ];
 
-        self.headerNib = [UINib nibWithNibName:@"CSGrowHeader" bundle:nil];
+        self.headerNib = [UINib nibWithNibName:@"CSAlwaysOnTopHeader" bundle:nil];
     }
     return self;
 }
@@ -44,8 +44,8 @@
     CSStickyHeaderFlowLayout *layout = (id)self.collectionViewLayout;
 
     if ([layout isKindOfClass:[CSStickyHeaderFlowLayout class]]) {
-        layout.parallaxHeaderReferenceSize = CGSizeMake(320, 200);
-        layout.parallaxHeaderMinimumReferenceSize = CGSizeMake(320, 50);
+        layout.parallaxHeaderReferenceSize = CGSizeMake(320, 400);
+        layout.parallaxHeaderMinimumReferenceSize = CGSizeMake(320, 66);
         layout.parallaxHeaderAlwaysOnTop = YES;
 
         // If we want to disable the sticky header effect
@@ -106,7 +106,9 @@
     return nil;
 }
 
-
+- (UIStatusBarStyle)preferredStatusBarStyle {
+    return UIStatusBarStyleLightContent;
+}
 
 
 
