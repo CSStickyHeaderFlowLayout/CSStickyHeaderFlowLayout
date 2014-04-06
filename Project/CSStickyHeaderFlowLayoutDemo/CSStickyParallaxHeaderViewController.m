@@ -24,12 +24,28 @@
     self = [super initWithCoder:aDecoder];
     if (self) {
         self.sections = @[
-                          @{@"Twitter":@"http://twitter.com"},
-                          @{@"Facebook":@"http://facebook.com"},
-                          @{@"Tumblr":@"http://tumblr.com"},
-                          @{@"Pinterest":@"http://pinterest.com"},
-                          @{@"Instagram":@"http://instagram.com"},
-                          @{@"Github":@"http://github.com"},
+                          @[
+                              @"Song 1",
+                              @"Song 2",
+                              @"Song 3",
+                              @"Song 4",
+                              @"Song 5",
+                              @"Song 6",
+                              @"Song 7",
+                              @"Song 8",
+                              @"Song 9",
+                              @"Song 10",
+                              @"Song 11",
+                              @"Song 12",
+                              @"Song 13",
+                              @"Song 14",
+                              @"Song 15",
+                              @"Song 16",
+                              @"Song 17",
+                              @"Song 18",
+                              @"Song 19",
+                              @"Song 20",
+                            ],
                           ];
 
         self.headerNib = [UINib nibWithNibName:@"CSAlwaysOnTopHeader" bundle:nil];
@@ -44,7 +60,7 @@
     CSStickyHeaderFlowLayout *layout = (id)self.collectionViewLayout;
 
     if ([layout isKindOfClass:[CSStickyHeaderFlowLayout class]]) {
-        layout.parallaxHeaderReferenceSize = CGSizeMake(320, 400);
+        layout.parallaxHeaderReferenceSize = CGSizeMake(320, 390);
         layout.parallaxHeaderMinimumReferenceSize = CGSizeMake(320, 66);
         layout.parallaxHeaderAlwaysOnTop = YES;
 
@@ -69,17 +85,17 @@
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return 1;
+    return [self.sections[section] count];
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
 
-    NSDictionary *obj = self.sections[indexPath.section];
+    NSString *obj = self.sections[indexPath.section][indexPath.row];
 
     CSCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cell"
                                                              forIndexPath:indexPath];
 
-    cell.textLabel.text = [[obj allValues] firstObject];
+    cell.textLabel.text = obj;
 
     return cell;
 }
@@ -87,15 +103,12 @@
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
     if ([kind isEqualToString:UICollectionElementKindSectionHeader]) {
 
-        NSDictionary *obj = self.sections[indexPath.section];
-
         CSCell *cell = [collectionView dequeueReusableSupplementaryViewOfKind:kind
                                                           withReuseIdentifier:@"sectionHeader"
                                                                  forIndexPath:indexPath];
 
-        cell.textLabel.text = [[obj allKeys] firstObject];
-
         return cell;
+
     } else if ([kind isEqualToString:CSStickyHeaderParallaxHeader]) {
         UICollectionReusableView *cell = [collectionView dequeueReusableSupplementaryViewOfKind:kind
                                                                             withReuseIdentifier:@"header"
