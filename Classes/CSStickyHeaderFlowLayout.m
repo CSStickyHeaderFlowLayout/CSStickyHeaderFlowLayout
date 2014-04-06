@@ -95,10 +95,10 @@ NSString *const CSStickyHeaderParallaxHeader = @"CSStickyHeaderParallexHeader";
         // if zIndex < 0 would prevents tap from recognized right under navigation bar
         currentAttribute.zIndex = 0;
 
-        // When scroll passes the y-axis value of original parallax height
-
-        CGFloat insetTop = self.collectionView.contentInset.top;
-        if (self.collectionView.contentOffset.y + insetTop >= self.parallaxHeaderMinimumReferenceSize.height) {
+        // When parallaxHeaderAlwaysOnTop is enabled, we will check when we should update the y position
+        if (self.parallaxHeaderAlwaysOnTop && height <= self.parallaxHeaderMinimumReferenceSize.height) {
+            CGFloat insetTop = self.collectionView.contentInset.top;
+            // Always stick to top but under the nav bar
             y = self.collectionView.contentOffset.y + insetTop;
             currentAttribute.zIndex = 2000;
         }
