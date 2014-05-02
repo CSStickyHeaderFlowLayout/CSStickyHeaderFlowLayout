@@ -2,6 +2,8 @@
 
 ![](http://cl.ly/image/1D2i0746180b/1*pev9ZXJAZ2MYoF8-R_nbRA.gif)
 
+![Spotify](http://f.cl.ly/items/2s1b182V3P171Q2m3y42/spotify.gif)
+
 Parallax, Sticky Headers, Growing image heading, done right in one
 UICollectionViewLayout.
 
@@ -119,6 +121,3 @@ James Tang, jamz@jamztang.com
 CSStickyHeaderFlowLayout is available under the MIT license. See the LICENSE file for more info.
 
 [CSStickyHeaderFlowLayout.h]:https://github.com/jamztang/CSStickyHeaderFlowLayout/blob/master/Classes/CSStickyHeaderFlowLayout.h
-
-[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/jamztang/csstickyheaderflowlayout/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
-

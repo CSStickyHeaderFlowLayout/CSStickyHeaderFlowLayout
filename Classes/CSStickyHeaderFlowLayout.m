@@ -7,6 +7,7 @@
  */
 
 #import "CSStickyHeaderFlowLayout.h"
+#import "CSStickyHeaderFlowLayoutAttributes.h"
 
 NSString *const CSStickyHeaderParallaxHeader = @"CSStickyHeaderParallexHeader";
 
@@ -65,6 +66,10 @@ NSString *const CSStickyHeaderParallaxHeader = @"CSStickyHeaderParallexHeader";
         visibleParallexHeader = YES;
     }
 
+    if (self.parallaxHeaderAlwaysOnTop == YES) {
+        visibleParallexHeader = YES;
+    }
+
 
     // This method may not be explicitly defined, default to 1
     // https://developer.apple.com/library/ios/documentation/uikit/reference/UICollectionViewDataSource_protocol/Reference/Reference.html#jumpTo_6
@@ -75,7 +80,7 @@ NSString *const CSStickyHeaderParallaxHeader = @"CSStickyHeaderParallexHeader";
 
     // Create the attributes for the Parallex header
     if (visibleParallexHeader && ! CGSizeEqualToSize(CGSizeZero, self.parallaxHeaderReferenceSize) && numberOfSections > 0) {
-        UICollectionViewLayoutAttributes *currentAttribute = [UICollectionViewLayoutAttributes layoutAttributesForSupplementaryViewOfKind:CSStickyHeaderParallaxHeader withIndexPath:[NSIndexPath indexPathForItem:0 inSection:0]];
+        CSStickyHeaderFlowLayoutAttributes *currentAttribute = [CSStickyHeaderFlowLayoutAttributes layoutAttributesForSupplementaryViewOfKind:CSStickyHeaderParallaxHeader withIndexPath:[NSIndexPath indexPathForItem:0 inSection:0]];
         CGRect frame = currentAttribute.frame;
         frame.size.width = self.parallaxHeaderReferenceSize.width;
         frame.size.height = self.parallaxHeaderReferenceSize.height;
@@ -87,6 +92,23 @@ NSString *const CSStickyHeaderParallaxHeader = @"CSStickyHeaderParallexHeader";
         CGFloat y = MIN(maxY - self.parallaxHeaderMinimumReferenceSize.height, bounds.origin.y + self.collectionView.contentInset.top);
         CGFloat height = MAX(1, -y + maxY);
 
+
+        CGFloat maxHeight = self.parallaxHeaderReferenceSize.height;
+        CGFloat minHeight = self.parallaxHeaderMinimumReferenceSize.height;
+        CGFloat progressiveness = (height - minHeight)/(maxHeight - minHeight);
+        currentAttribute.progressiveness = progressiveness;
+
+        // if zIndex < 0 would prevents tap from recognized right under navigation bar
+        currentAttribute.zIndex = 0;
+
+        // When parallaxHeaderAlwaysOnTop is enabled, we will check when we should update the y position
+        if (self.parallaxHeaderAlwaysOnTop && height <= self.parallaxHeaderMinimumReferenceSize.height) {
+            CGFloat insetTop = self.collectionView.contentInset.top;
+            // Always stick to top but under the nav bar
+            y = self.collectionView.contentOffset.y + insetTop;
+            currentAttribute.zIndex = 2000;
+        }
+
         currentAttribute.frame = (CGRect){
             frame.origin.x,
             y,
@@ -94,8 +116,6 @@ NSString *const CSStickyHeaderParallaxHeader = @"CSStickyHeaderParallexHeader";
             height,
         };
 
-        // if zIndex < 0 would prevents tap from recognized right under navigation bar
-        currentAttribute.zIndex = 0;
 
         [allItems addObject:currentAttribute];
     }
@@ -141,6 +161,12 @@ NSString *const CSStickyHeaderParallaxHeader = @"CSStickyHeaderParallexHeader";
     return YES;
 }
 
+#pragma mark Overrides
+
++ (Class)layoutAttributesClass {
+    return [CSStickyHeaderFlowLayoutAttributes class];
+}
+
 #pragma mark Helper
 
 - (void)updateHeaderAttributes:(UICollectionViewLayoutAttributes *)attributes lastCellAttributes:(UICollectionViewLayoutAttributes *)lastCellAttributes
@@ -153,6 +179,10 @@ NSString *const CSStickyHeaderParallaxHeader = @"CSStickyHeaderParallexHeader";
 
     CGFloat sectionMaxY = CGRectGetMaxY(lastCellAttributes.frame) - attributes.frame.size.height;
     CGFloat y = CGRectGetMaxY(currentBounds) - currentBounds.size.height + self.collectionView.contentInset.top;
+
+    if (self.parallaxHeaderAlwaysOnTop) {
+        y += self.parallaxHeaderMinimumReferenceSize.height;
+    }
 
     CGFloat maxY = MIN(MAX(y, attributes.frame.origin.y), sectionMaxY);
 
