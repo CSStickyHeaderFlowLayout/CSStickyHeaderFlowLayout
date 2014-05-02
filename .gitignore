@@ -17,4 +17,11 @@ DerivedData
 *.hmap
 
 #CocoaPods
-Pods
+#
+# According to Fabio's answer, seems checking in the Pods
+# folder is a recommended setup for development pods. This also
+# allow developer to try it out without Cocoapods installed.
+#
+# http://stackoverflow.com/a/22323702/1013897
+#
+# Pods
