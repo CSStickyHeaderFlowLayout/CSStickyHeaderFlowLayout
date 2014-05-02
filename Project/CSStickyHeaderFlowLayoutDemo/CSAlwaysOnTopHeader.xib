@@ -41,33 +41,33 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="A9v-QW-9fF">
-                                <rect key="frame" x="0.0" y="84" width="320" height="342"/>
+                                <rect key="frame" x="0.0" y="60" width="320" height="366"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Success Baby" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5dP-Im-gAY">
-                                        <rect key="frame" x="20" y="180" width="280" height="37"/>
+                                        <rect key="frame" x="20" y="204" width="280" height="37"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="27"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="12345 FOLLOWERS BY SOMEBODY" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Zp-qf-qfV">
-                                        <rect key="frame" x="49" y="252" width="223" height="17"/>
+                                        <rect key="frame" x="49" y="276" width="223" height="17"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" fixedFrame="YES" image="baby-clear" translatesAutoresizingMaskIntoConstraints="NO" id="hfE-49-EbU">
-                                        <rect key="frame" x="90" y="32" width="140" height="140"/>
+                                        <rect key="frame" x="90" y="56" width="140" height="140"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                     </imageView>
                                     <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="DTs-fp-mqw">
-                                        <rect key="frame" x="141" y="263" width="39" height="37"/>
+                                        <rect key="frame" x="141" y="287" width="39" height="37"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </pageControl>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ABz-uU-Hc5">
-                                        <rect key="frame" x="123" y="220" width="74" height="24"/>
+                                        <rect key="frame" x="123" y="244" width="74" height="24"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <inset key="titleEdgeInsets" minX="0.0" minY="2" maxX="0.0" maxY="0.0"/>
@@ -78,10 +78,16 @@
                                             <color key="titleColor" white="1" alpha="0.5" colorSpace="calibratedWhite"/>
                                         </state>
                                     </button>
+                                    <searchBar contentMode="redraw" fixedFrame="YES" searchBarStyle="minimal" placeholder="Search" translatesAutoresizingMaskIntoConstraints="NO" id="SPW-Vr-XZC">
+                                        <rect key="frame" x="20" y="0.0" width="280" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                        <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </searchBar>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="342" id="jyv-xB-TH3"/>
+                                    <constraint firstAttribute="height" constant="366" id="jyv-xB-TH3"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -134,6 +140,7 @@
             </constraints>
             <size key="customSize" width="320" height="426"/>
             <connections>
+                <outlet property="searchBar" destination="SPW-Vr-XZC" id="hw9-eX-8Qn"/>
                 <outlet property="titleLabel" destination="4Hg-Bk-Mdr" id="eYS-0R-im4"/>
             </connections>
         </collectionViewCell>

@@ -11,5 +11,6 @@
 @interface CSAlwaysOnTopHeader : CSCell
 
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+@property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 
 @end

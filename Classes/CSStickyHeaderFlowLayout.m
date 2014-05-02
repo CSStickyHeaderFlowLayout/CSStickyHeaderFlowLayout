@@ -7,6 +7,7 @@
  */
 
 #import "CSStickyHeaderFlowLayout.h"
+#import "CSStickyHeaderFlowLayoutAttributes.h"
 
 NSString *const CSStickyHeaderParallaxHeader = @"CSStickyHeaderParallexHeader";
 
@@ -79,7 +80,7 @@ NSString *const CSStickyHeaderParallaxHeader = @"CSStickyHeaderParallexHeader";
 
     // Create the attributes for the Parallex header
     if (visibleParallexHeader && ! CGSizeEqualToSize(CGSizeZero, self.parallaxHeaderReferenceSize) && numberOfSections > 0) {
-        UICollectionViewLayoutAttributes *currentAttribute = [UICollectionViewLayoutAttributes layoutAttributesForSupplementaryViewOfKind:CSStickyHeaderParallaxHeader withIndexPath:[NSIndexPath indexPathForItem:0 inSection:0]];
+        CSStickyHeaderFlowLayoutAttributes *currentAttribute = [CSStickyHeaderFlowLayoutAttributes layoutAttributesForSupplementaryViewOfKind:CSStickyHeaderParallaxHeader withIndexPath:[NSIndexPath indexPathForItem:0 inSection:0]];
         CGRect frame = currentAttribute.frame;
         frame.size.width = self.parallaxHeaderReferenceSize.width;
         frame.size.height = self.parallaxHeaderReferenceSize.height;
@@ -91,6 +92,11 @@ NSString *const CSStickyHeaderParallaxHeader = @"CSStickyHeaderParallexHeader";
         CGFloat y = MIN(maxY - self.parallaxHeaderMinimumReferenceSize.height, bounds.origin.y + self.collectionView.contentInset.top);
         CGFloat height = MAX(1, -y + maxY);
 
+
+        CGFloat maxHeight = self.parallaxHeaderReferenceSize.height;
+        CGFloat minHeight = self.parallaxHeaderMinimumReferenceSize.height;
+        CGFloat progressiveness = (height - minHeight)/(maxHeight - minHeight);
+        currentAttribute.progressiveness = progressiveness;
 
         // if zIndex < 0 would prevents tap from recognized right under navigation bar
         currentAttribute.zIndex = 0;
@@ -153,6 +159,12 @@ NSString *const CSStickyHeaderParallaxHeader = @"CSStickyHeaderParallexHeader";
 - (BOOL)shouldInvalidateLayoutForBoundsChange:(CGRect)newBounds
 {
     return YES;
+}
+
+#pragma mark Overrides
+
++ (Class)layoutAttributesClass {
+    return [CSStickyHeaderFlowLayoutAttributes class];
 }
 
 #pragma mark Helper
