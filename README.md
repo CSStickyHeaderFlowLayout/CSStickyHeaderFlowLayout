@@ -1,8 +1,10 @@
 # CSStickyHeaderFlowLayout
 
-![](http://cl.ly/image/1D2i0746180b/1*pev9ZXJAZ2MYoF8-R_nbRA.gif)
+<!--![](http://cl.ly/image/1D2i0746180b/1*pev9ZXJAZ2MYoF8-R_nbRA.gif)-->
 
-![Spotify](http://f.cl.ly/items/2s1b182V3P171Q2m3y42/spotify.gif)
+<img src="http://f.cl.ly/items/05130s2r0X1j1x1N0Q3n/spotify-48-16-half.gif" width="276"/>
+<img src="http://f.cl.ly/items/3q2u35013o0y0G2o3X1v/carshare-32-16-half.gif" width="276"/>
+<img src="http://f.cl.ly/items/3l0F1F3Y0s1M1F3a2r0d/ripple.gif" width="276"/>
 
 Parallax, Sticky Headers, Growing image heading, done right in one
 UICollectionViewLayout.
@@ -105,16 +107,22 @@ Run the project examples and it'll shows you exactly how you achieve different e
 
 ![](http://f.cl.ly/items/313D2n3R0H0e0x090B3X/different-header.jpeg)
 
+## Who's using it?
+
+- [Carshare](http://carshare.hk)
+- [Ripple](http://ripplechat.io)
+- [Memento](http://memento.fancypixel.it)
+
+Create a pull request and add your project here :)
 
 ## Requirements
 
 - Xcode 5
 - iOS 7 (I haven't really test on iOS 6 but it should work if you're using iOS 6 compatible Storyboard)
 
-
 ## Author
 
-James Tang, jamz@jamztang.com
+James Tang, j@jamztang.com
 
 ## License
 
