@@ -109,9 +109,11 @@ Run the project examples and it'll shows you exactly how you achieve different e
 
 ## Who's using it?
 
-- [Carshare](http://carshare.hk)
-- [Ripple](http://ripplechat.io)
-- [Memento](http://memento.fancypixel.it)
+- [Carshare][]
+- [Ripple][]
+- [Memento][]
+- [Design Shots][]
+
 
 Create a pull request and add your project here :)
 
@@ -129,3 +131,8 @@ James Tang, j@jamztang.com
 CSStickyHeaderFlowLayout is available under the MIT license. See the LICENSE file for more info.
 
 [CSStickyHeaderFlowLayout.h]:https://github.com/jamztang/CSStickyHeaderFlowLayout/blob/master/Classes/CSStickyHeaderFlowLayout.h
+
+[Carshare]:http://carshare.hk
+[Ripple]:http://ripplechat.io
+[Memento]:http://memento.fancypixel.it
+[Design Shots]:https://itunes.apple.com/app/design-shots-dribbble-client/id792517951?mt=8
