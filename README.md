@@ -63,7 +63,7 @@ Register that nib file to your collection view controller in code:
 
     // Locate the nib and register it to your collection view
     UINib *headerNib = [UINib nibWithNibName:@"CSGrowHeader" bundle:nil];
-    [self.collectionView registerNib:self.headerNib
+    [self.collectionView registerNib:headerNib
           forSupplementaryViewOfKind:CSStickyHeaderParallaxHeader
                  withReuseIdentifier:@"header"];
 
