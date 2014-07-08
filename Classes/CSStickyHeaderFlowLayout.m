@@ -26,7 +26,7 @@ NSString *const CSStickyHeaderParallaxHeader = @"CSStickyHeaderParallexHeader";
     NSMutableArray *allItems = [[super layoutAttributesForElementsInRect:adjustedRect] mutableCopy];
 
     NSMutableDictionary *headers = [[NSMutableDictionary alloc] init];
-    NSMutableDictionary *lastCells = [[NSMutableDictionary alloc] init];
+    NSMutableDictionary *lastElemetns = [[NSMutableDictionary alloc] init];
     __block BOOL visibleParallexHeader;
 
     [allItems enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
@@ -37,18 +37,20 @@ NSString *const CSStickyHeaderParallaxHeader = @"CSStickyHeaderParallexHeader";
         attributes.frame = frame;
 
         NSIndexPath *indexPath = [(UICollectionViewLayoutAttributes *)obj indexPath];
-        if ([[obj representedElementKind] isEqualToString:UICollectionElementKindSectionHeader]) {
+        NSString *kind = [obj representedElementKind];
+        if ([kind isEqualToString:UICollectionElementKindSectionHeader]) {
             [headers setObject:obj forKey:@(indexPath.section)];
-        } else if ([[obj representedElementKind] isEqualToString:UICollectionElementKindSectionFooter]) {
-            // Not implemeneted
+        } else if ([kind isEqualToString:UICollectionElementKindSectionFooter]) {
+            [lastElemetns setObject:obj forKey:@(indexPath.section)];
         } else {
-            NSIndexPath *indexPath = [(UICollectionViewLayoutAttributes *)obj indexPath];
+            UICollectionViewLayoutAttributes *currentAttribute = [lastElemetns objectForKey:@(indexPath.section)];
+            NSString *currentKind = [currentAttribute representedElementKind];
 
-            UICollectionViewLayoutAttributes *currentAttribute = [lastCells objectForKey:@(indexPath.section)];
-
-            // Get the bottom most cell of that section
-            if ( ! currentAttribute || indexPath.row > currentAttribute.indexPath.row) {
-                [lastCells setObject:obj forKey:@(indexPath.section)];
+            BOOL hasFooter = [currentKind isEqualToString:UICollectionElementKindSectionFooter];
+            BOOL isBottom = !currentAttribute || indexPath.row > currentAttribute.indexPath.row;
+            // Get the bottom most cell of that section unless it has a footer
+            if ( !hasFooter && isBottom) {
+                [lastElemetns setObject:obj forKey:@(indexPath.section)];
             }
 
             if ([indexPath item] == 0 && [indexPath section] == 0) {
@@ -121,7 +123,7 @@ NSString *const CSStickyHeaderParallaxHeader = @"CSStickyHeaderParallexHeader";
     }
 
     if ( ! self.disableStickyHeaders) {
-        [lastCells enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
+        [lastElemetns enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
             NSIndexPath *indexPath = [obj indexPath];
             NSNumber *indexPathKey = @(indexPath.section);
 
@@ -135,7 +137,7 @@ NSString *const CSStickyHeaderParallaxHeader = @"CSStickyHeaderParallexHeader";
                     [allItems addObject:header];
                 }
             }
-            [self updateHeaderAttributes:header lastCellAttributes:lastCells[indexPathKey]];
+            [self updateHeaderAttributes:header lastCellAttributes:obj];
         }];
     }
 
