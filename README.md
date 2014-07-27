@@ -109,13 +109,7 @@ Run the project examples and it'll shows you exactly how you achieve different e
 
 ## Who's using it?
 
-- [Carshare][]
-- [Ripple][]
-- [Memento][]
-- [Design Shots][]
-
-
-Create a pull request and add your project here :)
+We've a [wiki page][made] for that, feel free to add your projects there!
 
 ## Requirements
 
@@ -134,5 +128,4 @@ CSStickyHeaderFlowLayout is available under the MIT license. See the LICENSE fil
 
 [Carshare]:http://carshare.hk
 [Ripple]:http://ripplechat.io
-[Memento]:http://memento.fancypixel.it
-[Design Shots]:https://itunes.apple.com/app/design-shots-dribbble-client/id792517951?mt=8
+[made]:https://github.com/jamztang/CSStickyHeaderFlowLayout/wiki
