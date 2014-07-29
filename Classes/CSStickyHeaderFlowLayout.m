@@ -17,6 +17,15 @@ NSString *const CSStickyHeaderParallaxHeader = @"CSStickyHeaderParallexHeader";
     [super prepareLayout];
 }
 
+- (UICollectionViewLayoutAttributes *)layoutAttributesForSupplementaryViewOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
+{
+    UICollectionViewLayoutAttributes *attributes = [super layoutAttributesForSupplementaryViewOfKind:kind atIndexPath:indexPath];
+    if (!attributes && [kind isEqualToString:CSStickyHeaderParallaxHeader]) {
+        attributes = [CSStickyHeaderFlowLayoutAttributes layoutAttributesForSupplementaryViewOfKind:kind withIndexPath:indexPath];
+    }
+    return attributes;
+}
+
 - (NSArray *)layoutAttributesForElementsInRect:(CGRect)rect
 {
     // The rect should compensate the header size
