@@ -5,36 +5,36 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>48E17D25-39A0-4DEC-83D6-22CE1C0C0217</string>
+	<string>3F83CD62-5795-4D2C-B544-27696BCFCC55</string>
 	<key>IDESourceControlProjectName</key>
 	<string>CSStickyHeaderFlowLayoutDemo</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>9FCEA6B4-6BFD-40A1-97AA-77294F4A62B7</key>
-		<string>https://github.com/jamztang/CSStickyHeaderFlowLayout.git</string>
+		<key>5187E190-6F2C-4DE6-BFD9-C50E3089CF95</key>
+		<string>ssh://github.com/andreamazz/CSStickyHeaderFlowLayout.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>Project/CSStickyHeaderFlowLayoutDemo.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>9FCEA6B4-6BFD-40A1-97AA-77294F4A62B7</key>
+		<key>5187E190-6F2C-4DE6-BFD9-C50E3089CF95</key>
 		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>https://github.com/jamztang/CSStickyHeaderFlowLayout.git</string>
+	<string>ssh://github.com/andreamazz/CSStickyHeaderFlowLayout.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>110</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>9FCEA6B4-6BFD-40A1-97AA-77294F4A62B7</string>
+	<string>5187E190-6F2C-4DE6-BFD9-C50E3089CF95</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>9FCEA6B4-6BFD-40A1-97AA-77294F4A62B7</string>
+			<string>5187E190-6F2C-4DE6-BFD9-C50E3089CF95</string>
 			<key>IDESourceControlWCCName</key>
-			<string>CSStickyHeaderFlowLayout</string>
+			<string>sticky</string>
 		</dict>
 	</array>
 </dict>

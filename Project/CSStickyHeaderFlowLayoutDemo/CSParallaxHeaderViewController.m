@@ -24,11 +24,7 @@
     if (self) {
         self.sections = @[
                           @{@"Twitter":@"http://twitter.com"},
-                          @{@"Facebook":@"http://facebook.com"},
-                          @{@"Tumblr":@"http://tumblr.com"},
-                          @{@"Pinterest":@"http://pinterest.com"},
-                          @{@"Instagram":@"http://instagram.com"},
-                          @{@"Github":@"http://github.com"},
+                          @{@"Facebook":@"http://facebook.com"}
                           ];
         
         self.headerNib = [UINib nibWithNibName:@"CSParallaxHeader" bundle:nil];
@@ -59,7 +55,11 @@
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return 1;
+    if (section == 0) {
+        return 1;
+    }
+    
+    return 4;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
