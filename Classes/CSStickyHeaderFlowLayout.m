@@ -17,6 +17,15 @@ NSString *const CSStickyHeaderParallaxHeader = @"CSStickyHeaderParallexHeader";
     [super prepareLayout];
 }
 
+- (UICollectionViewLayoutAttributes *)layoutAttributesForSupplementaryViewOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
+{
+    UICollectionViewLayoutAttributes *attributes = [super layoutAttributesForSupplementaryViewOfKind:kind atIndexPath:indexPath];
+    if (!attributes && [kind isEqualToString:CSStickyHeaderParallaxHeader]) {
+        attributes = [CSStickyHeaderFlowLayoutAttributes layoutAttributesForSupplementaryViewOfKind:kind withIndexPath:indexPath];
+    }
+    return attributes;
+}
+
 - (NSArray *)layoutAttributesForElementsInRect:(CGRect)rect
 {
     // The rect should compensate the header size
@@ -59,7 +68,7 @@ NSString *const CSStickyHeaderParallaxHeader = @"CSStickyHeaderParallexHeader";
         }
 
         // For iOS 7.0, the cell zIndex should be above sticky section header
-        attributes.zIndex = 1;
+        attributes.transform3D = CATransform3DMakeTranslation(0,0,1);
     }];
 
     // when the visible rect is at top of the screen, make sure we see
@@ -101,14 +110,14 @@ NSString *const CSStickyHeaderParallaxHeader = @"CSStickyHeaderParallexHeader";
         currentAttribute.progressiveness = progressiveness;
 
         // if zIndex < 0 would prevents tap from recognized right under navigation bar
-        currentAttribute.zIndex = 0;
+        currentAttribute.transform3D = CATransform3DMakeTranslation(0,0,0);
 
         // When parallaxHeaderAlwaysOnTop is enabled, we will check when we should update the y position
         if (self.parallaxHeaderAlwaysOnTop && height <= self.parallaxHeaderMinimumReferenceSize.height) {
             CGFloat insetTop = self.collectionView.contentInset.top;
             // Always stick to top but under the nav bar
             y = self.collectionView.contentOffset.y + insetTop;
-            currentAttribute.zIndex = 2000;
+            currentAttribute.transform3D = CATransform3DMakeTranslation(0,0,2000);
         }
 
         currentAttribute.frame = (CGRect){
@@ -174,7 +183,7 @@ NSString *const CSStickyHeaderParallaxHeader = @"CSStickyHeaderParallexHeader";
 - (void)updateHeaderAttributes:(UICollectionViewLayoutAttributes *)attributes lastCellAttributes:(UICollectionViewLayoutAttributes *)lastCellAttributes
 {
     CGRect currentBounds = self.collectionView.bounds;
-    attributes.zIndex = 1024;
+    attributes.transform3D = CATransform3DMakeTranslation(0,0,1024);
     attributes.hidden = NO;
 
     CGPoint origin = attributes.frame.origin;

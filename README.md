@@ -107,15 +107,19 @@ Run the project examples and it'll shows you exactly how you achieve different e
 
 ![](http://f.cl.ly/items/313D2n3R0H0e0x090B3X/different-header.jpeg)
 
+## Updates
+
+- 0.2.1: Fix crash on reloadData in collection view when header is offscreen, thanks [@jessesquires](https://github.com/jessesquires)
+
+- 0.2: Added custom UICollectionViewLayoutAttributes to support more advanced example (Spotify App)
+
+- 0.1.1: Minor fixes for default number of sections, thanks [@miwillhite](https://github.com/miwillhite)
+
+- 0.1: Initial Release
+
 ## Who's using it?
 
-- [Carshare][]
-- [Ripple][]
-- [Memento][]
-- [Design Shots][]
-
-
-Create a pull request and add your project here :)
+We've a [wiki page][made] for that, feel free to add your projects there!
 
 ## Requirements
 
@@ -134,5 +138,4 @@ CSStickyHeaderFlowLayout is available under the MIT license. See the LICENSE fil
 
 [Carshare]:http://carshare.hk
 [Ripple]:http://ripplechat.io
-[Memento]:http://memento.fancypixel.it
-[Design Shots]:https://itunes.apple.com/app/design-shots-dribbble-client/id792517951?mt=8
+[made]:https://github.com/jamztang/CSStickyHeaderFlowLayout/wiki
