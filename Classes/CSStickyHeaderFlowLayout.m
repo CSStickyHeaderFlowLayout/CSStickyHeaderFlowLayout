@@ -28,6 +28,14 @@ NSString *const CSStickyHeaderParallaxHeader = @"CSStickyHeaderParallexHeader";
         frame.origin.y += self.parallaxHeaderReferenceSize.height;
         attributes.frame = frame;
         
+        if ([kind isEqualToString:UICollectionElementKindSectionHeader]) {
+            UICollectionViewLayoutAttributes *attributesFooter =
+            [self layoutAttributesForSupplementaryViewOfKind:UICollectionElementKindSectionFooter atIndexPath:indexPath];
+            
+            // TODO: Handle no footer
+            assert(attributesFooter);
+            [self updateHeaderAttributes:attributes lastCellAttributes:attributesFooter];
+        }
     }
     return attributes;
 }
