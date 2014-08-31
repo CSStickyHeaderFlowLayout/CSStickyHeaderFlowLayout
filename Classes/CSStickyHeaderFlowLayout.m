@@ -23,6 +23,12 @@ NSString *const CSStickyHeaderParallaxHeader = @"CSStickyHeaderParallexHeader";
     if (!attributes && [kind isEqualToString:CSStickyHeaderParallaxHeader]) {
         attributes = [CSStickyHeaderFlowLayoutAttributes layoutAttributesForSupplementaryViewOfKind:kind withIndexPath:indexPath];
     }
+    else {
+        CGRect frame = attributes.frame;
+        frame.origin.y += self.parallaxHeaderReferenceSize.height;
+        attributes.frame = frame;
+        
+    }
     return attributes;
 }
 
