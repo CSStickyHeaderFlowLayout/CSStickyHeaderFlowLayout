@@ -109,6 +109,9 @@ Run the project examples and it'll shows you exactly how you achieve different e
 
 ## Updates
 
+- 0.2.2: Fix 1px header and zIndex problem, thanks
+  [@m1entus](https://github.com/m1entus) and [@Xyand](https://github.com/Xyand)
+
 - 0.2.1: Fix crash on reloadData in collection view when header is offscreen, thanks [@jessesquires](https://github.com/jessesquires)
 
 - 0.2: Added custom UICollectionViewLayoutAttributes to support more advanced example (Spotify App)
