@@ -99,7 +99,7 @@ NSString *const CSStickyHeaderParallaxHeader = @"CSStickyHeaderParallexHeader";
 
         // make sure the frame won't be negative values
         CGFloat y = MIN(maxY - self.parallaxHeaderMinimumReferenceSize.height, bounds.origin.y + self.collectionView.contentInset.top);
-        CGFloat height = MAX(1, -y + maxY);
+        CGFloat height = MAX(0, -y + maxY);
 
 
         CGFloat maxHeight = self.parallaxHeaderReferenceSize.height;
