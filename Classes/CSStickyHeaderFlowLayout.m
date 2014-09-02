@@ -27,14 +27,20 @@ NSString *const CSStickyHeaderParallaxHeader = @"CSStickyHeaderParallexHeader";
         CGRect frame = attributes.frame;
         frame.origin.y += self.parallaxHeaderReferenceSize.height;
         attributes.frame = frame;
-        
+
         if ([kind isEqualToString:UICollectionElementKindSectionHeader]) {
-            UICollectionViewLayoutAttributes *attributesFooter =
+            UICollectionViewLayoutAttributes *attributeLast =
             [self layoutAttributesForSupplementaryViewOfKind:UICollectionElementKindSectionFooter atIndexPath:indexPath];
-            
+
             // TODO: Handle no footer
-            assert(attributesFooter);
-            [self updateHeaderAttributes:attributes lastCellAttributes:attributesFooter];
+            if (!attributeLast) {
+                NSInteger nItems = [self.collectionView numberOfItemsInSection:indexPath.section];
+                attributeLast = [self layoutAttributesForItemAtIndexPath:[NSIndexPath indexPathForItem:nItems-1 inSection:indexPath.section]];
+            }
+
+            if (attributeLast) {
+                [self updateHeaderAttributes:attributes lastCellAttributes:attributeLast];
+            }
         }
     }
     return attributes;
