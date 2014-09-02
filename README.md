@@ -9,7 +9,6 @@
 Parallax, Sticky Headers, Growing image heading, done right in one
 UICollectionViewLayout.
 
-
 ## Installation
 
 [![Version](http://cocoapod-badges.herokuapp.com/v/CSStickyHeaderFlowLayout/badge.png)](http://cocoadocs.org/docsets/CSStickyHeaderFlowLayout)
@@ -107,7 +106,23 @@ Run the project examples and it'll shows you exactly how you achieve different e
 
 ![](http://f.cl.ly/items/313D2n3R0H0e0x090B3X/different-header.jpeg)
 
+
+
+## Donation
+
+If you think this worths something, tip me a cup of coffee! (p.s. was trying out ChangeTip, or if you know any better donation button, let [me](http://twitter.com/@jamztang) know) :)
+
+<a target="_blank" href="http://jamztang.tip.me">
+  <img
+    alt="Tip Me With ChangeTip"
+    src="https://cdn.changetip.com/img/logos/tipme_round.png"/>
+</a>
+
+
 ## Updates
+
+- 0.2.2: Fix 1px header and zIndex problem, thanks
+  [@m1entus](https://github.com/m1entus) and [@Xyand](https://github.com/Xyand)
 
 - 0.2.1: Fix crash on reloadData in collection view when header is offscreen, thanks [@jessesquires](https://github.com/jessesquires)
 
