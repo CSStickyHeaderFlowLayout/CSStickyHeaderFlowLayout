@@ -9,6 +9,7 @@
 #import "CSParallaxHeaderViewController.h"
 #import "CSCell.h"
 #import "CSStickyHeaderFlowLayout.h"
+#import "NSMutableArray+NSIndexPath.h"
 
 @interface CSParallaxHeaderViewController ()
 
@@ -17,14 +18,20 @@
 
 @end
 
+
 @implementation CSParallaxHeaderViewController
 
 - (id)initWithCoder:(NSCoder *)aDecoder {
     self = [super initWithCoder:aDecoder];
     if (self) {
         self.sections = @[
-                          @{@"Twitter":@"http://twitter.com"},
-                          @{@"Facebook":@"http://facebook.com"}
+                          @[@{@"Twitter":@"http://twitter.com"}].mutableCopy,
+                          @[
+                              @{@"Facebook":@"http://facebook.com"},
+                              @{@"Facebook":@"http://facebook.com"},
+                              @{@"Facebook":@"http://facebook.com"},
+                              @{@"Facebook":@"http://facebook.com"},
+                              ].mutableCopy,
                           ];
         
         self.headerNib = [UINib nibWithNibName:@"CSParallaxHeader" bundle:nil];
@@ -48,6 +55,19 @@
     
 }
 
+- (IBAction)swapButtonDidPress:(id)sender {
+
+    [self.collectionView performBatchUpdates:^{
+
+        NSIndexPath *indexPath = [NSIndexPath indexPathForItem:0 inSection:1];
+        NSIndexPath *toIndexPath = [NSIndexPath indexPathForItem:0 inSection:0];
+        [[self mutableArrayValueForKey:@"sections"] moveItemAtIndexPath:indexPath toIndexPath:toIndexPath];
+        [self.collectionView moveItemAtIndexPath:indexPath toIndexPath:toIndexPath];
+    } completion:^(BOOL finished) {
+
+    }];
+}
+
 #pragma mark UICollectionViewDataSource
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
@@ -55,16 +75,12 @@
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    if (section == 0) {
-        return 1;
-    }
-    
-    return 4;
+    return [self.sections[section] count];
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
 
-    NSDictionary *obj = self.sections[indexPath.section];
+    NSDictionary *obj = self.sections[indexPath.section][indexPath.item];
 
     CSCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cell"
                                                                            forIndexPath:indexPath];
@@ -76,13 +92,13 @@
 
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
     if ([kind isEqualToString:UICollectionElementKindSectionHeader]) {
-        
-        NSDictionary *obj = self.sections[indexPath.section];
+
+        NSDictionary *obj = self.sections[indexPath.section][indexPath.item];
 
         CSCell *cell = [collectionView dequeueReusableSupplementaryViewOfKind:kind
                                                           withReuseIdentifier:@"sectionHeader"
                                                                  forIndexPath:indexPath];
-        
+
         cell.textLabel.text = [[obj allKeys] firstObject];
 
         return cell;
@@ -96,5 +112,8 @@
     return nil;
 }
 
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+
+}
 
 @end

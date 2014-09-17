@@ -13,6 +13,7 @@
 		1A18AE5518F18764003DC8CF /* CSAlwaysOnTopHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A18AE5418F18764003DC8CF /* CSAlwaysOnTopHeader.xib */; };
 		1A18AE5818F1947B003DC8CF /* CSAlwaysOnTopHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A18AE5718F1947B003DC8CF /* CSAlwaysOnTopHeader.m */; };
 		1A7557EA19C8FE95006F894E /* CSBaseCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A7557E919C8FE95006F894E /* CSBaseCollectionViewCell.m */; };
+		1A7557ED19C90C08006F894E /* NSMutableArray+NSIndexPath.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A7557EC19C90C08006F894E /* NSMutableArray+NSIndexPath.m */; };
 		1AC0D88518AA38380072B3F1 /* CSParallaxHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1AC0D88418AA38380072B3F1 /* CSParallaxHeader.xib */; };
 		1AC0D88718AA39B50072B3F1 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AC0D88618AA39B50072B3F1 /* MapKit.framework */; };
 		1AC0D88918AA3AF80072B3F1 /* CSSearchBarHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1AC0D88818AA3AF80072B3F1 /* CSSearchBarHeader.xib */; };
@@ -58,6 +59,8 @@
 		1A18AE5718F1947B003DC8CF /* CSAlwaysOnTopHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSAlwaysOnTopHeader.m; sourceTree = "<group>"; };
 		1A7557E819C8FE95006F894E /* CSBaseCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSBaseCollectionViewCell.h; sourceTree = "<group>"; };
 		1A7557E919C8FE95006F894E /* CSBaseCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSBaseCollectionViewCell.m; sourceTree = "<group>"; };
+		1A7557EB19C90C08006F894E /* NSMutableArray+NSIndexPath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+NSIndexPath.h"; sourceTree = "<group>"; };
+		1A7557EC19C90C08006F894E /* NSMutableArray+NSIndexPath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+NSIndexPath.m"; sourceTree = "<group>"; };
 		1AC0D88418AA38380072B3F1 /* CSParallaxHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CSParallaxHeader.xib; sourceTree = "<group>"; };
 		1AC0D88618AA39B50072B3F1 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		1AC0D88818AA3AF80072B3F1 /* CSSearchBarHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CSSearchBarHeader.xib; sourceTree = "<group>"; };
@@ -116,6 +119,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1A7557EE19C90C0D006F894E /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				1A7557EB19C90C08006F894E /* NSMutableArray+NSIndexPath.h */,
+				1A7557EC19C90C08006F894E /* NSMutableArray+NSIndexPath.m */,
+			);
+			name = Helper;
+			sourceTree = "<group>";
+		};
 		1AFE0949187D677000CA880A = {
 			isa = PBXGroup;
 			children = (
@@ -155,6 +167,7 @@
 				1AFE0964187D677000CA880A /* AppDelegate.h */,
 				1AFE0965187D677000CA880A /* AppDelegate.m */,
 				1AFE0967187D677000CA880A /* Main.storyboard */,
+				1A7557EE19C90C0D006F894E /* Helper */,
 				1AFE098F187D685200CA880A /* Cell */,
 				1AFE098A187D67F500CA880A /* ViewControllers */,
 				1AFE096D187D677000CA880A /* Images.xcassets */,
@@ -368,6 +381,7 @@
 				1AFE096C187D677000CA880A /* CSParallaxHeaderViewController.m in Sources */,
 				1AFE0992187D688300CA880A /* CSCell.m in Sources */,
 				1AFE0966187D677000CA880A /* AppDelegate.m in Sources */,
+				1A7557ED19C90C08006F894E /* NSMutableArray+NSIndexPath.m in Sources */,
 				1AFE0962187D677000CA880A /* main.m in Sources */,
 				1A0117F418AD036800AC836F /* CSGrowHeaderViewController.m in Sources */,
 				1A14657818F13832003B643B /* CSStickyParallaxHeaderViewController.m in Sources */,

@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5053" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="4iC-sX-8ZW">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="14A361c" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="4iC-sX-8ZW">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
+        <deployment defaultVersion="1792" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
     </dependencies>
     <scenes>
-        <!--Parallax Header View Controller - Parallax-->
+        <!--Parallax-->
         <scene sceneID="2w0-gB-dZZ">
             <objects>
                 <collectionViewController autoresizesArchivedViewToFullSize="NO" id="8Q4-1y-1uB" customClass="CSParallaxHeaderViewController" sceneMemberID="viewController">
@@ -26,9 +27,16 @@
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
+                                        <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mBK-zA-6o0" userLabel="BackgroundView">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
+                                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <view alpha="0.0" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cUa-gm-YIL" userLabel="SelectedBackgroundView">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
+                                            <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                        </view>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Brg-5B-k4R">
                                             <rect key="frame" x="20" y="29" width="280" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
@@ -37,8 +45,16 @@
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                                 <color key="backgroundColor" white="0.90508097409999999" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="mBK-zA-6o0" secondAttribute="trailing" id="Yiq-1C-D1r"/>
+                                    <constraint firstItem="mBK-zA-6o0" firstAttribute="leading" secondItem="m8y-CO-2rM" secondAttribute="leading" id="rV6-oS-kIz"/>
+                                    <constraint firstItem="mBK-zA-6o0" firstAttribute="top" secondItem="m8y-CO-2rM" secondAttribute="top" id="ujm-RC-lO1"/>
+                                    <constraint firstAttribute="bottom" secondItem="mBK-zA-6o0" secondAttribute="bottom" id="yY1-gZ-rV7"/>
+                                </constraints>
                                 <size key="customSize" width="320" height="80"/>
                                 <connections>
+                                    <outlet property="backgroundView" destination="mBK-zA-6o0" id="vda-TQ-ath"/>
+                                    <outlet property="selectedBackgroundView" destination="cUa-gm-YIL" id="CGm-bi-1Qu"/>
                                     <outlet property="textLabel" destination="Brg-5B-k4R" id="Sl8-WR-RS5"/>
                                 </connections>
                             </collectionViewCell>
@@ -49,7 +65,6 @@
                             <subviews>
                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WFu-fy-Cah">
                                     <rect key="frame" x="20" y="15" width="280" height="21"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                     <nil key="highlightedColor"/>
@@ -65,13 +80,19 @@
                             <outlet property="delegate" destination="8Q4-1y-1uB" id="cpa-XM-pCO"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" title="Parallax" id="jS5-T5-HZW"/>
+                    <navigationItem key="navigationItem" title="Parallax" id="jS5-T5-HZW">
+                        <barButtonItem key="rightBarButtonItem" title="Swap" id="O5x-zM-DO9">
+                            <connections>
+                                <action selector="swapButtonDidPress:" destination="8Q4-1y-1uB" id="6if-DQ-F53"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cud-9j-Qcf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1389" y="-298"/>
         </scene>
-        <!--Navigation Controller - Parallax-->
+        <!--Parallax-->
         <scene sceneID="EeI-38-cgl">
             <objects>
                 <navigationController definesPresentationContext="YES" id="AzM-uQ-2aj" sceneMemberID="viewController">
@@ -108,7 +129,7 @@
             </objects>
             <point key="canvasLocation" x="353" y="1080"/>
         </scene>
-        <!--Locked Header View Controller - Locked-->
+        <!--Locked-->
         <scene sceneID="DZy-2H-JvM">
             <objects>
                 <collectionViewController autoresizesArchivedViewToFullSize="NO" id="uLh-Vx-yDh" customClass="CSLockedHeaderViewController" sceneMemberID="viewController">
@@ -132,7 +153,6 @@
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Kc-sQ-4xr">
                                             <rect key="frame" x="20" y="29" width="280" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
@@ -153,7 +173,6 @@
                             <subviews>
                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6M6-F4-3vC">
                                     <rect key="frame" x="20" y="15" width="280" height="21"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                     <nil key="highlightedColor"/>
@@ -175,7 +194,7 @@
             </objects>
             <point key="canvasLocation" x="1389" y="390"/>
         </scene>
-        <!--Navigation Controller - Locked-->
+        <!--Locked-->
         <scene sceneID="aQj-uf-yJZ">
             <objects>
                 <navigationController definesPresentationContext="YES" id="ne4-Ad-gwb" sceneMemberID="viewController">
@@ -191,7 +210,7 @@
             </objects>
             <point key="canvasLocation" x="984" y="390"/>
         </scene>
-        <!--Grow Header View Controller - Grow-->
+        <!--Grow-->
         <scene sceneID="oPl-lC-Afv">
             <objects>
                 <collectionViewController autoresizesArchivedViewToFullSize="NO" id="JiG-QR-Gdc" customClass="CSGrowHeaderViewController" sceneMemberID="viewController">
@@ -215,7 +234,6 @@
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5d0-fd-RNQ">
                                             <rect key="frame" x="20" y="29" width="280" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
@@ -236,7 +254,6 @@
                             <subviews>
                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xb2-G6-DJm">
                                     <rect key="frame" x="20" y="15" width="280" height="21"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                     <nil key="highlightedColor"/>
@@ -258,7 +275,7 @@
             </objects>
             <point key="canvasLocation" x="1389" y="1074"/>
         </scene>
-        <!--Navigation Controller - Grow-->
+        <!--Grow-->
         <scene sceneID="jBW-bg-Y93">
             <objects>
                 <navigationController definesPresentationContext="YES" id="EFv-AV-xcM" sceneMemberID="viewController">
@@ -274,7 +291,7 @@
             </objects>
             <point key="canvasLocation" x="984" y="1074"/>
         </scene>
-        <!--Sticky Parallax Header View Controller - Grow-->
+        <!--Grow-->
         <scene sceneID="c5u-NM-LES">
             <objects>
                 <collectionViewController autoresizesArchivedViewToFullSize="NO" id="dcN-xu-3st" customClass="CSStickyParallaxHeaderViewController" sceneMemberID="viewController">
@@ -297,7 +314,6 @@
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Song 1" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wVJ-rM-Nrh">
                                             <rect key="frame" x="20" y="9" width="280" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
@@ -318,7 +334,6 @@
                             <subviews>
                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="PLAYLIST" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fen-S4-ztg">
                                     <rect key="frame" x="20" y="9" width="280" height="21"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                     <nil key="highlightedColor"/>
