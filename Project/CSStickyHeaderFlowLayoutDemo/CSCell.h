@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CSBaseCollectionViewCell.h"
 
-@interface CSCell : UICollectionViewCell
+@interface CSCell : CSBaseCollectionViewCell
 
 @property (weak, nonatomic) IBOutlet UILabel *textLabel;
 

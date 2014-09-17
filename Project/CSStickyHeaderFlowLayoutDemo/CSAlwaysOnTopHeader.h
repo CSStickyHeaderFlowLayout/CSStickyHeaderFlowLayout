@@ -7,10 +7,12 @@
 //
 
 #import "CSCell.h"
+#import "CSBaseCollectionViewCell.h"
 
-@interface CSAlwaysOnTopHeader : CSCell
+@interface CSAlwaysOnTopHeader : CSBaseCollectionViewCell
 
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 
 @end
+
