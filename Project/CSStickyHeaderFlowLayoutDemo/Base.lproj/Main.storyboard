@@ -56,6 +56,7 @@
                                     <outlet property="backgroundView" destination="mBK-zA-6o0" id="vda-TQ-ath"/>
                                     <outlet property="selectedBackgroundView" destination="cUa-gm-YIL" id="CGm-bi-1Qu"/>
                                     <outlet property="textLabel" destination="Brg-5B-k4R" id="Sl8-WR-RS5"/>
+                                    <segue destination="aFc-v9-b68" kind="push" id="fJO-4g-irA"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -352,6 +353,71 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WJx-FL-2dK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="971" y="1756"/>
+        </scene>
+        <!--Grow-->
+        <scene sceneID="c6t-c5-65d">
+            <objects>
+                <collectionViewController autoresizesArchivedViewToFullSize="NO" id="aFc-v9-b68" customClass="CSGrowHeaderViewController" sceneMemberID="viewController">
+                    <collectionView key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.0" maximumZoomScale="0.0" keyboardDismissMode="onDrag" dataMode="prototypes" id="tNl-Cz-qaB">
+                        <rect key="frame" x="0.0" y="64" width="320" height="519"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Ph2-pf-WWr" customClass="CSStickyHeaderFlowLayout">
+                            <size key="itemSize" width="320" height="80"/>
+                            <size key="headerReferenceSize" width="0.0" height="50"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="Cic-H5-NvL" customClass="CSCell">
+                                <rect key="frame" x="0.0" y="114" width="320" height="80"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2sB-cJ-MrM">
+                                            <rect key="frame" x="20" y="29" width="280" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                                <color key="backgroundColor" white="0.90508097409999999" alpha="1" colorSpace="calibratedWhite"/>
+                                <size key="customSize" width="320" height="80"/>
+                                <connections>
+                                    <outlet property="textLabel" destination="2sB-cJ-MrM" id="cC8-I4-xnr"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
+                        <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="sectionHeader" id="Suy-dG-dej" customClass="CSCell">
+                            <rect key="frame" x="0.0" y="64" width="320" height="50"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                            <subviews>
+                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rrA-kv-o8w">
+                                    <rect key="frame" x="20" y="15" width="280" height="21"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" white="0.25" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            <connections>
+                                <outlet property="textLabel" destination="rrA-kv-o8w" id="e73-Jw-YbD"/>
+                            </connections>
+                        </collectionReusableView>
+                        <connections>
+                            <outlet property="dataSource" destination="aFc-v9-b68" id="3l0-3k-Gie"/>
+                            <outlet property="delegate" destination="aFc-v9-b68" id="Vom-Ep-vIr"/>
+                        </connections>
+                    </collectionView>
+                    <navigationItem key="navigationItem" title="Grow" id="sdJ-Hh-EvM"/>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IWi-an-1ge" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1794" y="-298"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

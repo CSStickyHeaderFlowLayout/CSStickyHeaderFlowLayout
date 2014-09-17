@@ -55,6 +55,11 @@
     
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    self.navigationController.navigationBar.translucent = YES;
+}
+
 - (IBAction)swapButtonDidPress:(id)sender {
 
     [self.collectionView performBatchUpdates:^{
