@@ -43,12 +43,14 @@
     CSStickyHeaderFlowLayout *layout = (id)self.collectionViewLayout;
 
     if ([layout isKindOfClass:[CSStickyHeaderFlowLayout class]]) {
-        layout.parallaxHeaderReferenceSize = CGSizeMake(320, 44);
+        layout.parallaxHeaderReferenceSize = CGSizeMake(self.view.frame.size.width, 44);
+        layout.itemSize = CGSizeMake(self.view.frame.size.width, layout.itemSize.height);
         
         // Setting the minimum size equal to the reference size results
         // in disabled parallax effect and pushes up while scrolls
-        layout.parallaxHeaderMinimumReferenceSize = CGSizeMake(320, 44);
+        layout.parallaxHeaderMinimumReferenceSize = CGSizeMake(self.view.frame.size.width, 44);
     }
+
     
     // Also insets the scroll indicator so it appears below the search bar
     self.collectionView.scrollIndicatorInsets = UIEdgeInsetsMake(44, 0, 0, 0);

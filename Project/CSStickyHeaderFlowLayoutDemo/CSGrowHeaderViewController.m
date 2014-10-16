@@ -44,7 +44,8 @@
     CSStickyHeaderFlowLayout *layout = (id)self.collectionViewLayout;
     
     if ([layout isKindOfClass:[CSStickyHeaderFlowLayout class]]) {
-        layout.parallaxHeaderReferenceSize = CGSizeMake(320, 200);
+        layout.parallaxHeaderReferenceSize = CGSizeMake(self.view.frame.size.width, 200);
+        layout.itemSize = CGSizeMake(self.view.frame.size.width, layout.itemSize.height);
     }
 
     // If we want to disable the sticky header effect
