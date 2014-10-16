@@ -31,8 +31,6 @@
 		1AFE0977187D677000CA880A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AFE0959187D677000CA880A /* UIKit.framework */; };
 		1AFE097F187D677000CA880A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1AFE097D187D677000CA880A /* InfoPlist.strings */; };
 		1AFE0981187D677000CA880A /* CSStickyHeaderFlowLayoutDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AFE0980187D677000CA880A /* CSStickyHeaderFlowLayoutDemoTests.m */; };
-		1AFE098C187D681000CA880A /* CSSectionHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1AFE098B187D681000CA880A /* CSSectionHeader.xib */; };
-		1AFE098E187D683B00CA880A /* CSCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1AFE098D187D683B00CA880A /* CSCell.xib */; };
 		1AFE0992187D688300CA880A /* CSCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AFE0991187D688300CA880A /* CSCell.m */; };
 		B36BC395070946668DCF2AFF /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 491370024AF54DD8BFB773DA /* libPods.a */; };
 /* End PBXBuildFile section */
@@ -81,8 +79,6 @@
 		1AFE097C187D677000CA880A /* CSStickyHeaderFlowLayoutDemoTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CSStickyHeaderFlowLayoutDemoTests-Info.plist"; sourceTree = "<group>"; };
 		1AFE097E187D677000CA880A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1AFE0980187D677000CA880A /* CSStickyHeaderFlowLayoutDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CSStickyHeaderFlowLayoutDemoTests.m; sourceTree = "<group>"; };
-		1AFE098B187D681000CA880A /* CSSectionHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CSSectionHeader.xib; sourceTree = "<group>"; };
-		1AFE098D187D683B00CA880A /* CSCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CSCell.xib; sourceTree = "<group>"; };
 		1AFE0990187D688300CA880A /* CSCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSCell.h; sourceTree = "<group>"; };
 		1AFE0991187D688300CA880A /* CSCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSCell.m; sourceTree = "<group>"; };
 		491370024AF54DD8BFB773DA /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -214,8 +210,6 @@
 				1AFE0991187D688300CA880A /* CSCell.m */,
 				1A18AE5618F1947B003DC8CF /* CSAlwaysOnTopHeader.h */,
 				1A18AE5718F1947B003DC8CF /* CSAlwaysOnTopHeader.m */,
-				1AFE098B187D681000CA880A /* CSSectionHeader.xib */,
-				1AFE098D187D683B00CA880A /* CSCell.xib */,
 				1AC0D88418AA38380072B3F1 /* CSParallaxHeader.xib */,
 				1AC0D88818AA3AF80072B3F1 /* CSSearchBarHeader.xib */,
 				1A0117F518AD037D00AC836F /* CSGrowHeader.xib */,
@@ -305,11 +299,9 @@
 				1AC0D88918AA3AF80072B3F1 /* CSSearchBarHeader.xib in Resources */,
 				1A0231F319EF75D200D3CBCB /* Launch.storyboard in Resources */,
 				1A18AE5518F18764003DC8CF /* CSAlwaysOnTopHeader.xib in Resources */,
-				1AFE098C187D681000CA880A /* CSSectionHeader.xib in Resources */,
 				1AFE096E187D677000CA880A /* Images.xcassets in Resources */,
 				1AFE0960187D677000CA880A /* InfoPlist.strings in Resources */,
 				1AFE0969187D677000CA880A /* Main.storyboard in Resources */,
-				1AFE098E187D683B00CA880A /* CSCell.xib in Resources */,
 				1AC0D88518AA38380072B3F1 /* CSParallaxHeader.xib in Resources */,
 				1A0117F618AD037D00AC836F /* CSGrowHeader.xib in Resources */,
 			);
