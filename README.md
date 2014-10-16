@@ -121,6 +121,8 @@ If you think this worths something, tip me a cup of coffee! (p.s. was trying out
 
 ## Updates
 
+- 0.2.3: Enabled iPhone 6 screen sizes, reverted a patch and fixed a visual bug and content tapping bug.
+
 - 0.2.2: Fix 1px header and zIndex problem, thanks
   [@m1entus](https://github.com/m1entus) and [@Xyand](https://github.com/Xyand)
 
