@@ -54,6 +54,14 @@
     
 }
 
+- (IBAction)reloadButtonDidPress:(id)sender {
+    NSIndexSet *indexSet = [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, [self.collectionView numberOfSections])];
+
+//    NSIndexSet(indexesInRange: NSMakeRange(0, self.collectionView.numberOfSections()))
+    [self.collectionView reloadSections:indexSet];
+
+}
+
 #pragma mark UICollectionViewDataSource
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {

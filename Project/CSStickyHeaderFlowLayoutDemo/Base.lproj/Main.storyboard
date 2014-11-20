@@ -64,7 +64,13 @@
                             <outlet property="delegate" destination="8Q4-1y-1uB" id="cpa-XM-pCO"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" title="Parallax" id="jS5-T5-HZW"/>
+                    <navigationItem key="navigationItem" title="Parallax" id="jS5-T5-HZW">
+                        <barButtonItem key="leftBarButtonItem" title="Reload" id="xxd-V6-i4J">
+                            <connections>
+                                <action selector="reloadButtonDidPress:" destination="8Q4-1y-1uB" id="pMM-vA-hbh"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cud-9j-Qcf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
