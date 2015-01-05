@@ -171,6 +171,14 @@ NSString *const CSStickyHeaderParallaxHeader = @"CSStickyHeaderParallexHeader";
     return attributes;
 }
 
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+   if([self.delegate respondsToSelector:@selector(collectionView:layout:sizeForItemAtIndexPath:)]) {
+      return [self.delegate collectionView:collectionView layout:collectionViewLayout sizeForItemAtIndexPath:indexPath];
+   } else {
+      return [self itemSize];
+   }
+}
+
 - (CGSize)collectionViewContentSize {
     CGSize size = [super collectionViewContentSize];
     size.height += self.parallaxHeaderReferenceSize.height;
