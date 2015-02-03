@@ -8,6 +8,7 @@
 
 #import "CSParallaxHeaderViewController.h"
 #import "CSCell.h"
+#import "CSSectionHeader.h"
 #import "CSStickyHeaderFlowLayout.h"
 
 @interface CSParallaxHeaderViewController ()
@@ -89,10 +90,10 @@
         
         NSDictionary *obj = self.sections[indexPath.section];
 
-        CSCell *cell = [collectionView dequeueReusableSupplementaryViewOfKind:kind
+        CSSectionHeader *cell = [collectionView dequeueReusableSupplementaryViewOfKind:kind
                                                           withReuseIdentifier:@"sectionHeader"
                                                                  forIndexPath:indexPath];
-        
+
         cell.textLabel.text = [[obj allKeys] firstObject];
 
         return cell;

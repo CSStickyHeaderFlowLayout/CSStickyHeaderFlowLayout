@@ -8,6 +8,7 @@
 
 #import "CSLockedHeaderViewController.h"
 #import "CSCell.h"
+#import "CSSectionHeader.h"
 #import "CSStickyHeaderFlowLayout.h"
 
 @interface CSLockedHeaderViewController ()
@@ -88,7 +89,7 @@
         
         NSDictionary *obj = self.sections[indexPath.section];
         
-        CSCell *cell = [collectionView dequeueReusableSupplementaryViewOfKind:kind
+        CSSectionHeader *cell = [collectionView dequeueReusableSupplementaryViewOfKind:kind
                                                           withReuseIdentifier:@"sectionHeader"
                                                                  forIndexPath:indexPath];
         
