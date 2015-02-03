@@ -8,6 +8,7 @@
 
 #import "CSStickyParallaxHeaderViewController.h"
 #import "CSCell.h"
+#import "CSSectionHeader.h"
 #import "CSStickyHeaderFlowLayout.h"
 
 @interface CSStickyParallaxHeaderViewController ()
@@ -104,7 +105,7 @@
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
     if ([kind isEqualToString:UICollectionElementKindSectionHeader]) {
 
-        CSCell *cell = [collectionView dequeueReusableSupplementaryViewOfKind:kind
+        CSSectionHeader *cell = [collectionView dequeueReusableSupplementaryViewOfKind:kind
                                                           withReuseIdentifier:@"sectionHeader"
                                                                  forIndexPath:indexPath];
 
