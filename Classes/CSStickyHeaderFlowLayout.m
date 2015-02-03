@@ -52,12 +52,18 @@ NSString *const CSStickyHeaderParallaxHeader = @"CSStickyHeaderParallexHeader";
 
     [allItems enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         UICollectionViewLayoutAttributes *attributes = obj;
-
+        
+        NSIndexPath *indexPath = [(UICollectionViewLayoutAttributes *)obj indexPath];
+        
         CGRect frame = attributes.frame;
         frame.origin.y += self.parallaxHeaderReferenceSize.height;
+        
+        if (indexPath.row == 0) {
+            frame.origin.x = 0.0;
+        }
+        
         attributes.frame = frame;
-
-        NSIndexPath *indexPath = [(UICollectionViewLayoutAttributes *)obj indexPath];
+        
         if ([[obj representedElementKind] isEqualToString:UICollectionElementKindSectionHeader]) {
             [headers setObject:obj forKey:@(indexPath.section)];
         } else if ([[obj representedElementKind] isEqualToString:UICollectionElementKindSectionFooter]) {
