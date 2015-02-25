@@ -188,6 +188,12 @@ NSString *const CSStickyHeaderParallaxHeader = @"CSStickyHeaderParallexHeader";
     return [CSStickyHeaderFlowLayoutAttributes class];
 }
 
+- (void)setParallaxHeaderReferenceSize:(CGSize)parallaxHeaderReferenceSize {
+    _parallaxHeaderReferenceSize = parallaxHeaderReferenceSize;
+    // Make sure we update the layout
+    [self invalidateLayout];
+}
+
 #pragma mark Helper
 
 - (void)updateHeaderAttributes:(UICollectionViewLayoutAttributes *)attributes lastCellAttributes:(UICollectionViewLayoutAttributes *)lastCellAttributes
