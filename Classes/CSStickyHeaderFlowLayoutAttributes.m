@@ -10,4 +10,10 @@
 
 @implementation CSStickyHeaderFlowLayoutAttributes
 
+- (id)copyWithZone:(NSZone *)zone {
+  typeof(self) copy = [super copyWithZone:zone];
+  copy.progressiveness = self.progressiveness;
+  return copy;
+}
+
 @end
