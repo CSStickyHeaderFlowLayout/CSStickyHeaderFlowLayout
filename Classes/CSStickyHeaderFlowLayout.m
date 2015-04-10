@@ -172,6 +172,11 @@ NSString *const CSStickyHeaderParallaxHeader = @"CSStickyHeaderParallexHeader";
 }
 
 - (CGSize)collectionViewContentSize {
+    // If not part of view hierarchy then return CGSizeZero (as in docs).
+    // Call [super collectionViewContentSize] can cause EXC_BAD_ACCESS when collectionView has no superview.
+    if (!self.collectionView.superview) {
+        return CGSizeZero;
+    }
     CGSize size = [super collectionViewContentSize];
     size.height += self.parallaxHeaderReferenceSize.height;
     return size;
