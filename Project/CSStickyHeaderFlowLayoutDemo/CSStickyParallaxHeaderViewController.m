@@ -58,6 +58,23 @@
 {
     [super viewDidLoad];
 
+    [self reloadLayout];
+
+    // Also insets the scroll indicator so it appears below the search bar
+    self.collectionView.scrollIndicatorInsets = UIEdgeInsetsMake(0, 0, 0, 0);
+
+    [self.collectionView registerNib:self.headerNib
+          forSupplementaryViewOfKind:CSStickyHeaderParallaxHeader
+                 withReuseIdentifier:@"header"];
+
+}
+
+- (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
+    [self reloadLayout];
+}
+
+- (void)reloadLayout {
+
     CSStickyHeaderFlowLayout *layout = (id)self.collectionViewLayout;
 
     if ([layout isKindOfClass:[CSStickyHeaderFlowLayout class]]) {
@@ -69,14 +86,6 @@
         // If we want to disable the sticky header effect
         layout.disableStickyHeaders = YES;
     }
-
-
-    // Also insets the scroll indicator so it appears below the search bar
-    self.collectionView.scrollIndicatorInsets = UIEdgeInsetsMake(0, 0, 0, 0);
-
-    [self.collectionView registerNib:self.headerNib
-          forSupplementaryViewOfKind:CSStickyHeaderParallaxHeader
-                 withReuseIdentifier:@"header"];
 
 }
 

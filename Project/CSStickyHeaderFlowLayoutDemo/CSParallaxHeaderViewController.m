@@ -40,19 +40,25 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+
+    [self reloadLayout];
+    [self.collectionView registerNib:self.headerNib
+          forSupplementaryViewOfKind:CSStickyHeaderParallaxHeader
+                 withReuseIdentifier:@"header"];
     
+}
+
+- (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
+    [self reloadLayout];
+}
+
+- (void)reloadLayout {
     CSStickyHeaderFlowLayout *layout = (id)self.collectionViewLayout;
 
     if ([layout isKindOfClass:[CSStickyHeaderFlowLayout class]]) {
         layout.parallaxHeaderReferenceSize = CGSizeMake(self.view.frame.size.width, 200);
         layout.itemSize = CGSizeMake(self.view.frame.size.width, layout.itemSize.height);
     }
-
-    
-    [self.collectionView registerNib:self.headerNib
-          forSupplementaryViewOfKind:CSStickyHeaderParallaxHeader
-                 withReuseIdentifier:@"header"];
-    
 }
 
 - (IBAction)reloadButtonDidPress:(id)sender {
