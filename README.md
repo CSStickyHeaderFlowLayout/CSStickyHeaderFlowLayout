@@ -121,6 +121,8 @@ If you think this worths something, tip me a cup of coffee! (p.s. was trying out
 
 ## Updates
 
+- 0.2.6: Fixing that section header being covered by cell after perform batch update
+
 - 0.2.5: Fixing a crash when quickly popping back to a view controller using the parallax header
 
 - 0.2.4: Possibly fix for a crash when parallaxHeaderReferenceSize is changed
