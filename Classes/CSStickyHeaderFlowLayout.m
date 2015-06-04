@@ -11,6 +11,12 @@
 
 NSString *const CSStickyHeaderParallaxHeader = @"CSStickyHeaderParallexHeader";
 
+@interface CSStickyHeaderFlowLayout (Debug)
+
+- (void)debugLayoutAttributes:(NSArray *)layoutAttributes;
+
+@end
+
 @implementation CSStickyHeaderFlowLayout
 
 - (void)prepareLayout {
@@ -160,6 +166,9 @@ NSString *const CSStickyHeaderParallaxHeader = @"CSStickyHeaderParallexHeader";
         }];
     }
 
+    // For debugging purpose
+//     [self debugLayoutAttributes:allItems];
+
     return allItems;
 }
 
@@ -229,3 +238,56 @@ NSString *const CSStickyHeaderParallaxHeader = @"CSStickyHeaderParallexHeader";
 }
 
 @end
+
+#pragma mark - Debugging
+
+@implementation CSStickyHeaderFlowLayoutAttributes (Debug)
+
+- (NSString *)description {
+    NSString *indexPathString = [NSString stringWithFormat:@"{%ld, %ld}", (long)self.indexPath.section, (long)self.indexPath.item];
+
+    NSString *desc = [NSString stringWithFormat:@"<CSStickyHeaderFlowLayout: %p> indexPath: %@ zIndex: %ld valid: %@ kind: %@", self, indexPathString, (long)self.zIndex, [self isValid] ? @"YES" : @"NO", self.representedElementKind ?: @"cell"];
+
+    return desc;
+}
+
+- (BOOL)isValid {
+    switch (self.representedElementCategory) {
+        case UICollectionElementCategoryCell:
+            if (self.zIndex != 1) {
+                return NO;
+            }
+            return YES;
+        case UICollectionElementCategorySupplementaryView:
+            if ([self.representedElementKind isEqualToString:CSStickyHeaderParallaxHeader]) {
+                return YES;
+            } else if (self.zIndex < 1024) {
+                return NO;
+            }
+            return YES;
+        default:
+            return YES;
+    }
+}
+
+@end
+
+
+@implementation CSStickyHeaderFlowLayout (Debug)
+
+- (void)debugLayoutAttributes:(NSArray *)layoutAttributes {
+    __block BOOL hasInvalid = NO;
+    [layoutAttributes enumerateObjectsUsingBlock:^(CSStickyHeaderFlowLayoutAttributes *attr, NSUInteger idx, BOOL *stop) {
+        hasInvalid = ![attr isValid];
+        if (hasInvalid) {
+            *stop = YES;
+        }
+    }];
+
+    if (hasInvalid) {
+        NSLog(@"CSStickyHeaderFlowLayout: %@", layoutAttributes);
+    }
+}
+
+@end
+

@@ -16,4 +16,14 @@
   return copy;
 }
 
+- (void)setZIndex:(NSInteger)zIndex {
+    [super setZIndex:zIndex];
+
+    // Fixes: Section header go behind cell when insert via performBatchUpdates #68
+    // https://github.com/jamztang/CSStickyHeaderFlowLayout/issues/68#issuecomment-108678022
+    // Reference: UICollectionView setLayout:animated: not preserving zIndex
+    // http://stackoverflow.com/questions/12659301/uicollectionview-setlayoutanimated-not-preserving-zindex
+    self.transform3D = CATransform3DMakeTranslation(0, 0, zIndex);
+}
+
 @end

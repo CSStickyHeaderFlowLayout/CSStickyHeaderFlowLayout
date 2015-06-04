@@ -23,14 +23,7 @@
 - (id)initWithCoder:(NSCoder *)aDecoder {
     self = [super initWithCoder:aDecoder];
     if (self) {
-        self.sections = @[
-                          @{@"Twitter":@"http://twitter.com"},
-                          @{@"Facebook":@"http://facebook.com"},
-                          @{@"Tumblr":@"http://tumblr.com"},
-                          @{@"Pinterest":@"http://pinterest.com"},
-                          @{@"Instagram":@"http://instagram.com"},
-                          @{@"Github":@"http://github.com"},
-                          ];
+        self.sections = @[];
         
         self.headerNib = [UINib nibWithNibName:@"CSSearchBarHeader" bundle:nil];
     }
@@ -50,6 +43,67 @@
           forSupplementaryViewOfKind:CSStickyHeaderParallaxHeader
                  withReuseIdentifier:@"header"];
     
+    UIBarButtonItem *add = [[UIBarButtonItem alloc] initWithTitle:@"Add" style:UIBarButtonItemStylePlain target:self action:@selector(add:)];
+    self.navigationItem.rightBarButtonItem = add;
+
+    [self add:nil];
+    
+}
+
+- (void)add:(id)sender
+{
+//    NSArray *new = @[
+//                     @{@"Twitter":@"http://twitter.com"},
+//                     @{@"Facebook":@"http://facebook.com"},
+//                     @{@"Tumblr":@"http://tumblr.com"},
+//                     @{@"Pinterest":@"http://pinterest.com"},
+//                     @{@"Instagram":@"http://instagram.com"},
+//                     @{@"Github":@"http://github.com"},
+//                     @{@"Twitter":@"http://twitter.com"},
+//                     @{@"Facebook":@"http://facebook.com"},
+//                     @{@"Tumblr":@"http://tumblr.com"},
+//                     @{@"Pinterest":@"http://pinterest.com"},
+//                     @{@"Instagram":@"http://instagram.com"},
+//                     @{@"Github":@"http://github.com"},
+//                     ];
+//    self.sections = [self.sections arrayByAddingObjectsFromArray:new];
+//    [self.collectionView reloadData];
+
+    [self.collectionView performBatchUpdates:^{
+
+        NSArray *new = @[
+                         @{@"Twitter":@"http://twitter.com"},
+                         @{@"Facebook":@"http://facebook.com"},
+                         @{@"Tumblr":@"http://tumblr.com"},
+                         @{@"Pinterest":@"http://pinterest.com"},
+                         @{@"Instagram":@"http://instagram.com"},
+                         @{@"Github":@"http://github.com"},
+                         @{@"Twitter":@"http://twitter.com"},
+                         @{@"Facebook":@"http://facebook.com"},
+                         @{@"Tumblr":@"http://tumblr.com"},
+                         @{@"Pinterest":@"http://pinterest.com"},
+                         @{@"Instagram":@"http://instagram.com"},
+                         @{@"Github":@"http://github.com"},
+                         ];
+        self.sections = [self.sections arrayByAddingObjectsFromArray:new];
+
+        NSMutableIndexSet *set = [NSMutableIndexSet indexSet];
+        NSMutableArray *indexPaths = [NSMutableArray array];
+
+        int startIndex = 0;
+
+        [new enumerateObjectsUsingBlock:^(NSDictionary *item, NSUInteger idx, BOOL *stop) {
+            NSIndexPath *indexPath = [NSIndexPath indexPathForItem:0 inSection:startIndex + idx];
+            [indexPaths addObject:indexPath];
+
+            [set addIndex:startIndex + idx];
+            
+        }];
+        
+        [self.collectionView insertSections:set];
+        [self.collectionView insertItemsAtIndexPaths:indexPaths];
+    } completion:nil];
+
 }
 
 - (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
