@@ -167,6 +167,10 @@
     return nil;
 }
 
+#pragma mark UICollectionViewDataSource
 
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    NSLog(@"hit test");
+}
 
 @end
