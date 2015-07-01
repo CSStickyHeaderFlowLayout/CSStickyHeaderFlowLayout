@@ -17,6 +17,12 @@ NSString *const CSStickyHeaderParallaxHeader = @"CSStickyHeaderParallexHeader";
 
 @end
 
+@interface CSStickyHeaderFlowLayout() {
+    CSStickyHeaderFlowLayoutAttributes *currentStickyHeaderAttributes;
+}
+
+@end
+
 @implementation CSStickyHeaderFlowLayout
 
 - (void)prepareLayout {
@@ -107,8 +113,12 @@ NSString *const CSStickyHeaderParallaxHeader = @"CSStickyHeaderParallexHeader";
 
     // Create the attributes for the Parallex header
     if (visibleParallexHeader && ! CGSizeEqualToSize(CGSizeZero, self.parallaxHeaderReferenceSize)) {
-        CSStickyHeaderFlowLayoutAttributes *currentAttribute = [CSStickyHeaderFlowLayoutAttributes layoutAttributesForSupplementaryViewOfKind:CSStickyHeaderParallaxHeader withIndexPath:[NSIndexPath indexPathWithIndex:0]];
-        CGRect frame = currentAttribute.frame;
+        
+        if (!currentStickyHeaderAttributes || [self shouldInvalidateLayoutForBoundsChange:rect]) {
+            currentStickyHeaderAttributes = [CSStickyHeaderFlowLayoutAttributes layoutAttributesForSupplementaryViewOfKind:CSStickyHeaderParallaxHeader
+                                                                                                            withIndexPath:[NSIndexPath indexPathWithIndex:0]];
+        }
+        CGRect frame = currentStickyHeaderAttributes.frame;
         frame.size.width = self.parallaxHeaderReferenceSize.width;
         frame.size.height = self.parallaxHeaderReferenceSize.height;
 
@@ -123,20 +133,20 @@ NSString *const CSStickyHeaderParallaxHeader = @"CSStickyHeaderParallexHeader";
         CGFloat maxHeight = self.parallaxHeaderReferenceSize.height;
         CGFloat minHeight = self.parallaxHeaderMinimumReferenceSize.height;
         CGFloat progressiveness = (height - minHeight)/(maxHeight - minHeight);
-        currentAttribute.progressiveness = progressiveness;
+        currentStickyHeaderAttributes.progressiveness = progressiveness;
 
         // if zIndex < 0 would prevents tap from recognized right under navigation bar
-        currentAttribute.zIndex = 0;
+        currentStickyHeaderAttributes.zIndex = 0;
 
         // When parallaxHeaderAlwaysOnTop is enabled, we will check when we should update the y position
         if (self.parallaxHeaderAlwaysOnTop && height <= self.parallaxHeaderMinimumReferenceSize.height) {
             CGFloat insetTop = self.collectionView.contentInset.top;
             // Always stick to top but under the nav bar
             y = self.collectionView.contentOffset.y + insetTop;
-            currentAttribute.zIndex = 2000;
+            currentStickyHeaderAttributes.zIndex = 2000;
         }
 
-        currentAttribute.frame = (CGRect){
+        currentStickyHeaderAttributes.frame = (CGRect){
             frame.origin.x,
             y,
             frame.size.width,
@@ -144,7 +154,7 @@ NSString *const CSStickyHeaderParallaxHeader = @"CSStickyHeaderParallexHeader";
         };
 
 
-        [allItems addObject:currentAttribute];
+        [allItems addObject:currentStickyHeaderAttributes];
     }
 
     if ( ! self.disableStickyHeaders) {
@@ -193,7 +203,7 @@ NSString *const CSStickyHeaderParallaxHeader = @"CSStickyHeaderParallexHeader";
 
 - (BOOL)shouldInvalidateLayoutForBoundsChange:(CGRect)newBounds
 {
-    return YES;
+    return newBounds.origin.y <= 0;
 }
 
 #pragma mark Overrides
