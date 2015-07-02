@@ -9,13 +9,16 @@
 #import "CSStickyHeaderFlowLayout.h"
 #import "CSStickyHeaderFlowLayoutAttributes.h"
 
+
 NSString *const CSStickyHeaderParallaxHeader = @"CSStickyHeaderParallexHeader";
+static const NSInteger kHeaderZIndex = 1024;
 
 @interface CSStickyHeaderFlowLayout (Debug)
 
 - (void)debugLayoutAttributes:(NSArray *)layoutAttributes;
 
 @end
+
 
 @implementation CSStickyHeaderFlowLayout
 
@@ -64,13 +67,14 @@ NSString *const CSStickyHeaderParallaxHeader = @"CSStickyHeaderParallexHeader";
         attributes.frame = frame;
 
         NSIndexPath *indexPath = [(UICollectionViewLayoutAttributes *)obj indexPath];
-        if ([[obj representedElementKind] isEqualToString:UICollectionElementKindSectionHeader]) {
+        BOOL isHeader = [[obj representedElementKind] isEqualToString:UICollectionElementKindSectionHeader];
+        BOOL isFooter = [[obj representedElementKind] isEqualToString:UICollectionElementKindSectionFooter];
+
+        if (isHeader) {
             [headers setObject:obj forKey:@(indexPath.section)];
-        } else if ([[obj representedElementKind] isEqualToString:UICollectionElementKindSectionFooter]) {
+        } else if (isFooter) {
             // Not implemeneted
         } else {
-            NSIndexPath *indexPath = [(UICollectionViewLayoutAttributes *)obj indexPath];
-
             UICollectionViewLayoutAttributes *currentAttribute = [lastCells objectForKey:@(indexPath.section)];
 
             // Get the bottom most cell of that section
@@ -83,8 +87,12 @@ NSString *const CSStickyHeaderParallaxHeader = @"CSStickyHeaderParallexHeader";
             }
         }
 
-        // For iOS 7.0, the cell zIndex should be above sticky section header
-        attributes.zIndex = 1;
+        if (isHeader) {
+            attributes.zIndex = kHeaderZIndex;
+        } else {
+            // For iOS 7.0, the cell zIndex should be above sticky section header
+            attributes.zIndex = 1;
+        }
     }];
 
     // when the visible rect is at top of the screen, make sure we see
@@ -213,7 +221,7 @@ NSString *const CSStickyHeaderParallaxHeader = @"CSStickyHeaderParallexHeader";
 - (void)updateHeaderAttributes:(UICollectionViewLayoutAttributes *)attributes lastCellAttributes:(UICollectionViewLayoutAttributes *)lastCellAttributes
 {
     CGRect currentBounds = self.collectionView.bounds;
-    attributes.zIndex = 1024;
+    attributes.zIndex = kHeaderZIndex;
     attributes.hidden = NO;
 
     CGPoint origin = attributes.frame.origin;
