@@ -1,14 +1,14 @@
 PODS:
-  - CSStickyHeaderFlowLayout (0.2)
+  - CSStickyHeaderFlowLayout (0.2.7)
 
 DEPENDENCIES:
-  - CSStickyHeaderFlowLayout (from `../CSStickyHeaderFlowLayout.podspec`)
+  - CSStickyHeaderFlowLayout (from `../`)
 
 EXTERNAL SOURCES:
   CSStickyHeaderFlowLayout:
-    :path: ../CSStickyHeaderFlowLayout.podspec
+    :path: "../"
 
 SPEC CHECKSUMS:
-  CSStickyHeaderFlowLayout: 5e0e35f042c14b24758430c3be234525526e631d
+  CSStickyHeaderFlowLayout: 739445e36fd96ab2cee9b9826a902396567fb6a5
 
-COCOAPODS: 0.32.1
+COCOAPODS: 0.37.2
