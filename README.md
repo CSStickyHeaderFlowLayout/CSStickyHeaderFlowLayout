@@ -25,7 +25,7 @@ Alternatively, you can just drag the files from `CSStickyHeaderFlowLayout / Clas
 
 ## Usage (Swift/Code)
 
-Please checkout the `SwiftDemo.xcodeproject`
+Documentation is coming soon. For now please open `CSStickyHeaderFlowLayout.xcworkspace` > `SwiftDemo` target.
 
 ## Usage (CocoaPods/Objective-C/Storyboard)
 
