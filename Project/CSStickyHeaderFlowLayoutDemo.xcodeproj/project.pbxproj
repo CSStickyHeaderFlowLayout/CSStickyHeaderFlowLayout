@@ -14,6 +14,12 @@
 		1A14657818F13832003B643B /* CSStickyParallaxHeaderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A14657718F13832003B643B /* CSStickyParallaxHeaderViewController.m */; };
 		1A18AE5518F18764003DC8CF /* CSAlwaysOnTopHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A18AE5418F18764003DC8CF /* CSAlwaysOnTopHeader.xib */; };
 		1A18AE5818F1947B003DC8CF /* CSAlwaysOnTopHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A18AE5718F1947B003DC8CF /* CSAlwaysOnTopHeader.m */; };
+		1A4B2F601B56C539007F67CC /* CSStickyHeaderFlowLayout.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A4B2F551B56C539007F67CC /* CSStickyHeaderFlowLayout.framework */; };
+		1A4B2F691B56C539007F67CC /* CSStickyHeaderFlowLayoutTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A4B2F681B56C539007F67CC /* CSStickyHeaderFlowLayoutTests.swift */; };
+		1A4B2F791B56C5A6007F67CC /* CSStickyHeaderFlowLayout.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A4B2F751B56C5A6007F67CC /* CSStickyHeaderFlowLayout.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1A4B2F7A1B56C5A6007F67CC /* CSStickyHeaderFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A4B2F761B56C5A6007F67CC /* CSStickyHeaderFlowLayout.m */; };
+		1A4B2F7B1B56C5A6007F67CC /* CSStickyHeaderFlowLayoutAttributes.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A4B2F771B56C5A6007F67CC /* CSStickyHeaderFlowLayoutAttributes.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1A4B2F7C1B56C5A6007F67CC /* CSStickyHeaderFlowLayoutAttributes.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A4B2F781B56C5A6007F67CC /* CSStickyHeaderFlowLayoutAttributes.m */; };
 		1AC0D88518AA38380072B3F1 /* CSParallaxHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1AC0D88418AA38380072B3F1 /* CSParallaxHeader.xib */; };
 		1AC0D88718AA39B50072B3F1 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AC0D88618AA39B50072B3F1 /* MapKit.framework */; };
 		1AC0D88918AA3AF80072B3F1 /* CSSearchBarHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1AC0D88818AA3AF80072B3F1 /* CSSearchBarHeader.xib */; };
@@ -37,6 +43,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		1A4B2F611B56C539007F67CC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1AFE094A187D677000CA880A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1A4B2F541B56C539007F67CC;
+			remoteInfo = CSStickyHeaderFlowLayout;
+		};
+		1A4B2F631B56C539007F67CC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1AFE094A187D677000CA880A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1AFE0951187D677000CA880A;
+			remoteInfo = CSStickyHeaderFlowLayoutDemo;
+		};
 		1AFE0978187D677000CA880A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 1AFE094A187D677000CA880A /* Project object */;
@@ -45,6 +65,19 @@
 			remoteInfo = CSStickyHeaderFlowLayoutDemo;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		1A4B2F6D1B56C539007F67CC /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		1A0117F218AD036800AC836F /* CSGrowHeaderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSGrowHeaderViewController.h; sourceTree = "<group>"; };
@@ -58,6 +91,15 @@
 		1A18AE5418F18764003DC8CF /* CSAlwaysOnTopHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CSAlwaysOnTopHeader.xib; sourceTree = "<group>"; };
 		1A18AE5618F1947B003DC8CF /* CSAlwaysOnTopHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSAlwaysOnTopHeader.h; sourceTree = "<group>"; };
 		1A18AE5718F1947B003DC8CF /* CSAlwaysOnTopHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSAlwaysOnTopHeader.m; sourceTree = "<group>"; };
+		1A4B2F551B56C539007F67CC /* CSStickyHeaderFlowLayout.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CSStickyHeaderFlowLayout.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1A4B2F581B56C539007F67CC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1A4B2F5F1B56C539007F67CC /* CSStickyHeaderFlowLayoutTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CSStickyHeaderFlowLayoutTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1A4B2F671B56C539007F67CC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1A4B2F681B56C539007F67CC /* CSStickyHeaderFlowLayoutTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSStickyHeaderFlowLayoutTests.swift; sourceTree = "<group>"; };
+		1A4B2F751B56C5A6007F67CC /* CSStickyHeaderFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CSStickyHeaderFlowLayout.h; path = ../../Classes/CSStickyHeaderFlowLayout.h; sourceTree = "<group>"; };
+		1A4B2F761B56C5A6007F67CC /* CSStickyHeaderFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CSStickyHeaderFlowLayout.m; path = ../../Classes/CSStickyHeaderFlowLayout.m; sourceTree = "<group>"; };
+		1A4B2F771B56C5A6007F67CC /* CSStickyHeaderFlowLayoutAttributes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CSStickyHeaderFlowLayoutAttributes.h; path = ../../Classes/CSStickyHeaderFlowLayoutAttributes.h; sourceTree = "<group>"; };
+		1A4B2F781B56C5A6007F67CC /* CSStickyHeaderFlowLayoutAttributes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CSStickyHeaderFlowLayoutAttributes.m; path = ../../Classes/CSStickyHeaderFlowLayoutAttributes.m; sourceTree = "<group>"; };
 		1AC0D88418AA38380072B3F1 /* CSParallaxHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CSParallaxHeader.xib; sourceTree = "<group>"; };
 		1AC0D88618AA39B50072B3F1 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		1AC0D88818AA3AF80072B3F1 /* CSSearchBarHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CSSearchBarHeader.xib; sourceTree = "<group>"; };
@@ -90,6 +132,21 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		1A4B2F511B56C539007F67CC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1A4B2F5C1B56C539007F67CC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1A4B2F601B56C539007F67CC /* CSStickyHeaderFlowLayout.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		1AFE094F187D677000CA880A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -122,6 +179,44 @@
 				AD97E1BDF2B20F6336CBF8D7 /* Pods.release.xcconfig */,
 			);
 			name = Pods;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		1A4B2F561B56C539007F67CC /* CSStickyHeaderFlowLayout */ = {
+			isa = PBXGroup;
+			children = (
+				1A4B2F751B56C5A6007F67CC /* CSStickyHeaderFlowLayout.h */,
+				1A4B2F761B56C5A6007F67CC /* CSStickyHeaderFlowLayout.m */,
+				1A4B2F771B56C5A6007F67CC /* CSStickyHeaderFlowLayoutAttributes.h */,
+				1A4B2F781B56C5A6007F67CC /* CSStickyHeaderFlowLayoutAttributes.m */,
+				1A4B2F571B56C539007F67CC /* Supporting Files */,
+			);
+			path = CSStickyHeaderFlowLayout;
+			sourceTree = "<group>";
+		};
+		1A4B2F571B56C539007F67CC /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				1A4B2F581B56C539007F67CC /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		1A4B2F651B56C539007F67CC /* CSStickyHeaderFlowLayoutTests */ = {
+			isa = PBXGroup;
+			children = (
+				1A4B2F681B56C539007F67CC /* CSStickyHeaderFlowLayoutTests.swift */,
+				1A4B2F661B56C539007F67CC /* Supporting Files */,
+			);
+			path = CSStickyHeaderFlowLayoutTests;
+			sourceTree = "<group>";
+		};
+		1A4B2F661B56C539007F67CC /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				1A4B2F671B56C539007F67CC /* Info.plist */,
+			);
+			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		1AFE0949187D677000CA880A = {
@@ -129,9 +224,10 @@
 			children = (
 				1AFE095B187D677000CA880A /* CSStickyHeaderFlowLayoutDemo */,
 				1AFE097A187D677000CA880A /* CSStickyHeaderFlowLayoutDemoTests */,
+				1A4B2F561B56C539007F67CC /* CSStickyHeaderFlowLayout */,
+				1A4B2F651B56C539007F67CC /* CSStickyHeaderFlowLayoutTests */,
 				1AFE0954187D677000CA880A /* Frameworks */,
 				1AFE0953187D677000CA880A /* Products */,
-				034852391EBFCBDC0011D58A /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -140,6 +236,8 @@
 			children = (
 				1AFE0952187D677000CA880A /* CSStickyHeaderFlowLayoutDemo.app */,
 				1AFE0973187D677000CA880A /* CSStickyHeaderFlowLayoutDemoTests.xctest */,
+				1A4B2F551B56C539007F67CC /* CSStickyHeaderFlowLayout.framework */,
+				1A4B2F5F1B56C539007F67CC /* CSStickyHeaderFlowLayoutTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -224,6 +322,7 @@
 				1A0BCA1F1A80B25D005D9F7C /* CSSectionHeader.h */,
 				1A0BCA201A80B25D005D9F7C /* CSSectionHeader.m */,
 				1A18AE5618F1947B003DC8CF /* CSAlwaysOnTopHeader.h */,
+				034852391EBFCBDC0011D58A /* Pods */,
 				1A18AE5718F1947B003DC8CF /* CSAlwaysOnTopHeader.m */,
 				1AC0D88418AA38380072B3F1 /* CSParallaxHeader.xib */,
 				1AC0D88818AA3AF80072B3F1 /* CSSearchBarHeader.xib */,
@@ -235,7 +334,56 @@
 		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		1A4B2F521B56C539007F67CC /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1A4B2F791B56C5A6007F67CC /* CSStickyHeaderFlowLayout.h in Headers */,
+				1A4B2F7B1B56C5A6007F67CC /* CSStickyHeaderFlowLayoutAttributes.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
+		1A4B2F541B56C539007F67CC /* CSStickyHeaderFlowLayout */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1A4B2F731B56C539007F67CC /* Build configuration list for PBXNativeTarget "CSStickyHeaderFlowLayout" */;
+			buildPhases = (
+				1A4B2F501B56C539007F67CC /* Sources */,
+				1A4B2F511B56C539007F67CC /* Frameworks */,
+				1A4B2F521B56C539007F67CC /* Headers */,
+				1A4B2F531B56C539007F67CC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CSStickyHeaderFlowLayout;
+			productName = CSStickyHeaderFlowLayout;
+			productReference = 1A4B2F551B56C539007F67CC /* CSStickyHeaderFlowLayout.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		1A4B2F5E1B56C539007F67CC /* CSStickyHeaderFlowLayoutTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1A4B2F741B56C539007F67CC /* Build configuration list for PBXNativeTarget "CSStickyHeaderFlowLayoutTests" */;
+			buildPhases = (
+				1A4B2F5B1B56C539007F67CC /* Sources */,
+				1A4B2F5C1B56C539007F67CC /* Frameworks */,
+				1A4B2F5D1B56C539007F67CC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1A4B2F621B56C539007F67CC /* PBXTargetDependency */,
+				1A4B2F641B56C539007F67CC /* PBXTargetDependency */,
+			);
+			name = CSStickyHeaderFlowLayoutTests;
+			productName = CSStickyHeaderFlowLayoutTests;
+			productReference = 1A4B2F5F1B56C539007F67CC /* CSStickyHeaderFlowLayoutTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		1AFE0951187D677000CA880A /* CSStickyHeaderFlowLayoutDemo */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1AFE0984187D677000CA880A /* Build configuration list for PBXNativeTarget "CSStickyHeaderFlowLayoutDemo" */;
@@ -245,6 +393,7 @@
 				1AFE094F187D677000CA880A /* Frameworks */,
 				1AFE0950187D677000CA880A /* Resources */,
 				D421C3C38E994F76AF2EBD05 /* Copy Pods Resources */,
+				1A4B2F6D1B56C539007F67CC /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -279,9 +428,17 @@
 		1AFE094A187D677000CA880A /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0630;
+				LastSwiftUpdateCheck = 0700;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "Jamz Tang";
 				TargetAttributes = {
+					1A4B2F541B56C539007F67CC = {
+						CreatedOnToolsVersion = 6.3.1;
+					};
+					1A4B2F5E1B56C539007F67CC = {
+						CreatedOnToolsVersion = 6.3.1;
+						TestTargetID = 1AFE0951187D677000CA880A;
+					};
 					1AFE0972187D677000CA880A = {
 						TestTargetID = 1AFE0951187D677000CA880A;
 					};
@@ -302,11 +459,27 @@
 			targets = (
 				1AFE0951187D677000CA880A /* CSStickyHeaderFlowLayoutDemo */,
 				1AFE0972187D677000CA880A /* CSStickyHeaderFlowLayoutDemoTests */,
+				1A4B2F541B56C539007F67CC /* CSStickyHeaderFlowLayout */,
+				1A4B2F5E1B56C539007F67CC /* CSStickyHeaderFlowLayoutTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		1A4B2F531B56C539007F67CC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1A4B2F5D1B56C539007F67CC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		1AFE0950187D677000CA880A /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -366,6 +539,23 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		1A4B2F501B56C539007F67CC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1A4B2F7C1B56C5A6007F67CC /* CSStickyHeaderFlowLayoutAttributes.m in Sources */,
+				1A4B2F7A1B56C5A6007F67CC /* CSStickyHeaderFlowLayout.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1A4B2F5B1B56C539007F67CC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1A4B2F691B56C539007F67CC /* CSStickyHeaderFlowLayoutTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		1AFE094E187D677000CA880A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -393,6 +583,16 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		1A4B2F621B56C539007F67CC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1A4B2F541B56C539007F67CC /* CSStickyHeaderFlowLayout */;
+			targetProxy = 1A4B2F611B56C539007F67CC /* PBXContainerItemProxy */;
+		};
+		1A4B2F641B56C539007F67CC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1AFE0951187D677000CA880A /* CSStickyHeaderFlowLayoutDemo */;
+			targetProxy = 1A4B2F631B56C539007F67CC /* PBXContainerItemProxy */;
+		};
 		1AFE0979187D677000CA880A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 1AFE0951187D677000CA880A /* CSStickyHeaderFlowLayoutDemo */;
@@ -428,6 +628,115 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		1A4B2F6F1B56C539007F67CC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				INFOPLIST_FILE = CSStickyHeaderFlowLayout/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jamztang.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		1A4B2F701B56C539007F67CC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				INFOPLIST_FILE = CSStickyHeaderFlowLayout/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jamztang.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		1A4B2F711B56C539007F67CC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				INFOPLIST_FILE = CSStickyHeaderFlowLayoutTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jamztang.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CSStickyHeaderFlowLayoutDemo.app/CSStickyHeaderFlowLayoutDemo";
+			};
+			name = Debug;
+		};
+		1A4B2F721B56C539007F67CC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				INFOPLIST_FILE = CSStickyHeaderFlowLayoutTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jamztang.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CSStickyHeaderFlowLayoutDemo.app/CSStickyHeaderFlowLayoutDemo";
+			};
+			name = Release;
+		};
 		1AFE0982187D677000CA880A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -446,6 +755,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -507,6 +817,8 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CSStickyHeaderFlowLayoutDemo/CSStickyHeaderFlowLayoutDemo-Prefix.pch";
 				INFOPLIST_FILE = "CSStickyHeaderFlowLayoutDemo/CSStickyHeaderFlowLayoutDemo-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jamztang.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -521,6 +833,8 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CSStickyHeaderFlowLayoutDemo/CSStickyHeaderFlowLayoutDemo-Prefix.pch";
 				INFOPLIST_FILE = "CSStickyHeaderFlowLayoutDemo/CSStickyHeaderFlowLayoutDemo-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jamztang.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -542,6 +856,7 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "CSStickyHeaderFlowLayoutDemoTests/CSStickyHeaderFlowLayoutDemoTests-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jamztang.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
@@ -560,6 +875,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CSStickyHeaderFlowLayoutDemo/CSStickyHeaderFlowLayoutDemo-Prefix.pch";
 				INFOPLIST_FILE = "CSStickyHeaderFlowLayoutDemoTests/CSStickyHeaderFlowLayoutDemoTests-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jamztang.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
@@ -569,6 +885,24 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		1A4B2F731B56C539007F67CC /* Build configuration list for PBXNativeTarget "CSStickyHeaderFlowLayout" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1A4B2F6F1B56C539007F67CC /* Debug */,
+				1A4B2F701B56C539007F67CC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1A4B2F741B56C539007F67CC /* Build configuration list for PBXNativeTarget "CSStickyHeaderFlowLayoutTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1A4B2F711B56C539007F67CC /* Debug */,
+				1A4B2F721B56C539007F67CC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		1AFE094D187D677000CA880A /* Build configuration list for PBXProject "CSStickyHeaderFlowLayoutDemo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

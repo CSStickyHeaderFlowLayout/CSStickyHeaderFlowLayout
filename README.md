@@ -23,7 +23,11 @@ it simply add the following line to your Podfile:
 Alternatively, you can just drag the files from `CSStickyHeaderFlowLayout / Classes` into your own project.
 
 
-## Usage
+## Usage (Swift/Code)
+
+Please checkout the `SwiftDemo.xcodeproject`
+
+## Usage (CocoaPods/Objective-C/Storyboard)
 
 To run the example project; clone the repo, and run `pod install` from the Project directory first.
 

@@ -8,6 +8,17 @@
 
 #import <UIKit/UIKit.h>
 
+//! Project version number for CSStickyHeaderFlowLayout.
+FOUNDATION_EXPORT double CSStickyHeaderFlowLayoutVersionNumber;
+
+//! Project version string for CSStickyHeaderFlowLayout.
+FOUNDATION_EXPORT const unsigned char CSStickyHeaderFlowLayoutVersionString[];
+
+// Import All public headers
+#import <CSStickyHeaderFlowLayout/CSStickyHeaderFlowLayoutAttributes.h>
+
+#pragma mark -
+
 extern NSString *const CSStickyHeaderParallaxHeader;
 
 @interface CSStickyHeaderFlowLayout : UICollectionViewFlowLayout
