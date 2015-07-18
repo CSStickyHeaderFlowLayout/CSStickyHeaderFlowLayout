@@ -24,6 +24,7 @@
 		1AC0D88718AA39B50072B3F1 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AC0D88618AA39B50072B3F1 /* MapKit.framework */; };
 		1AC0D88918AA3AF80072B3F1 /* CSSearchBarHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1AC0D88818AA3AF80072B3F1 /* CSSearchBarHeader.xib */; };
 		1AC0D88C18AA3B300072B3F1 /* CSLockedHeaderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AC0D88B18AA3B300072B3F1 /* CSLockedHeaderViewController.m */; };
+		1AC67D171B5AC27F0091AFCD /* MyPulling.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AC67D161B5AC27F0091AFCD /* MyPulling.m */; };
 		1AFE0956187D677000CA880A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AFE0955187D677000CA880A /* Foundation.framework */; };
 		1AFE0958187D677000CA880A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AFE0957187D677000CA880A /* CoreGraphics.framework */; };
 		1AFE095A187D677000CA880A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AFE0959187D677000CA880A /* UIKit.framework */; };
@@ -105,6 +106,8 @@
 		1AC0D88818AA3AF80072B3F1 /* CSSearchBarHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CSSearchBarHeader.xib; sourceTree = "<group>"; };
 		1AC0D88A18AA3B300072B3F1 /* CSLockedHeaderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSLockedHeaderViewController.h; sourceTree = "<group>"; };
 		1AC0D88B18AA3B300072B3F1 /* CSLockedHeaderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSLockedHeaderViewController.m; sourceTree = "<group>"; };
+		1AC67D151B5AC27F0091AFCD /* MyPulling.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyPulling.h; sourceTree = "<group>"; };
+		1AC67D161B5AC27F0091AFCD /* MyPulling.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyPulling.m; sourceTree = "<group>"; };
 		1AFE0952187D677000CA880A /* CSStickyHeaderFlowLayoutDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CSStickyHeaderFlowLayoutDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1AFE0955187D677000CA880A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1AFE0957187D677000CA880A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -317,6 +320,8 @@
 		1AFE098F187D685200CA880A /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				1AC67D151B5AC27F0091AFCD /* MyPulling.h */,
+				1AC67D161B5AC27F0091AFCD /* MyPulling.m */,
 				1AFE0990187D688300CA880A /* CSCell.h */,
 				1AFE0991187D688300CA880A /* CSCell.m */,
 				1A0BCA1F1A80B25D005D9F7C /* CSSectionHeader.h */,
@@ -563,6 +568,7 @@
 				1A18AE5818F1947B003DC8CF /* CSAlwaysOnTopHeader.m in Sources */,
 				1A0BCA211A80B25D005D9F7C /* CSSectionHeader.m in Sources */,
 				1AFE096C187D677000CA880A /* CSParallaxHeaderViewController.m in Sources */,
+				1AC67D171B5AC27F0091AFCD /* MyPulling.m in Sources */,
 				1AFE0992187D688300CA880A /* CSCell.m in Sources */,
 				1AFE0966187D677000CA880A /* AppDelegate.m in Sources */,
 				1AFE0962187D677000CA880A /* main.m in Sources */,

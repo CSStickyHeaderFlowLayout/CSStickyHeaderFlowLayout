@@ -28,14 +28,33 @@ static const NSInteger kHeaderZIndex = 1024;
 
 - (UICollectionViewLayoutAttributes *)initialLayoutAttributesForAppearingSupplementaryElementOfKind:(NSString *)elementKind
                                                                                         atIndexPath:(NSIndexPath *)elementIndexPath {
+    UICollectionViewLayoutAttributes *attributes = [super initialLayoutAttributesForAppearingSupplementaryElementOfKind:elementKind atIndexPath:elementIndexPath];
 
-    UICollectionViewLayoutAttributes *attributes = [super initialLayoutAttributesForAppearingSupplementaryElementOfKind:elementKind
-                                                                                                        atIndexPath:elementIndexPath];
-    CGRect frame = attributes.frame;
-    frame.origin.y += self.parallaxHeaderReferenceSize.height;
-    attributes.frame = frame;
+    if ([elementKind isEqualToString:CSStickyHeaderParallaxHeader]) {
+        // sticky header do not need to offset
+        return nil;
+    } else {
+        // offset others
+
+        CGRect frame = attributes.frame;
+        frame.origin.y += self.parallaxHeaderReferenceSize.height;
+        attributes.frame = frame;
+    }
 
     return attributes;
+}
+
+- (UICollectionViewLayoutAttributes *)finalLayoutAttributesForDisappearingSupplementaryElementOfKind:(NSString *)elementKind atIndexPath:(NSIndexPath *)elementIndexPath {
+
+    if ([elementKind isEqualToString:CSStickyHeaderParallaxHeader]) {
+        CSStickyHeaderFlowLayoutAttributes *attribute = (CSStickyHeaderFlowLayoutAttributes *)[self layoutAttributesForSupplementaryViewOfKind:elementKind atIndexPath:elementIndexPath];
+
+        [self updateParallaxHeaderAttribute:attribute];
+        return attribute;
+    } else {
+        return [super finalLayoutAttributesForDisappearingSupplementaryElementOfKind:elementKind atIndexPath:elementIndexPath];
+    }
+    return nil;
 }
 
 - (UICollectionViewLayoutAttributes *)layoutAttributesForSupplementaryViewOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
@@ -116,41 +135,7 @@ static const NSInteger kHeaderZIndex = 1024;
     // Create the attributes for the Parallex header
     if (visibleParallexHeader && ! CGSizeEqualToSize(CGSizeZero, self.parallaxHeaderReferenceSize)) {
         CSStickyHeaderFlowLayoutAttributes *currentAttribute = [CSStickyHeaderFlowLayoutAttributes layoutAttributesForSupplementaryViewOfKind:CSStickyHeaderParallaxHeader withIndexPath:[NSIndexPath indexPathWithIndex:0]];
-        CGRect frame = currentAttribute.frame;
-        frame.size.width = self.parallaxHeaderReferenceSize.width;
-        frame.size.height = self.parallaxHeaderReferenceSize.height;
-
-        CGRect bounds = self.collectionView.bounds;
-        CGFloat maxY = CGRectGetMaxY(frame);
-
-        // make sure the frame won't be negative values
-        CGFloat y = MIN(maxY - self.parallaxHeaderMinimumReferenceSize.height, bounds.origin.y + self.collectionView.contentInset.top);
-        CGFloat height = MAX(0, -y + maxY);
-
-
-        CGFloat maxHeight = self.parallaxHeaderReferenceSize.height;
-        CGFloat minHeight = self.parallaxHeaderMinimumReferenceSize.height;
-        CGFloat progressiveness = (height - minHeight)/(maxHeight - minHeight);
-        currentAttribute.progressiveness = progressiveness;
-
-        // if zIndex < 0 would prevents tap from recognized right under navigation bar
-        currentAttribute.zIndex = 0;
-
-        // When parallaxHeaderAlwaysOnTop is enabled, we will check when we should update the y position
-        if (self.parallaxHeaderAlwaysOnTop && height <= self.parallaxHeaderMinimumReferenceSize.height) {
-            CGFloat insetTop = self.collectionView.contentInset.top;
-            // Always stick to top but under the nav bar
-            y = self.collectionView.contentOffset.y + insetTop;
-            currentAttribute.zIndex = 2000;
-        }
-
-        currentAttribute.frame = (CGRect){
-            frame.origin.x,
-            y,
-            frame.size.width,
-            height,
-        };
-
+        [self updateParallaxHeaderAttribute:currentAttribute];
 
         [allItems addObject:currentAttribute];
     }
@@ -243,6 +228,45 @@ static const NSInteger kHeaderZIndex = 1024;
         origin,
         attributes.frame.size
     };
+}
+
+- (void)updateParallaxHeaderAttribute:(CSStickyHeaderFlowLayoutAttributes *)currentAttribute {
+
+    CGRect frame = currentAttribute.frame;
+    frame.size.width = self.parallaxHeaderReferenceSize.width;
+    frame.size.height = self.parallaxHeaderReferenceSize.height;
+
+    CGRect bounds = self.collectionView.bounds;
+    CGFloat maxY = CGRectGetMaxY(frame);
+
+    // make sure the frame won't be negative values
+    CGFloat y = MIN(maxY - self.parallaxHeaderMinimumReferenceSize.height, bounds.origin.y + self.collectionView.contentInset.top);
+    CGFloat height = MAX(0, -y + maxY);
+
+
+    CGFloat maxHeight = self.parallaxHeaderReferenceSize.height;
+    CGFloat minHeight = self.parallaxHeaderMinimumReferenceSize.height;
+    CGFloat progressiveness = (height - minHeight)/(maxHeight - minHeight);
+    currentAttribute.progressiveness = progressiveness;
+
+    // if zIndex < 0 would prevents tap from recognized right under navigation bar
+    currentAttribute.zIndex = 0;
+
+    // When parallaxHeaderAlwaysOnTop is enabled, we will check when we should update the y position
+    if (self.parallaxHeaderAlwaysOnTop && height <= self.parallaxHeaderMinimumReferenceSize.height) {
+        CGFloat insetTop = self.collectionView.contentInset.top;
+        // Always stick to top but under the nav bar
+        y = self.collectionView.contentOffset.y + insetTop;
+        currentAttribute.zIndex = 2000;
+    }
+
+    currentAttribute.frame = (CGRect){
+        frame.origin.x,
+        y,
+        frame.size.width,
+        height,
+    };
+    
 }
 
 @end

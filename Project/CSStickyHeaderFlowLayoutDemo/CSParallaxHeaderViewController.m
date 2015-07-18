@@ -11,6 +11,10 @@
 #import "CSSectionHeader.h"
 #import "CSStickyHeaderFlowLayout.h"
 
+#ifdef DEBUG_PULL_TO_REFRESH
+#import "MyPulling.h"
+#endif
+
 @interface CSParallaxHeaderViewController ()
 
 @property (nonatomic, strong) NSArray *sections;
@@ -45,8 +49,20 @@
     [self.collectionView registerNib:self.headerNib
           forSupplementaryViewOfKind:CSStickyHeaderParallaxHeader
                  withReuseIdentifier:@"header"];
-    
+
+#ifdef DEBUG_PULL_TO_REFRESH
+    self.collectionView.contentInset = UIEdgeInsetsMake(64, 0, 0, 0);
+    self.collectionView.scrollIndicatorInsets = UIEdgeInsetsMake(64, 0, 0, 0);
+    MyPulling *pulling = [[MyPulling alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 54)];
+    [self.collectionView addSubview:pulling];
+#endif
 }
+
+#ifdef DEBUG_PULL_TO_REFRESH
+- (BOOL)automaticallyAdjustsScrollViewInsets {
+    return false;
+}
+#endif
 
 - (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
     [self reloadLayout];
