@@ -28,8 +28,11 @@ class CollectionViewController: UICollectionViewController {
 
         // Setup Header
         self.collectionView?.registerClass(CollectionParallaxHeader.self, forSupplementaryViewOfKind: CSStickyHeaderParallaxHeader, withReuseIdentifier: "parallaxHeader")
-
         self.layout?.parallaxHeaderReferenceSize = CGSizeMake(self.view.frame.size.width, 100)
+
+        // Setup Section Header
+        self.collectionView?.registerClass(CollectionViewSectionHeader.self, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "sectionHeader")
+        self.layout?.headerReferenceSize = CGSizeMake(320, 40)
     }
 
     // Cells
@@ -49,10 +52,12 @@ class CollectionViewController: UICollectionViewController {
 
     override func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
 
-
-
         if kind == CSStickyHeaderParallaxHeader {
             let view = collectionView.dequeueReusableSupplementaryViewOfKind(kind, withReuseIdentifier: "parallaxHeader", forIndexPath: indexPath)
+            return view
+        } else if kind == UICollectionElementKindSectionHeader {
+            let view = collectionView.dequeueReusableSupplementaryViewOfKind(kind, withReuseIdentifier: "sectionHeader", forIndexPath: indexPath)
+            view.backgroundColor = UIColor.lightGrayColor()
             return view
         }
 

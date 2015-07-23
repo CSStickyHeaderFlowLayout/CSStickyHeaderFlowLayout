@@ -10,6 +10,7 @@
 		1A3BEB111B56C602009644C9 /* CSStickyHeaderFlowLayout.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A3BEB101B56C602009644C9 /* CSStickyHeaderFlowLayout.framework */; };
 		1A3BEB171B56C8E2009644C9 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3BEB161B56C8E2009644C9 /* CollectionViewCell.swift */; };
 		1A3BEB191B56CBE9009644C9 /* CollectionParallaxHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3BEB181B56CBE9009644C9 /* CollectionParallaxHeader.swift */; };
+		1A4229DA1B608D74009C66CD /* CollectionViewSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A4229D91B608D74009C66CD /* CollectionViewSectionHeader.swift */; };
 		1A4B2F311B56C513007F67CC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A4B2F301B56C513007F67CC /* AppDelegate.swift */; };
 		1A4B2F331B56C513007F67CC /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A4B2F321B56C513007F67CC /* CollectionViewController.swift */; };
 		1A4B2F381B56C513007F67CC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A4B2F371B56C513007F67CC /* Images.xcassets */; };
@@ -32,6 +33,7 @@
 		1A3BEB131B56C65F009644C9 /* SwiftDemo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SwiftDemo-Bridging-Header.h"; sourceTree = "<group>"; };
 		1A3BEB161B56C8E2009644C9 /* CollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		1A3BEB181B56CBE9009644C9 /* CollectionParallaxHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionParallaxHeader.swift; sourceTree = "<group>"; };
+		1A4229D91B608D74009C66CD /* CollectionViewSectionHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewSectionHeader.swift; sourceTree = "<group>"; };
 		1A4B2F2B1B56C513007F67CC /* SwiftDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A4B2F2F1B56C513007F67CC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1A4B2F301B56C513007F67CC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -88,6 +90,7 @@
 				1A4B2F321B56C513007F67CC /* CollectionViewController.swift */,
 				1A3BEB161B56C8E2009644C9 /* CollectionViewCell.swift */,
 				1A3BEB181B56CBE9009644C9 /* CollectionParallaxHeader.swift */,
+				1A4229D91B608D74009C66CD /* CollectionViewSectionHeader.swift */,
 				1A4B2F371B56C513007F67CC /* Images.xcassets */,
 				1A4B2F391B56C513007F67CC /* LaunchScreen.xib */,
 				1A4B2F2E1B56C513007F67CC /* Supporting Files */,
@@ -221,6 +224,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1A4229DA1B608D74009C66CD /* CollectionViewSectionHeader.swift in Sources */,
 				1A4B2F331B56C513007F67CC /* CollectionViewController.swift in Sources */,
 				1A4B2F311B56C513007F67CC /* AppDelegate.swift in Sources */,
 				1A3BEB171B56C8E2009644C9 /* CollectionViewCell.swift in Sources */,
