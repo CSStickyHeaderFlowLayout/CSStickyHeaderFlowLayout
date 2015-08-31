@@ -1,6 +1,6 @@
 {
   "name": "CSStickyHeaderFlowLayout",
-  "version": "0.2.8",
+  "version": "0.2.9",
   "summary": "Parallax and Sticky header done right using UICollectionViewLayout",
   "description": "                    UICollectionView are flexible and you can use supplementary views to\n                    anything you wanted.\n",
   "homepage": "http://github.com/jamztang/CSStickyHeaderFlowLayout",
@@ -11,7 +11,7 @@
   },
   "source": {
     "git": "https://github.com/jamztang/CSStickyHeaderFlowLayout.git",
-    "tag": "0.2.8"
+    "tag": "0.2.9"
   },
   "platforms": {
     "ios": "7.0"
