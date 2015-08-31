@@ -125,6 +125,8 @@ If you think this worths something, tip me a cup of coffee! (p.s. was trying out
 
 ## Updates
 
+- 0.2.9: Remove Supplementry Header Layout Attribute to prevent crash when returning nil and while is CGSizeZero
+
 - 0.2.8: Fixed a visual issue when animating contentInsets #85 and crash when dragging cells #69
 
 - 0.2.7: Fixed scroll indicator covered by cell
