@@ -72,8 +72,13 @@ static const NSInteger kHeaderZIndex = 1024;
     CGRect adjustedRect = rect;
     adjustedRect.origin.y -= self.parallaxHeaderReferenceSize.height;
 
-    NSMutableArray *allItems = [[super layoutAttributesForElementsInRect:adjustedRect] mutableCopy];
-
+    NSMutableArray *allItems = [NSMutableArray array];
+    NSArray *originalAttributes = [super layoutAttributesForElementsInRect:adjustedRect];
+    //Perform a deep copy of the attributes returned from super
+    for (UICollectionViewLayoutAttributes *originalAttribute in originalAttributes) {
+        [allItems addObject:[originalAttribute copy]];
+    }
+    
     NSMutableDictionary *headers = [[NSMutableDictionary alloc] init];
     NSMutableDictionary *lastCells = [[NSMutableDictionary alloc] init];
     __block BOOL visibleParallexHeader;
