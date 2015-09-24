@@ -173,7 +173,7 @@ static const NSInteger kHeaderZIndex = 1024;
 }
 
 - (UICollectionViewLayoutAttributes *)layoutAttributesForItemAtIndexPath:(NSIndexPath *)indexPath {
-    UICollectionViewLayoutAttributes *attributes = [super layoutAttributesForItemAtIndexPath:indexPath];
+    UICollectionViewLayoutAttributes *attributes = [super layoutAttributesForItemAtIndexPath:indexPath].copy;
     CGRect frame = attributes.frame;
     frame.origin.y += self.parallaxHeaderReferenceSize.height;
     attributes.frame = frame;
