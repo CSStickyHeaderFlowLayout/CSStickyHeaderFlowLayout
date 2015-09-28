@@ -68,108 +68,113 @@ static const NSInteger kHeaderZIndex = 1024;
 
 - (NSArray *)layoutAttributesForElementsInRect:(CGRect)rect
 {
-    // The rect should compensate the header size
-    CGRect adjustedRect = rect;
-    adjustedRect.origin.y -= self.parallaxHeaderReferenceSize.height;
-
-    NSMutableArray *allItems = [NSMutableArray array];
-    NSArray *originalAttributes = [super layoutAttributesForElementsInRect:adjustedRect];
-    //Perform a deep copy of the attributes returned from super
-    for (UICollectionViewLayoutAttributes *originalAttribute in originalAttributes) {
-        [allItems addObject:[originalAttribute copy]];
-    }
     
-    NSMutableDictionary *headers = [[NSMutableDictionary alloc] init];
-    NSMutableDictionary *lastCells = [[NSMutableDictionary alloc] init];
-    __block BOOL visibleParallexHeader;
-
-    [allItems enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-        UICollectionViewLayoutAttributes *attributes = obj;
-
-        CGRect frame = attributes.frame;
-        frame.origin.y += self.parallaxHeaderReferenceSize.height;
-        attributes.frame = frame;
-
-        NSIndexPath *indexPath = [(UICollectionViewLayoutAttributes *)obj indexPath];
-        BOOL isHeader = [[obj representedElementKind] isEqualToString:UICollectionElementKindSectionHeader];
-        BOOL isFooter = [[obj representedElementKind] isEqualToString:UICollectionElementKindSectionFooter];
-
-        if (isHeader) {
-            [headers setObject:obj forKey:@(indexPath.section)];
-        } else if (isFooter) {
-            // Not implemeneted
-        } else {
-            UICollectionViewLayoutAttributes *currentAttribute = [lastCells objectForKey:@(indexPath.section)];
-
-            // Get the bottom most cell of that section
-            if ( ! currentAttribute || indexPath.row > currentAttribute.indexPath.row) {
-                [lastCells setObject:obj forKey:@(indexPath.section)];
-            }
-
-            if ([indexPath item] == 0 && [indexPath section] == 0) {
-                visibleParallexHeader = YES;
-            }
+    if (self.collectionView.dataSource != nil) {
+        // The rect should compensate the header size
+        CGRect adjustedRect = rect;
+        adjustedRect.origin.y -= self.parallaxHeaderReferenceSize.height;
+        
+        NSMutableArray *allItems = [NSMutableArray array];
+        NSArray *originalAttributes = [super layoutAttributesForElementsInRect:adjustedRect];
+        //Perform a deep copy of the attributes returned from super
+        for (UICollectionViewLayoutAttributes *originalAttribute in originalAttributes) {
+            [allItems addObject:[originalAttribute copy]];
         }
-
-        if (isHeader) {
-            attributes.zIndex = kHeaderZIndex;
-        } else {
-            // For iOS 7.0, the cell zIndex should be above sticky section header
-            attributes.zIndex = 1;
-        }
-    }];
-
-    // when the visible rect is at top of the screen, make sure we see
-    // the parallex header
-    if (CGRectGetMinY(rect) <= 0) {
-        visibleParallexHeader = YES;
-    }
-
-    if (self.parallaxHeaderAlwaysOnTop == YES) {
-        visibleParallexHeader = YES;
-    }
-
-
-    // This method may not be explicitly defined, default to 1
-    // https://developer.apple.com/library/ios/documentation/uikit/reference/UICollectionViewDataSource_protocol/Reference/Reference.html#jumpTo_6
-//    NSUInteger numberOfSections = [self.collectionView.dataSource
-//                                   respondsToSelector:@selector(numberOfSectionsInCollectionView:)]
-//                                ? [self.collectionView.dataSource numberOfSectionsInCollectionView:self.collectionView]
-//                                : 1;
-
-    // Create the attributes for the Parallex header
-    if (visibleParallexHeader && ! CGSizeEqualToSize(CGSizeZero, self.parallaxHeaderReferenceSize)) {
-        CSStickyHeaderFlowLayoutAttributes *currentAttribute = [CSStickyHeaderFlowLayoutAttributes layoutAttributesForSupplementaryViewOfKind:CSStickyHeaderParallaxHeader withIndexPath:[NSIndexPath indexPathWithIndex:0]];
-        [self updateParallaxHeaderAttribute:currentAttribute];
-
-        [allItems addObject:currentAttribute];
-    }
-
-    if ( ! self.disableStickyHeaders) {
-        [lastCells enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
-            NSIndexPath *indexPath = [obj indexPath];
-            NSNumber *indexPathKey = @(indexPath.section);
-
-            UICollectionViewLayoutAttributes *header = headers[indexPathKey];
-            // CollectionView automatically removes headers not in bounds
-            if ( ! header) {
-                header = [self layoutAttributesForSupplementaryViewOfKind:UICollectionElementKindSectionHeader
-                                                              atIndexPath:[NSIndexPath indexPathForItem:0 inSection:indexPath.section]];
-
-                if (!CGSizeEqualToSize(CGSizeZero, header.frame.size)) {
-                    [allItems addObject:header];
+        
+        NSMutableDictionary *headers = [[NSMutableDictionary alloc] init];
+        NSMutableDictionary *lastCells = [[NSMutableDictionary alloc] init];
+        __block BOOL visibleParallexHeader;
+        
+        [allItems enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+            UICollectionViewLayoutAttributes *attributes = obj;
+            
+            CGRect frame = attributes.frame;
+            frame.origin.y += self.parallaxHeaderReferenceSize.height;
+            attributes.frame = frame;
+            
+            NSIndexPath *indexPath = [(UICollectionViewLayoutAttributes *)obj indexPath];
+            BOOL isHeader = [[obj representedElementKind] isEqualToString:UICollectionElementKindSectionHeader];
+            BOOL isFooter = [[obj representedElementKind] isEqualToString:UICollectionElementKindSectionFooter];
+            
+            if (isHeader) {
+                [headers setObject:obj forKey:@(indexPath.section)];
+            } else if (isFooter) {
+                // Not implemeneted
+            } else {
+                UICollectionViewLayoutAttributes *currentAttribute = [lastCells objectForKey:@(indexPath.section)];
+                
+                // Get the bottom most cell of that section
+                if ( ! currentAttribute || indexPath.row > currentAttribute.indexPath.row) {
+                    [lastCells setObject:obj forKey:@(indexPath.section)];
+                }
+                
+                if ([indexPath item] == 0 && [indexPath section] == 0) {
+                    visibleParallexHeader = YES;
                 }
             }
-            if (!CGSizeEqualToSize(CGSizeZero, header.frame.size)) {
-                [self updateHeaderAttributes:header lastCellAttributes:lastCells[indexPathKey]];
+            
+            if (isHeader) {
+                attributes.zIndex = kHeaderZIndex;
+            } else {
+                // For iOS 7.0, the cell zIndex should be above sticky section header
+                attributes.zIndex = 1;
             }
         }];
+        
+        // when the visible rect is at top of the screen, make sure we see
+        // the parallex header
+        if (CGRectGetMinY(rect) <= 0) {
+            visibleParallexHeader = YES;
+        }
+        
+        if (self.parallaxHeaderAlwaysOnTop == YES) {
+            visibleParallexHeader = YES;
+        }
+        
+        
+        // This method may not be explicitly defined, default to 1
+        // https://developer.apple.com/library/ios/documentation/uikit/reference/UICollectionViewDataSource_protocol/Reference/Reference.html#jumpTo_6
+        //    NSUInteger numberOfSections = [self.collectionView.dataSource
+        //                                   respondsToSelector:@selector(numberOfSectionsInCollectionView:)]
+        //                                ? [self.collectionView.dataSource numberOfSectionsInCollectionView:self.collectionView]
+        //                                : 1;
+        
+        // Create the attributes for the Parallex header
+        if (visibleParallexHeader && ! CGSizeEqualToSize(CGSizeZero, self.parallaxHeaderReferenceSize)) {
+            CSStickyHeaderFlowLayoutAttributes *currentAttribute = [CSStickyHeaderFlowLayoutAttributes layoutAttributesForSupplementaryViewOfKind:CSStickyHeaderParallaxHeader withIndexPath:[NSIndexPath indexPathWithIndex:0]];
+            [self updateParallaxHeaderAttribute:currentAttribute];
+            
+            [allItems addObject:currentAttribute];
+        }
+        
+        if ( ! self.disableStickyHeaders) {
+            [lastCells enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
+                NSIndexPath *indexPath = [obj indexPath];
+                NSNumber *indexPathKey = @(indexPath.section);
+                
+                UICollectionViewLayoutAttributes *header = headers[indexPathKey];
+                // CollectionView automatically removes headers not in bounds
+                if ( ! header) {
+                    header = [self layoutAttributesForSupplementaryViewOfKind:UICollectionElementKindSectionHeader
+                                                                  atIndexPath:[NSIndexPath indexPathForItem:0 inSection:indexPath.section]];
+                    
+                    if (!CGSizeEqualToSize(CGSizeZero, header.frame.size)) {
+                        [allItems addObject:header];
+                    }
+                }
+                if (!CGSizeEqualToSize(CGSizeZero, header.frame.size)) {
+                    [self updateHeaderAttributes:header lastCellAttributes:lastCells[indexPathKey]];
+                }
+            }];
+        }
+        
+        // For debugging purpose
+        //     [self debugLayoutAttributes:allItems];
+        
+        return allItems;
+    } else {
+        return nil;
     }
-
-    // For debugging purpose
-//     [self debugLayoutAttributes:allItems];
-
-    return allItems;
 }
 
 - (UICollectionViewLayoutAttributes *)layoutAttributesForItemAtIndexPath:(NSIndexPath *)indexPath {
