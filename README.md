@@ -125,6 +125,8 @@ If you think this worths something, tip me a cup of coffee! (p.s. was trying out
 
 ## Updates
 
+- 0.2.10: Fixed issue because attributes were not copied and datasource might have been niled
+
 - 0.2.9: Remove Supplementry Header Layout Attribute to prevent crash when returning nil and while is CGSizeZero
 
 - 0.2.8: Fixed a visual issue when animating contentInsets #85 and crash when dragging cells #69
