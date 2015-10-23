@@ -224,7 +224,7 @@ static const NSInteger kHeaderZIndex = 1024;
     CGPoint origin = attributes.frame.origin;
 
     CGFloat sectionMaxY = CGRectGetMaxY(lastCellAttributes.frame) - attributes.frame.size.height;
-    CGFloat y = CGRectGetMaxY(currentBounds) - currentBounds.size.height + self.collectionView.contentInset.top;
+    CGFloat y = CGRectGetMaxY(currentBounds) - currentBounds.size.height;
 
     if (self.parallaxHeaderAlwaysOnTop) {
         y += self.parallaxHeaderMinimumReferenceSize.height;
