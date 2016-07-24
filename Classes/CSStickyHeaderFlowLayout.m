@@ -276,7 +276,7 @@ static const NSInteger kHeaderZIndex = 1024;
         frame.origin.x,
         y,
         frame.size.width,
-        height,
+        self.disableStretching && height > maxHeight ? maxHeight : height,
     };
     
 }
