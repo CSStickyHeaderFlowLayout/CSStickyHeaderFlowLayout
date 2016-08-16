@@ -40,6 +40,11 @@
 		1AFE097F187D677000CA880A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1AFE097D187D677000CA880A /* InfoPlist.strings */; };
 		1AFE0981187D677000CA880A /* CSStickyHeaderFlowLayoutDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AFE0980187D677000CA880A /* CSStickyHeaderFlowLayoutDemoTests.m */; };
 		1AFE0992187D688300CA880A /* CSCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AFE0991187D688300CA880A /* CSCell.m */; };
+		AF1D0D491D63203300F9FA68 /* CSStickyHeaderFlowLayoutCarthage.h in Headers */ = {isa = PBXBuildFile; fileRef = AF1D0D481D63203300F9FA68 /* CSStickyHeaderFlowLayoutCarthage.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AF1D0D4E1D6320A800F9FA68 /* CSStickyHeaderFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A4B2F761B56C5A6007F67CC /* CSStickyHeaderFlowLayout.m */; };
+		AF1D0D4F1D6320A800F9FA68 /* CSStickyHeaderFlowLayoutAttributes.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A4B2F781B56C5A6007F67CC /* CSStickyHeaderFlowLayoutAttributes.m */; };
+		AF1D0D501D6320B100F9FA68 /* CSStickyHeaderFlowLayout.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A4B2F751B56C5A6007F67CC /* CSStickyHeaderFlowLayout.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AF1D0D511D6320B100F9FA68 /* CSStickyHeaderFlowLayoutAttributes.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A4B2F771B56C5A6007F67CC /* CSStickyHeaderFlowLayoutAttributes.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B36BC395070946668DCF2AFF /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 491370024AF54DD8BFB773DA /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -134,6 +139,9 @@
 		58D371C1C7F562AB1D536637 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		6BDE4094D41E4DE6515DF055 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		AD97E1BDF2B20F6336CBF8D7 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		AF1D0D461D63203300F9FA68 /* CSStickyHeaderFlowLayout.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CSStickyHeaderFlowLayout.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AF1D0D481D63203300F9FA68 /* CSStickyHeaderFlowLayoutCarthage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CSStickyHeaderFlowLayoutCarthage.h; sourceTree = "<group>"; };
+		AF1D0D4A1D63203300F9FA68 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -171,6 +179,13 @@
 				1AFE0975187D677000CA880A /* XCTest.framework in Frameworks */,
 				1AFE0977187D677000CA880A /* UIKit.framework in Frameworks */,
 				1AFE0976187D677000CA880A /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AF1D0D421D63203300F9FA68 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -231,6 +246,7 @@
 				1AFE097A187D677000CA880A /* CSStickyHeaderFlowLayoutDemoTests */,
 				1A4B2F561B56C539007F67CC /* CSStickyHeaderFlowLayout */,
 				1A4B2F651B56C539007F67CC /* CSStickyHeaderFlowLayoutTests */,
+				AF1D0D471D63203300F9FA68 /* CSStickyHeaderFlowLayoutCarthage */,
 				1AFE0954187D677000CA880A /* Frameworks */,
 				1AFE0953187D677000CA880A /* Products */,
 				9DDE38A70ED787DEBF9A6411 /* Pods */,
@@ -244,6 +260,7 @@
 				1AFE0973187D677000CA880A /* CSStickyHeaderFlowLayoutDemoTests.xctest */,
 				1A4B2F551B56C539007F67CC /* CSStickyHeaderFlowLayout.framework */,
 				1A4B2F5F1B56C539007F67CC /* CSStickyHeaderFlowLayoutTests.xctest */,
+				AF1D0D461D63203300F9FA68 /* CSStickyHeaderFlowLayout.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -349,6 +366,15 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		AF1D0D471D63203300F9FA68 /* CSStickyHeaderFlowLayoutCarthage */ = {
+			isa = PBXGroup;
+			children = (
+				AF1D0D481D63203300F9FA68 /* CSStickyHeaderFlowLayoutCarthage.h */,
+				AF1D0D4A1D63203300F9FA68 /* Info.plist */,
+			);
+			path = CSStickyHeaderFlowLayoutCarthage;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -358,6 +384,16 @@
 			files = (
 				1A4B2F791B56C5A6007F67CC /* CSStickyHeaderFlowLayout.h in Headers */,
 				1A4B2F7B1B56C5A6007F67CC /* CSStickyHeaderFlowLayoutAttributes.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AF1D0D431D63203300F9FA68 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AF1D0D501D6320B100F9FA68 /* CSStickyHeaderFlowLayout.h in Headers */,
+				AF1D0D511D6320B100F9FA68 /* CSStickyHeaderFlowLayoutAttributes.h in Headers */,
+				AF1D0D491D63203300F9FA68 /* CSStickyHeaderFlowLayoutCarthage.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -439,6 +475,24 @@
 			productReference = 1AFE0973187D677000CA880A /* CSStickyHeaderFlowLayoutDemoTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		AF1D0D451D63203300F9FA68 /* CSStickyHeaderFlowLayoutCarthage */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AF1D0D4D1D63203300F9FA68 /* Build configuration list for PBXNativeTarget "CSStickyHeaderFlowLayoutCarthage" */;
+			buildPhases = (
+				AF1D0D411D63203300F9FA68 /* Sources */,
+				AF1D0D421D63203300F9FA68 /* Frameworks */,
+				AF1D0D431D63203300F9FA68 /* Headers */,
+				AF1D0D441D63203300F9FA68 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CSStickyHeaderFlowLayoutCarthage;
+			productName = CSStickyHeaderFlowLayoutCarthage;
+			productReference = AF1D0D461D63203300F9FA68 /* CSStickyHeaderFlowLayout.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -459,6 +513,9 @@
 					1AFE0972187D677000CA880A = {
 						TestTargetID = 1AFE0951187D677000CA880A;
 					};
+					AF1D0D451D63203300F9FA68 = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
 				};
 			};
 			buildConfigurationList = 1AFE094D187D677000CA880A /* Build configuration list for PBXProject "CSStickyHeaderFlowLayoutDemo" */;
@@ -478,6 +535,7 @@
 				1AFE0972187D677000CA880A /* CSStickyHeaderFlowLayoutDemoTests */,
 				1A4B2F541B56C539007F67CC /* CSStickyHeaderFlowLayout */,
 				1A4B2F5E1B56C539007F67CC /* CSStickyHeaderFlowLayoutTests */,
+				AF1D0D451D63203300F9FA68 /* CSStickyHeaderFlowLayoutCarthage */,
 			);
 		};
 /* End PBXProject section */
@@ -517,6 +575,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				1AFE097F187D677000CA880A /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AF1D0D441D63203300F9FA68 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -595,6 +660,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				1AFE0981187D677000CA880A /* CSStickyHeaderFlowLayoutDemoTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AF1D0D411D63203300F9FA68 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AF1D0D4F1D6320A800F9FA68 /* CSStickyHeaderFlowLayoutAttributes.m in Sources */,
+				AF1D0D4E1D6320A800F9FA68 /* CSStickyHeaderFlowLayout.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -900,6 +974,64 @@
 			};
 			name = Release;
 		};
+		AF1D0D4B1D63203300F9FA68 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				INFOPLIST_FILE = CSStickyHeaderFlowLayoutCarthage/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jamztang.CSStickyHeaderFlowLayoutFramework.CSStickyHeaderFlowLayoutCarthage;
+				PRODUCT_NAME = CSStickyHeaderFlowLayout;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		AF1D0D4C1D63203300F9FA68 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				INFOPLIST_FILE = CSStickyHeaderFlowLayoutCarthage/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jamztang.CSStickyHeaderFlowLayoutFramework.CSStickyHeaderFlowLayoutCarthage;
+				PRODUCT_NAME = CSStickyHeaderFlowLayout;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -947,6 +1079,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		AF1D0D4D1D63203300F9FA68 /* Build configuration list for PBXNativeTarget "CSStickyHeaderFlowLayoutCarthage" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AF1D0D4B1D63203300F9FA68 /* Debug */,
+				AF1D0D4C1D63203300F9FA68 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};
