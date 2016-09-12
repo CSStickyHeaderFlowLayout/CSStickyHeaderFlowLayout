@@ -27,5 +27,6 @@ extern NSString *const CSStickyHeaderParallaxHeader;
 @property (nonatomic) CGSize parallaxHeaderMinimumReferenceSize;
 @property (nonatomic) BOOL parallaxHeaderAlwaysOnTop;
 @property (nonatomic) BOOL disableStickyHeaders;
+@property (nonatomic) BOOL disableStretching;
 
 @end
