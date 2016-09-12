@@ -1,5 +1,9 @@
 # CSStickyHeaderFlowLayout
 
+## Contributors
+
+For anyone who'd like to contribute to the repository, ping me via [email](j@jamztang.com) to me contributors.
+
 <!--![](http://cl.ly/image/1D2i0746180b/1*pev9ZXJAZ2MYoF8-R_nbRA.gif)-->
 
 <img src="http://f.cl.ly/items/05130s2r0X1j1x1N0Q3n/spotify-48-16-half.gif" width="276"/>
