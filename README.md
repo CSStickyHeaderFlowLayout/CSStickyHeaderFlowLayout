@@ -2,7 +2,7 @@
 
 ## Contributors
 
-For anyone who'd like to contribute to the repository, ping me via [email](j@jamztang.com) to me contributors.
+For anyone who'd like to be a contributor to the repository, please ping me via [email](j@jamztang.com).
 
 ---
 
