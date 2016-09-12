@@ -27,5 +27,8 @@ extern NSString *const CSStickyHeaderParallaxHeader;
 @property (nonatomic) CGSize parallaxHeaderMinimumReferenceSize;
 @property (nonatomic) BOOL parallaxHeaderAlwaysOnTop;
 @property (nonatomic) BOOL disableStickyHeaders;
+- (NSArray *)customLayoutAttributesForElementsInRect:(CGRect)rect;
+- (UICollectionViewLayoutAttributes *)customLayoutAttributesForItemAtIndexPath:(NSIndexPath *)indexPath;
+- (CGSize)customCollectionViewContentSize;
 
 @end

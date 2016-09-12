@@ -66,16 +66,19 @@ static const NSInteger kHeaderZIndex = 1024;
     return attributes;
 }
 
+- (NSArray *)customLayoutAttributesForElementsInRect:(CGRect)rect {
+    return [super layoutAttributesForElementsInRect:rect];
+}
+
 - (NSArray *)layoutAttributesForElementsInRect:(CGRect)rect
 {
-    
     if (self.collectionView.dataSource != nil) {
         // The rect should compensate the header size
         CGRect adjustedRect = rect;
         adjustedRect.origin.y -= self.parallaxHeaderReferenceSize.height;
         
         NSMutableArray *allItems = [NSMutableArray array];
-        NSArray *originalAttributes = [super layoutAttributesForElementsInRect:adjustedRect];
+        NSArray *originalAttributes = [self customLayoutAttributesForElementsInRect:adjustedRect];
         //Perform a deep copy of the attributes returned from super
         for (UICollectionViewLayoutAttributes *originalAttribute in originalAttributes) {
             [allItems addObject:[originalAttribute copy]];
@@ -177,12 +180,20 @@ static const NSInteger kHeaderZIndex = 1024;
     }
 }
 
+- (UICollectionViewLayoutAttributes *)customLayoutAttributesForItemAtIndexPath:(NSIndexPath *)indexPath {
+    return [super layoutAttributesForItemAtIndexPath:indexPath];
+}
+
 - (UICollectionViewLayoutAttributes *)layoutAttributesForItemAtIndexPath:(NSIndexPath *)indexPath {
-    UICollectionViewLayoutAttributes *attributes = [super layoutAttributesForItemAtIndexPath:indexPath].copy;
+    UICollectionViewLayoutAttributes *attributes = [self customLayoutAttributesForItemAtIndexPath:indexPath].copy;
     CGRect frame = attributes.frame;
     frame.origin.y += self.parallaxHeaderReferenceSize.height;
     attributes.frame = frame;
     return attributes;
+}
+
+- (CGSize)customCollectionViewContentSize {
+    return [super collectionViewContentSize];
 }
 
 - (CGSize)collectionViewContentSize {
@@ -191,7 +202,7 @@ static const NSInteger kHeaderZIndex = 1024;
     if (!self.collectionView.superview) {
         return CGSizeZero;
     }
-    CGSize size = [super collectionViewContentSize];
+    CGSize size = [self customCollectionViewContentSize];
     size.height += self.parallaxHeaderReferenceSize.height;
     return size;
 }
