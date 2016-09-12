@@ -14,14 +14,19 @@ UICollectionViewLayout.
 [![Version](http://cocoapod-badges.herokuapp.com/v/CSStickyHeaderFlowLayout/badge.png)](http://cocoadocs.org/docsets/CSStickyHeaderFlowLayout)
 [![Platform](http://cocoapod-badges.herokuapp.com/p/CSStickyHeaderFlowLayout/badge.png)](http://cocoadocs.org/docsets/CSStickyHeaderFlowLayout)
 
+### Cocoapods
 
 CSStickyHeaderFlowLayout is available through [CocoaPods](http://cocoapods.org), to install
 it simply add the following line to your Podfile:
 
     pod "CSStickyHeaderFlowLayout"
 
-Alternatively, you can just drag the files from `CSStickyHeaderFlowLayout / Classes` into your own project.
+### Carthage
 
+CSStickyHeaderFlowLayout is also available with Carthage.
+Add `github "CSStickyHeaderFlowLayout/CSStickyHeaderFlowLayout"` to your Cartfile
+
+Alternatively, you can just drag the files from `CSStickyHeaderFlowLayout / Classes` into your own project.
 
 ## Usage (Swift/Code)
 
@@ -124,6 +129,7 @@ If you think this worths something, tip me a cup of coffee! (p.s. was trying out
 
 
 ## Updates
+- 0.2.11: Add support for carthage.
 
 - 0.2.10: Fixed issue because attributes were not copied and datasource might have been niled
 
