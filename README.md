@@ -2,7 +2,7 @@
 
 ## Contributors
 
-For anyone who'd like to be a contributor to the repository, please ping me via [email](j@jamztang.com).
+For anyone who'd like to be a contributor to the repository, please read the [Contribution Guideline](https://github.com/CSStickyHeaderFlowLayout/CSStickyHeaderFlowLayout/wiki/Contribution-Guidelines)
 
 ---
 
