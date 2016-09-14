@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "AF1D0D451D63203300F9FA68"
-               BuildableName = "CSStickyHeaderFlowLayoutCarthage.framework"
+               BuildableName = "CSStickyHeaderFlowLayout.framework"
                BlueprintName = "CSStickyHeaderFlowLayoutCarthage"
                ReferencedContainer = "container:CSStickyHeaderFlowLayoutDemo.xcodeproj">
             </BuildableReference>
@@ -46,7 +46,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "AF1D0D451D63203300F9FA68"
-            BuildableName = "CSStickyHeaderFlowLayoutCarthage.framework"
+            BuildableName = "CSStickyHeaderFlowLayout.framework"
             BlueprintName = "CSStickyHeaderFlowLayoutCarthage"
             ReferencedContainer = "container:CSStickyHeaderFlowLayoutDemo.xcodeproj">
          </BuildableReference>
@@ -64,7 +64,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "AF1D0D451D63203300F9FA68"
-            BuildableName = "CSStickyHeaderFlowLayoutCarthage.framework"
+            BuildableName = "CSStickyHeaderFlowLayout.framework"
             BlueprintName = "CSStickyHeaderFlowLayoutCarthage"
             ReferencedContainer = "container:CSStickyHeaderFlowLayoutDemo.xcodeproj">
          </BuildableReference>
