@@ -17,69 +17,72 @@ public let CSStickyHeaderParallaxHeader = "CSStickyHeaderParallaxHeader"
   }
 }
 
-public class CSStickyHeaderFlowLayout: UICollectionViewFlowLayout {
+open class CSStickyHeaderFlowLayout: UICollectionViewFlowLayout {
 
-  public var parallaxHeaderReferenceSize = CGSize.zero {
+  open override func invalidateLayout() {
+    if #available(iOS 10, *) {
+      self.collectionView?.isPrefetchingEnabled = false
+    }
+
+    super.invalidateLayout()
+  }
+
+  open var parallaxHeaderReferenceSize = CGSize.zero {
     didSet {
       invalidateLayout()
     }
   }
-  public var parallaxHeaderMinimumReferenceSize = CGSize.zero
-  public var parallaxHeaderAlwaysOnTop = true
-  public var disableStickyHeaders = false
-  public var disableStretching = false
+  open var parallaxHeaderMinimumReferenceSize = CGSize.zero
+  open var parallaxHeaderAlwaysOnTop = false
+  open var disableStickyHeaders = false
+  open var disableStretching = false
 
-  public override class func layoutAttributesClass() -> AnyClass {
+  open override class var layoutAttributesClass : AnyClass {
     return CSStickyHeaderFlowLayoutAttributes.self
   }
 
-  public override func initialLayoutAttributesForAppearingSupplementaryElementOfKind(elementKind: String, atIndexPath elementIndexPath: NSIndexPath) -> UICollectionViewLayoutAttributes? {
+  open override func initialLayoutAttributesForAppearingSupplementaryElement(ofKind elementKind: String, at elementIndexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
 
-    let attributes = super.initialLayoutAttributesForAppearingSupplementaryElementOfKind(elementKind, atIndexPath: elementIndexPath)
+    let attributes = super.initialLayoutAttributesForAppearingSupplementaryElement(ofKind: elementKind, at: elementIndexPath)
 
-    guard elementKind == CSStickyHeaderParallaxHeader, let frame = attributes?.frame else {
+    if elementKind == CSStickyHeaderParallaxHeader {
       return nil
     }
 
-    let origin = CGPoint(
-      x: frame.origin.x,
-      y: frame.origin.y + parallaxHeaderReferenceSize.height)
-
-    attributes?.frame = CGRect(origin: origin, size: frame.size)
+    var frame = attributes?.frame ?? .zero
+    frame.origin.y += parallaxHeaderReferenceSize.height
+    attributes?.frame = frame
 
     return attributes
   }
 
-  public override func finalLayoutAttributesForDisappearingSupplementaryElementOfKind(elementKind: String, atIndexPath elementIndexPath: NSIndexPath) -> UICollectionViewLayoutAttributes? {
+  open override func finalLayoutAttributesForDisappearingSupplementaryElement(ofKind elementKind: String, at elementIndexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
 
-
-    guard elementKind == CSStickyHeaderParallaxHeader,
-          let attributes = self.layoutAttributesForSupplementaryViewOfKind(
-            elementKind, atIndexPath: elementIndexPath) as? CSStickyHeaderFlowLayoutAttributes
-          else {
-            return super.finalLayoutAttributesForDisappearingSupplementaryElementOfKind(elementKind, atIndexPath: elementIndexPath)
+    if elementKind == CSStickyHeaderParallaxHeader {
+      if let attributes = layoutAttributesForSupplementaryView(ofKind: elementKind, at: elementIndexPath) as? CSStickyHeaderFlowLayoutAttributes {
+        updateParallaxHeaderAttributes(attributes)
+        return attributes
+      }
     }
 
-    updateParallaxHeaderAttributes(attributes)
+    return super.finalLayoutAttributesForDisappearingSupplementaryElement(ofKind: elementKind, at: elementIndexPath)
+  }
+
+  open override func layoutAttributesForSupplementaryView(ofKind elementKind: String, at indexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
+
+    var attributes =
+      super.layoutAttributesForSupplementaryView(ofKind: elementKind,
+                                                       at: indexPath)
+
+    if ((attributes == nil) && elementKind == CSStickyHeaderParallaxHeader) {
+      attributes = CSStickyHeaderFlowLayoutAttributes(forSupplementaryViewOfKind: CSStickyHeaderParallaxHeader, with: indexPath)
+    }
 
     return attributes
-  }
-
-  public override func layoutAttributesForSupplementaryViewOfKind(elementKind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionViewLayoutAttributes? {
-
-    let attributes =
-      super.layoutAttributesForSupplementaryViewOfKind(elementKind,
-                                                       atIndexPath: indexPath)
-
-    guard elementKind == CSStickyHeaderParallaxHeader &&
-          attributes != nil else { return attributes }
-
-    return CSStickyHeaderFlowLayoutAttributes(forSupplementaryViewOfKind: elementKind,
-                                              withIndexPath: indexPath)
 
   }
 
-  public override func layoutAttributesForElementsInRect(rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
+  open override func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
 
     if collectionView?.dataSource == nil {
       print("collection view has no datasource")
@@ -94,7 +97,7 @@ public class CSStickyHeaderFlowLayout: UICollectionViewFlowLayout {
       origin: adjustedOrigin,
       size: rect.size)
 
-    guard let originalAttributes = super.layoutAttributesForElementsInRect(adjustedRect) else {
+    guard let originalAttributes = super.layoutAttributesForElements(in: adjustedRect) else {
       return nil
     }
 
@@ -125,7 +128,7 @@ public class CSStickyHeaderFlowLayout: UICollectionViewFlowLayout {
         attributes.representedElementKind == UICollectionElementKindSectionFooter
 
       if isHeader {
-        headers[indexPath.section] = attributes
+        headers[(indexPath as NSIndexPath).section] = attributes
         attributes.zIndex = 1024
       }
       else if isFooter {
@@ -134,24 +137,24 @@ public class CSStickyHeaderFlowLayout: UICollectionViewFlowLayout {
       }
       else {
         attributes.zIndex = 1
-        if let currentAttribute = lastCells[indexPath.section] where indexPath.row > currentAttribute.indexPath.row {
-          lastCells[indexPath.section] = attributes
+        if let currentAttribute = lastCells[(indexPath as NSIndexPath).section] , (indexPath as NSIndexPath).row > (currentAttribute.indexPath as NSIndexPath).row {
+          lastCells[(indexPath as NSIndexPath).section] = attributes
         } else {
-          lastCells[indexPath.section] = attributes
+          lastCells[(indexPath as NSIndexPath).section] = attributes
         }
 
-        if indexPath.item == 0 && indexPath.section == 0 {
+        if (indexPath as NSIndexPath).item == 0 && (indexPath as NSIndexPath).section == 0 {
           visibleParallaxHeader = true
         }
       }
     }
 
-    if CGRectGetMinY(rect) <= 0 || parallaxHeaderAlwaysOnTop {
+    if rect.minY <= 0 || parallaxHeaderAlwaysOnTop {
       visibleParallaxHeader = true
     }
 
-    if visibleParallaxHeader && CGSizeEqualToSize(.zero, self.parallaxHeaderReferenceSize) {
-      let currentAttributes = CSStickyHeaderFlowLayoutAttributes(forSupplementaryViewOfKind: CSStickyHeaderParallaxHeader, withIndexPath: NSIndexPath(index: 0))
+    if visibleParallaxHeader && !CGSize.zero.equalTo(self.parallaxHeaderReferenceSize) {
+      let currentAttributes = CSStickyHeaderFlowLayoutAttributes(forSupplementaryViewOfKind: CSStickyHeaderParallaxHeader, with: IndexPath(index: 0))
 
       updateParallaxHeaderAttributes(currentAttributes)
       allItems.append(currentAttributes)
@@ -160,16 +163,20 @@ public class CSStickyHeaderFlowLayout: UICollectionViewFlowLayout {
     if self.disableStickyHeaders == false {
       lastCells.forEach({ (key, val) in
         let indexPath = val.indexPath
-        let indexPathKey = indexPath.section
-        if let header = headers[indexPathKey] {
-          if !CGSizeEqualToSize(.zero, header.frame.size) {
-            self.updateHeaderAttributes(header, lastCellAttributes: lastCells[indexPathKey])
-          }
-        } else {
-          if let header = self.layoutAttributesForSupplementaryViewOfKind(UICollectionElementKindSectionHeader, atIndexPath: NSIndexPath(forItem: 0, inSection: indexPath.section)) {
-            if !CGSizeEqualToSize(.zero, header.frame.size) {
+        let indexPathKey = (indexPath as NSIndexPath).section
+
+        var header = headers[indexPathKey]
+        if header == nil {
+          if let header = self.layoutAttributesForSupplementaryView(ofKind: UICollectionElementKindSectionHeader, at: indexPath) {
+            if !CGSize.zero.equalTo(header.frame.size) {
               allItems.append(header)
             }
+          }
+        }
+        if let header = header {
+
+          if !CGSize.zero.equalTo(header.frame.size) {
+            updateHeaderAttributes(header, lastCellAttributes: lastCells[indexPathKey])
           }
         }
       })
@@ -178,8 +185,8 @@ public class CSStickyHeaderFlowLayout: UICollectionViewFlowLayout {
     return allItems
   }
 
-  public override func layoutAttributesForItemAtIndexPath(indexPath: NSIndexPath) -> UICollectionViewLayoutAttributes? {
-    guard let attributes = super.layoutAttributesForItemAtIndexPath(indexPath)?.copy() as? UICollectionViewLayoutAttributes else {
+  open override func layoutAttributesForItem(at indexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
+    guard let attributes = super.layoutAttributesForItem(at: indexPath)?.copy() as? UICollectionViewLayoutAttributes else {
       print("not attributes")
       return nil
     }
@@ -192,21 +199,21 @@ public class CSStickyHeaderFlowLayout: UICollectionViewFlowLayout {
     return attributes
   }
 
-  public override func collectionViewContentSize() -> CGSize {
+  open override var collectionViewContentSize : CGSize {
     guard self.collectionView?.superview != nil else {
       print("no size")
       return .zero
     }
 
-    let size = super.collectionViewContentSize()
+    let size = super.collectionViewContentSize
     return CGSize(width: size.width, height: size.height + self.parallaxHeaderReferenceSize.height)
   }
 
-  public override func shouldInvalidateLayoutForBoundsChange(newBounds: CGRect) -> Bool {
+  open override func shouldInvalidateLayout(forBoundsChange newBounds: CGRect) -> Bool {
     return true
   }
 
-  private func updateHeaderAttributes(attributes: UICollectionViewLayoutAttributes, lastCellAttributes: UICollectionViewLayoutAttributes?) {
+  fileprivate func updateHeaderAttributes(_ attributes: UICollectionViewLayoutAttributes, lastCellAttributes: UICollectionViewLayoutAttributes?) {
 
     guard let lastCellAttributes = lastCellAttributes, let collectionView = self.collectionView else {
       print ("no last cell")
@@ -215,11 +222,11 @@ public class CSStickyHeaderFlowLayout: UICollectionViewFlowLayout {
 
     let currentBounds = collectionView.bounds
     attributes.zIndex = 1024
-    attributes.hidden = false
+    attributes.isHidden = false
 
     var origin = attributes.frame.origin
-    let sectionMaxY = CGRectGetMaxY(lastCellAttributes.frame) - attributes.frame.size.height
-    var y = CGRectGetMaxY(currentBounds) - currentBounds.size.height - collectionView.contentInset.top
+    let sectionMaxY = lastCellAttributes.frame.maxY - attributes.frame.size.height
+    var y = currentBounds.maxY - currentBounds.size.height + collectionView.contentInset.top
 
     if self.parallaxHeaderAlwaysOnTop {
       y += parallaxHeaderMinimumReferenceSize.height
@@ -232,7 +239,7 @@ public class CSStickyHeaderFlowLayout: UICollectionViewFlowLayout {
     attributes.frame = CGRect(origin: origin, size: attributes.frame.size)
   }
 
-  private func updateParallaxHeaderAttributes(attributes: CSStickyHeaderFlowLayoutAttributes) {
+  fileprivate func updateParallaxHeaderAttributes(_ attributes: CSStickyHeaderFlowLayoutAttributes) {
 
     guard let collectionView = self.collectionView else {
       return
@@ -241,7 +248,7 @@ public class CSStickyHeaderFlowLayout: UICollectionViewFlowLayout {
     var frame = attributes.frame
     frame.size = parallaxHeaderReferenceSize
     let bounds = collectionView.bounds
-    let maxY = CGRectGetMaxY(frame)
+    let maxY = frame.maxY
 
     var y = min(maxY - self.parallaxHeaderMinimumReferenceSize.height, bounds.origin.y + collectionView.contentInset.top)
 
@@ -263,7 +270,7 @@ public class CSStickyHeaderFlowLayout: UICollectionViewFlowLayout {
       x: frame.origin.x,
       y: y,
       width: frame.size.width,
-      height: self.disableStickyHeaders && height > maxHeight ? maxHeight : height)
+      height: self.disableStretching && height > maxHeight ? maxHeight : height)
   }
 
 }

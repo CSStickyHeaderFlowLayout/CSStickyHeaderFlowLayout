@@ -8,12 +8,12 @@
 
 import UIKit
 
-public class CSStickyHeaderFlowLayoutAttributes: UICollectionViewLayoutAttributes {
+open class CSStickyHeaderFlowLayoutAttributes: UICollectionViewLayoutAttributes {
 
-  public var progressiveness = CGFloat(0)
+  open var progressiveness = CGFloat(0)
 
-  public override func copyWithZone(zone: NSZone) -> AnyObject {
-    let copy = super.copyWithZone(zone)
+  open override func copy(with zone: NSZone?) -> Any {
+    let copy = super.copy(with: zone)
     guard let typedCopy = copy as? CSStickyHeaderFlowLayoutAttributes else {
       return copy
     }
@@ -22,7 +22,7 @@ public class CSStickyHeaderFlowLayoutAttributes: UICollectionViewLayoutAttribute
     return typedCopy
   }
 
-  public override var zIndex: Int {
+  open override var zIndex: Int {
     didSet {
       self.transform3D = CATransform3DMakeTranslation(0, 0, zIndex == 1 ? -1 : 0)
     }
