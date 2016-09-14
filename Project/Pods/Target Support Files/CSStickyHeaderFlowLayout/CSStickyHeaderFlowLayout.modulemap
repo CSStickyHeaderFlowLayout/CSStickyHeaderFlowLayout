@@ -1,0 +1,6 @@
+framework module CSStickyHeaderFlowLayout {
+  umbrella header "CSStickyHeaderFlowLayout-umbrella.h"
+
+  export *
+  module * { export * }
+}

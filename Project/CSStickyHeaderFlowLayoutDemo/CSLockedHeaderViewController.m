@@ -9,7 +9,7 @@
 #import "CSLockedHeaderViewController.h"
 #import "CSCell.h"
 #import "CSSectionHeader.h"
-#import "CSStickyHeaderFlowLayout.h"
+#import <CSStickyHeaderFlowLayout/CSStickyHeaderFlowLayout-Swift.h>
 
 @interface CSLockedHeaderViewController ()
 
@@ -40,7 +40,7 @@
     self.collectionView.scrollIndicatorInsets = UIEdgeInsetsMake(44, 0, 0, 0);
     
     [self.collectionView registerNib:self.headerNib
-          forSupplementaryViewOfKind:CSStickyHeaderParallaxHeader
+          forSupplementaryViewOfKind:[CSElementKind stickyHeaderParallaxHeader]
                  withReuseIdentifier:@"header"];
     
     UIBarButtonItem *add = [[UIBarButtonItem alloc] initWithTitle:@"Add" style:UIBarButtonItemStylePlain target:self action:@selector(add:)];
@@ -157,7 +157,7 @@
         cell.textLabel.text = [[obj allKeys] firstObject];
         
         return cell;
-    } else if ([kind isEqualToString:CSStickyHeaderParallaxHeader]) {
+    } else if ([kind isEqualToString:[CSElementKind stickyHeaderParallaxHeader]]) {
         UICollectionReusableView *cell = [collectionView dequeueReusableSupplementaryViewOfKind:kind
                                                                             withReuseIdentifier:@"header"
                                                                                    forIndexPath:indexPath];

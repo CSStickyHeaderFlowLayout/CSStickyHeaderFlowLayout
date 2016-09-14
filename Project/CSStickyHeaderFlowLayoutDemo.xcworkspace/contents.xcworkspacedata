@@ -2,9 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:SwiftDemo/SwiftDemo.xcodeproj">
-   </FileRef>
-   <FileRef
       location = "group:CSStickyHeaderFlowLayoutDemo.xcodeproj">
    </FileRef>
    <FileRef

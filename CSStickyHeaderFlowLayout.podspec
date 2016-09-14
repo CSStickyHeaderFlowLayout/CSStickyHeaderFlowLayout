@@ -11,10 +11,10 @@ Pod::Spec.new do |s|
   s.license      = 'MIT'
   s.author       = { "James Tang" => "j@jamztang.com" }
   s.source       = { :git => "https://github.com/jamztang/CSStickyHeaderFlowLayout.git", :tag => s.version.to_s }
-  s.platform     = :ios, '7.0'
-  s.ios.deployment_target = '7.0'
+  s.platform     = :ios, '9.0'
+  s.ios.deployment_target = '9.0'
   s.requires_arc = true
-  s.source_files = 'Classes'
+  s.source_files = 'Classes/**/*.{swift}'
   s.ios.exclude_files = 'Classes/osx'
   s.osx.exclude_files = 'Classes/ios'
 end

@@ -9,7 +9,7 @@
 #import "CSStickyParallaxHeaderViewController.h"
 #import "CSCell.h"
 #import "CSSectionHeader.h"
-#import "CSStickyHeaderFlowLayout.h"
+@import CSStickyHeaderFlowLayout;
 
 @interface CSStickyParallaxHeaderViewController ()
 
@@ -62,9 +62,8 @@
 
     // Also insets the scroll indicator so it appears below the search bar
     self.collectionView.scrollIndicatorInsets = UIEdgeInsetsMake(0, 0, 0, 0);
-
     [self.collectionView registerNib:self.headerNib
-          forSupplementaryViewOfKind:CSStickyHeaderParallaxHeader
+          forSupplementaryViewOfKind:[CSElementKind stickyHeaderParallaxHeader]
                  withReuseIdentifier:@"header"];
 
 }
@@ -76,7 +75,7 @@
 - (void)reloadLayout {
 
     CSStickyHeaderFlowLayout *layout = (id)self.collectionViewLayout;
-
+    
     if ([layout isKindOfClass:[CSStickyHeaderFlowLayout class]]) {
         layout.parallaxHeaderReferenceSize = CGSizeMake(self.view.frame.size.width, 426);
         layout.parallaxHeaderMinimumReferenceSize = CGSizeMake(self.view.frame.size.width, 110);
@@ -120,7 +119,7 @@
 
         return cell;
 
-    } else if ([kind isEqualToString:CSStickyHeaderParallaxHeader]) {
+    } else if ([kind isEqualToString:[CSElementKind stickyHeaderParallaxHeader]]) {
         UICollectionReusableView *cell = [collectionView dequeueReusableSupplementaryViewOfKind:kind
                                                                             withReuseIdentifier:@"header"
                                                                                    forIndexPath:indexPath];

@@ -9,7 +9,8 @@
 #import "CSGrowHeaderViewController.h"
 #import "CSCell.h"
 #import "CSSectionHeader.h"
-#import "CSStickyHeaderFlowLayout.h"
+
+@import CSStickyHeaderFlowLayout;
 
 @interface CSGrowHeaderViewController ()
 
@@ -47,9 +48,9 @@
     self.collectionView.scrollIndicatorInsets = UIEdgeInsetsMake(44, 0, 0, 0);
     
     [self.collectionView registerNib:self.headerNib
-          forSupplementaryViewOfKind:CSStickyHeaderParallaxHeader
+          forSupplementaryViewOfKind:[CSElementKind stickyHeaderParallaxHeader]
                  withReuseIdentifier:@"header"];
-    
+
 }
 
 - (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
@@ -101,7 +102,7 @@
         cell.textLabel.text = [[obj allKeys] firstObject];
         
         return cell;
-    } else if ([kind isEqualToString:CSStickyHeaderParallaxHeader]) {
+    } else if ([kind isEqualToString:[CSElementKind stickyHeaderParallaxHeader]]) {
         UICollectionReusableView *cell = [collectionView dequeueReusableSupplementaryViewOfKind:kind
                                                                             withReuseIdentifier:@"header"
                                                                                    forIndexPath:indexPath];

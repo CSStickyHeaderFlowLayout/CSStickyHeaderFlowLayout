@@ -7,7 +7,7 @@
 //
 
 #import "CSAlwaysOnTopHeader.h"
-#import "CSStickyHeaderFlowLayoutAttributes.h"
+@import CSStickyHeaderFlowLayout;
 
 @implementation CSAlwaysOnTopHeader
 

@@ -1,5 +1,0 @@
-#include "CSStickyHeaderFlowLayout.xcconfig"
-GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
-HEADER_SEARCH_PATHS = "${PODS_ROOT}/Headers/Private" "${PODS_ROOT}/Headers/Private/CSStickyHeaderFlowLayout" "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/CSStickyHeaderFlowLayout"
-PODS_ROOT = ${SRCROOT}
-SKIP_INSTALL = YES
