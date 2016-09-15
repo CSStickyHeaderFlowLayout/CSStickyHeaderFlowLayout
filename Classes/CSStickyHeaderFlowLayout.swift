@@ -67,19 +67,6 @@ open class CSStickyHeaderFlowLayout: UICollectionViewFlowLayout {
 
   }
 
-  fileprivate func visibleHeaders(in rect: CGRect,
-                                  with attributes: [UICollectionViewLayoutAttributes]) -> [UICollectionViewLayoutAttributes] {
-
-    return attributes.filter { (currentAttribute) in
-      return currentAttribute.representedElementKind == UICollectionElementKindSectionHeader
-    }
-  }
-
-  fileprivate func visibleFooters(in rect: CGRect,
-                                  with attributes: [UICollectionViewLayoutAttributes]) -> [UICollectionViewLayoutAttributes] {
-    return attributes.filter { $0.representedElementKind == UICollectionElementKindSectionFooter }
-  }
-
   open override func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
 
     if collectionView?.dataSource == nil { return nil }
@@ -96,13 +83,16 @@ open class CSStickyHeaderFlowLayout: UICollectionViewFlowLayout {
       $0.copy() as? UICollectionViewLayoutAttributes
     }
 
-
     var visibleHeaders = allItems.filter {
       $0.representedElementKind == UICollectionElementKindSectionHeader
     }
 
     let visibleCells = allItems.filter {
       $0.representedElementCategory == .cell
+    }
+
+    let otherVisibleItems = allItems.filter {
+      return $0.representedElementKind == UICollectionElementKindSectionFooter || $0.representedElementCategory == .decorationView
     }
 
     (visibleHeaders + visibleCells).forEach {
@@ -143,12 +133,11 @@ open class CSStickyHeaderFlowLayout: UICollectionViewFlowLayout {
     }
 
 
-    return Array(retVal.values) + visibleCells + visibleHeaders
+    return Array(retVal.values) + visibleCells + visibleHeaders + otherVisibleItems
   }
 
   open override func layoutAttributesForItem(at indexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
     guard let attributes = super.layoutAttributesForItem(at: indexPath)?.copy() as? UICollectionViewLayoutAttributes else {
-      print("not attributes")
       return nil
     }
 
@@ -162,7 +151,6 @@ open class CSStickyHeaderFlowLayout: UICollectionViewFlowLayout {
 
   open override var collectionViewContentSize : CGSize {
     guard self.collectionView?.superview != nil else {
-      print("no size")
       return .zero
     }
 
@@ -236,16 +224,6 @@ open class CSStickyHeaderFlowLayout: UICollectionViewFlowLayout {
   }
 
   // MARK: Overrides
-
-  open override func invalidateLayout() {
-
-    // Workaround for iOS 10
-    if #available(iOS 10, *) {
-      self.collectionView?.isPrefetchingEnabled = true
-    }
-
-    super.invalidateLayout()
-  }
 
   open override class var layoutAttributesClass : AnyClass {
     return CSStickyHeaderFlowLayoutAttributes.self
