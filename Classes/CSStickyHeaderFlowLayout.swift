@@ -179,9 +179,7 @@ open class CSStickyHeaderFlowLayout: UICollectionViewFlowLayout {
       y += parallaxHeaderMinimumReferenceSize.height
     }
 
-    let maxY = min(max(y, attributes.frame.origin.y), sectionMaxY)
-
-    origin.y = maxY
+    origin.y = min(max(y, attributes.frame.origin.y), sectionMaxY)
 
     newAttributes?.isHidden = false
     newAttributes?.frame = CGRect(origin: origin, size: attributes.frame.size)
