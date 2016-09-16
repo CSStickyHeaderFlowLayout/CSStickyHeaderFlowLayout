@@ -15,6 +15,8 @@
 		CD23ACA14536749C7672FE1FCE60A7D6 /* CSStickyHeaderFlowLayoutAttributes.h in Headers */ = {isa = PBXBuildFile; fileRef = C101ADFA653BE696B6288259608E1BC6 /* CSStickyHeaderFlowLayoutAttributes.h */; };
 		D76182056CC6BB8DED186CF4EBD28CDA /* CSStickyHeaderFlowLayout-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FF0A77C3567C8B48155BFDE19ABC20C /* CSStickyHeaderFlowLayout-dummy.m */; };
 		E9BB7C82CE2329FA219E4422CE95B464 /* CSStickyHeaderFlowLayout.h in Headers */ = {isa = PBXBuildFile; fileRef = 1257CE923430D3E27D1157DCBCF77FD3 /* CSStickyHeaderFlowLayout.h */; };
+		F478D2CB1D890DC500FCA79A /* UICollectionView+CSPrefetchSwitch.h in Headers */ = {isa = PBXBuildFile; fileRef = F478D2C91D890DC500FCA79A /* UICollectionView+CSPrefetchSwitch.h */; };
+		F478D2CC1D890DC500FCA79A /* UICollectionView+CSPrefetchSwitch.m in Sources */ = {isa = PBXBuildFile; fileRef = F478D2CA1D890DC500FCA79A /* UICollectionView+CSPrefetchSwitch.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +48,8 @@
 		D977BFC33FB2277A3AEDEC48FFCA2079 /* Pods-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-dummy.m"; sourceTree = "<group>"; };
 		E256BC23DED73FB12167274A29383CB2 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		E8E49AD5F42BB54B641C041AF44A5760 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Pods.release.xcconfig; sourceTree = "<group>"; };
+		F478D2C91D890DC500FCA79A /* UICollectionView+CSPrefetchSwitch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UICollectionView+CSPrefetchSwitch.h"; sourceTree = "<group>"; };
+		F478D2CA1D890DC500FCA79A /* UICollectionView+CSPrefetchSwitch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UICollectionView+CSPrefetchSwitch.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,9 +149,19 @@
 			path = Classes;
 			sourceTree = "<group>";
 		};
+		F478D2C41D88F7EF00FCA79A /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				F478D2C91D890DC500FCA79A /* UICollectionView+CSPrefetchSwitch.h */,
+				F478D2CA1D890DC500FCA79A /* UICollectionView+CSPrefetchSwitch.m */,
+			);
+			name = Category;
+			sourceTree = "<group>";
+		};
 		F80AFA9A1107ED5A27D10E2E7DAAEFBE /* CSStickyHeaderFlowLayout */ = {
 			isa = PBXGroup;
 			children = (
+				F478D2C41D88F7EF00FCA79A /* Category */,
 				DA0CD6575CEDE7061087F70461B13B42 /* Classes */,
 				FC99B6419D37394393040CCFB4F45C5D /* Support Files */,
 			);
@@ -175,6 +189,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E9BB7C82CE2329FA219E4422CE95B464 /* CSStickyHeaderFlowLayout.h in Headers */,
+				F478D2CB1D890DC500FCA79A /* UICollectionView+CSPrefetchSwitch.h in Headers */,
 				CD23ACA14536749C7672FE1FCE60A7D6 /* CSStickyHeaderFlowLayoutAttributes.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -251,6 +266,7 @@
 				D76182056CC6BB8DED186CF4EBD28CDA /* CSStickyHeaderFlowLayout-dummy.m in Sources */,
 				BF1B5F9C0B8C15493A888378DB06E099 /* CSStickyHeaderFlowLayout.m in Sources */,
 				718CC17A4811A1C529658991CE1529D8 /* CSStickyHeaderFlowLayoutAttributes.m in Sources */,
+				F478D2CC1D890DC500FCA79A /* UICollectionView+CSPrefetchSwitch.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

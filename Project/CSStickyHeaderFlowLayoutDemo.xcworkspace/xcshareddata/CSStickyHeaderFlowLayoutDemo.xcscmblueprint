@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "701B5006D938B65FD42237DDAF25824304CA7A66",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "0D80F4016E2D91088AD2186C96036162ECE69D64" : 9223372036854775807,
+    "701B5006D938B65FD42237DDAF25824304CA7A66" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "48E17D25-39A0-4DEC-83D6-22CE1C0C0217",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "0D80F4016E2D91088AD2186C96036162ECE69D64" : "niepan\/",
+    "701B5006D938B65FD42237DDAF25824304CA7A66" : "CSStickyHeaderFlowLayout\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "CSStickyHeaderFlowLayoutDemo",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "Project\/CSStickyHeaderFlowLayoutDemo.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/monzy613\/niepan.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "0D80F4016E2D91088AD2186C96036162ECE69D64"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/jamztang\/CSStickyHeaderFlowLayout.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "701B5006D938B65FD42237DDAF25824304CA7A66"
+    }
+  ]
+}

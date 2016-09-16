@@ -8,6 +8,7 @@
 
 #import "CSStickyHeaderFlowLayout.h"
 #import "CSStickyHeaderFlowLayoutAttributes.h"
+#import "UICollectionView+CSPrefetchSwitch.h"
 
 
 NSString *const CSStickyHeaderParallaxHeader = @"CSStickyHeaderParallexHeader";
@@ -24,6 +25,7 @@ static const NSInteger kHeaderZIndex = 1024;
 
 - (void)prepareLayout {
     [super prepareLayout];
+    [self.collectionView cs_setPrefetchingEnabled:NO];
 }
 
 - (UICollectionViewLayoutAttributes *)initialLayoutAttributesForAppearingSupplementaryElementOfKind:(NSString *)elementKind
