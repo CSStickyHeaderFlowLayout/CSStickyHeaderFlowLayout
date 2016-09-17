@@ -274,7 +274,7 @@ static const NSInteger kHeaderZIndex = 1024;
 
     currentAttribute.frame = (CGRect){
         frame.origin.x,
-        y,
+        self.detachTopLayout ? frame.origin.y : y,
         frame.size.width,
         self.disableStretching && height > maxHeight ? maxHeight : height,
     };
