@@ -28,5 +28,5 @@ extern NSString *const CSStickyHeaderParallaxHeader;
 @property (nonatomic) BOOL parallaxHeaderAlwaysOnTop;
 @property (nonatomic) BOOL disableStickyHeaders;
 @property (nonatomic) BOOL disableStretching;
-
+@property (nonatomic) BOOL detachTopLayout;
 @end
