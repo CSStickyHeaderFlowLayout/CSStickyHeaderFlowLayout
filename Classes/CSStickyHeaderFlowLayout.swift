@@ -8,6 +8,7 @@
 
 import UIKit
 
+public let CSStickyHeaderParallaxHeader = "CSStickyHeaderParallaxHeader"
 
 open class CSStickyHeaderFlowLayout: UICollectionViewFlowLayout {
 
@@ -22,6 +23,12 @@ open class CSStickyHeaderFlowLayout: UICollectionViewFlowLayout {
   open var disableStickyHeaders = false
   open var disableStretching = false
 
+  // MARK: Expose Kind Name for ObjC
+  
+  open static func elementKindStickyHeaderParallaxHeader() -> String {
+    return CSStickyHeaderParallaxHeader
+  }
+  
   // MARK: Layout Attributes
 
   open override func initialLayoutAttributesForAppearingSupplementaryElement
@@ -225,14 +232,5 @@ open class CSStickyHeaderFlowLayout: UICollectionViewFlowLayout {
 
   open override class var layoutAttributesClass : AnyClass {
     return CSStickyHeaderFlowLayoutAttributes.self
-  }
-
-}
-
-public let CSStickyHeaderParallaxHeader = "CSStickyHeaderParallaxHeader"
-
-@objc public final class CSElementKind: NSObject {
-  public class func stickyHeaderParallaxHeader() -> String {
-    return CSStickyHeaderParallaxHeader
   }
 }
