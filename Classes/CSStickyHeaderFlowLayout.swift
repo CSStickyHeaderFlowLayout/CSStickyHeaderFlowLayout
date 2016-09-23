@@ -58,15 +58,15 @@ open class CSStickyHeaderFlowLayout: UICollectionViewFlowLayout {
   }
 
   open override func layoutAttributesForSupplementaryView(ofKind elementKind: String, at indexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
-
-    var attributes =
-      super.layoutAttributesForSupplementaryView(ofKind: elementKind,
-                                                       at: indexPath)
-
-    if ((attributes == nil) && elementKind == CSStickyHeaderParallaxHeader) {
-      attributes = CSStickyHeaderFlowLayoutAttributes(forSupplementaryViewOfKind: CSStickyHeaderParallaxHeader, with: indexPath)
+    guard let attributes = super.layoutAttributesForSupplementaryView(ofKind: elementKind, at: indexPath) else {
+      
+      if elementKind == CSStickyHeaderParallaxHeader {
+        return CSStickyHeaderFlowLayoutAttributes(forSupplementaryViewOfKind: CSStickyHeaderParallaxHeader, with: indexPath)
+      } else {
+        return nil
+      }
     }
-
+    
     return attributes
 
   }
