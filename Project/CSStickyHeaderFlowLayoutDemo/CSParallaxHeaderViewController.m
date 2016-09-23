@@ -44,10 +44,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
+  
     [self reloadLayout];
     [self.collectionView registerNib:self.headerNib
-          forSupplementaryViewOfKind:[CSElementKind stickyHeaderParallaxHeader]
+          forSupplementaryViewOfKind:[CSStickyHeaderFlowLayout elementKindStickyHeaderParallaxHeader]
                  withReuseIdentifier:@"header"];
 
 #ifdef DEBUG_PULL_TO_REFRESH
@@ -119,7 +119,7 @@
         cell.textLabel.text = [[obj allKeys] firstObject];
 
         return cell;
-    } else if ([kind isEqualToString:[CSElementKind stickyHeaderParallaxHeader]]) {
+    } else if ([kind isEqualToString:[CSStickyHeaderFlowLayout elementKindStickyHeaderParallaxHeader]]) {
         UICollectionReusableView *cell = [collectionView dequeueReusableSupplementaryViewOfKind:kind
                                                                             withReuseIdentifier:@"header"
                                                                                    forIndexPath:indexPath];
