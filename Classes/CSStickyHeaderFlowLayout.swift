@@ -127,8 +127,11 @@ open class CSStickyHeaderFlowLayout: UICollectionViewFlowLayout {
 
     if !disableStickyHeaders {
       visibleHeaders = visibleHeaders.flatMap { (header) in
-        self.updateHeaderAttributes(header,
-                                    lastCellAttributes: lastCells[header.indexPath.section])
+        guard let lastCell = lastCells[header.indexPath.section] else {
+          return nil
+        }
+        
+        return self.getAdjustedHeaderAttributesForLastCell(header, lastCellAttributes: lastCell)
       }
     }
 
@@ -162,14 +165,14 @@ open class CSStickyHeaderFlowLayout: UICollectionViewFlowLayout {
     return true
   }
 
-  fileprivate func updateHeaderAttributes(_ attributes: UICollectionViewLayoutAttributes, lastCellAttributes: UICollectionViewLayoutAttributes?) -> UICollectionViewLayoutAttributes? {
-
-    guard let lastCellAttributes = lastCellAttributes, let collectionView = self.collectionView else {
+  // MARK: Private Methods
+  
+  fileprivate func getAdjustedHeaderAttributesForLastCell(_ attributes: UICollectionViewLayoutAttributes, lastCellAttributes: UICollectionViewLayoutAttributes) -> UICollectionViewLayoutAttributes? {
+    guard let collectionView = self.collectionView, let newAttributes = attributes.copy() as? UICollectionViewLayoutAttributes else {
       return nil
     }
 
     let currentBounds = collectionView.bounds
-    let newAttributes = attributes.copy() as? UICollectionViewLayoutAttributes
 
     var origin = attributes.frame.origin
     let sectionMaxY = lastCellAttributes.frame.maxY - attributes.frame.size.height
@@ -181,8 +184,8 @@ open class CSStickyHeaderFlowLayout: UICollectionViewFlowLayout {
 
     origin.y = min(max(y, attributes.frame.origin.y), sectionMaxY)
 
-    newAttributes?.isHidden = false
-    newAttributes?.frame = CGRect(origin: origin, size: attributes.frame.size)
+    newAttributes.isHidden = false
+    newAttributes.frame = CGRect(origin: origin, size: attributes.frame.size)
 
     return newAttributes
   }
