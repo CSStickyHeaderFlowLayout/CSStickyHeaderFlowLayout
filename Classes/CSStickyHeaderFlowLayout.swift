@@ -72,18 +72,14 @@ open class CSStickyHeaderFlowLayout: UICollectionViewFlowLayout {
   }
 
   open override func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
-
-    if collectionView?.dataSource == nil { return nil }
-
-    var retVal = [IndexPath : UICollectionViewLayoutAttributes]()
-
     let adjustedRect = rect.offsetBy(dx: 0, dy: -parallaxHeaderReferenceSize.height)
+    
+    guard let _ = collectionView, let originalAttributes = super.layoutAttributesForElements(in: adjustedRect) else { return nil }
+
+    var retVal = [IndexPath: UICollectionViewLayoutAttributes]()
     var parallaxHeaderOnScreen = false
 
-    guard let originalAttributes = super.layoutAttributesForElements(in: adjustedRect)
-          else { return nil }
-
-    var allItems = originalAttributes.flatMap {
+    let allItems = originalAttributes.flatMap {
       $0.copy() as? UICollectionViewLayoutAttributes
     }
 
@@ -154,7 +150,7 @@ open class CSStickyHeaderFlowLayout: UICollectionViewFlowLayout {
   }
 
   open override var collectionViewContentSize : CGSize {
-    guard self.collectionView?.superview != nil else {
+    guard let _ = self.collectionView?.superview else {
       return .zero
     }
 
