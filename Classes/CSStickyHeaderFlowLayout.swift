@@ -31,18 +31,14 @@ open class CSStickyHeaderFlowLayout: UICollectionViewFlowLayout {
   
   // MARK: Layout Attributes
 
-  open override func initialLayoutAttributesForAppearingSupplementaryElement
-    (ofKind elementKind: String, at elementIndexPath: IndexPath) ->
-    UICollectionViewLayoutAttributes? {
-
-    let attributes =
-      super.initialLayoutAttributesForAppearingSupplementaryElement(ofKind: elementKind,
-                                                                    at: elementIndexPath)
+  open override func initialLayoutAttributesForAppearingSupplementaryElement(ofKind elementKind: String, at elementIndexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
+    guard let attributes = super.initialLayoutAttributesForAppearingSupplementaryElement(ofKind: elementKind, at: elementIndexPath) else { return nil }
 
     if elementKind != CSStickyHeaderParallaxHeader {
-      var frame = attributes?.frame ?? .zero
+      var frame = attributes.frame
       frame.origin.y += parallaxHeaderReferenceSize.height
-      attributes?.frame = frame
+      
+      attributes.frame = frame
     }
 
     return attributes
