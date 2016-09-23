@@ -45,15 +45,16 @@ open class CSStickyHeaderFlowLayout: UICollectionViewFlowLayout {
   }
 
   open override func finalLayoutAttributesForDisappearingSupplementaryElement(ofKind elementKind: String, at elementIndexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
-
-    if elementKind == CSStickyHeaderParallaxHeader {
-      if let attributes = layoutAttributesForSupplementaryView(ofKind: elementKind, at: elementIndexPath) as? CSStickyHeaderFlowLayoutAttributes {
-        updateParallaxHeaderAttributes(attributes)
-        return attributes
-      }
+    guard
+      let attributes = layoutAttributesForSupplementaryView(ofKind: elementKind, at: elementIndexPath) as? CSStickyHeaderFlowLayoutAttributes,
+      elementKind != CSStickyHeaderParallaxHeader
+    else {
+      return super.finalLayoutAttributesForDisappearingSupplementaryElement(ofKind: elementKind, at: elementIndexPath)
     }
 
-    return super.finalLayoutAttributesForDisappearingSupplementaryElement(ofKind: elementKind, at: elementIndexPath)
+    updateParallaxHeaderAttributes(attributes)
+    
+    return attributes
   }
 
   open override func layoutAttributesForSupplementaryView(ofKind elementKind: String, at indexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
