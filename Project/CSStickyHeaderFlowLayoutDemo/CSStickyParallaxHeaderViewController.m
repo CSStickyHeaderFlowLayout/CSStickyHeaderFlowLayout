@@ -63,7 +63,7 @@
     // Also insets the scroll indicator so it appears below the search bar
     self.collectionView.scrollIndicatorInsets = UIEdgeInsetsMake(0, 0, 0, 0);
     [self.collectionView registerNib:self.headerNib
-          forSupplementaryViewOfKind:[CSElementKind stickyHeaderParallaxHeader]
+          forSupplementaryViewOfKind:[CSStickyHeaderFlowLayout elementKindStickyHeaderParallaxHeader]
                  withReuseIdentifier:@"header"];
 
 }
@@ -119,7 +119,7 @@
 
         return cell;
 
-    } else if ([kind isEqualToString:[CSElementKind stickyHeaderParallaxHeader]]) {
+    } else if ([kind isEqualToString:[CSStickyHeaderFlowLayout elementKindStickyHeaderParallaxHeader]]) {
         UICollectionReusableView *cell = [collectionView dequeueReusableSupplementaryViewOfKind:kind
                                                                             withReuseIdentifier:@"header"
                                                                                    forIndexPath:indexPath];

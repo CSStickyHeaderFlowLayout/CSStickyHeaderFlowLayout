@@ -48,7 +48,7 @@
     self.collectionView.scrollIndicatorInsets = UIEdgeInsetsMake(44, 0, 0, 0);
     
     [self.collectionView registerNib:self.headerNib
-          forSupplementaryViewOfKind:[CSElementKind stickyHeaderParallaxHeader]
+          forSupplementaryViewOfKind:[CSStickyHeaderFlowLayout elementKindStickyHeaderParallaxHeader]
                  withReuseIdentifier:@"header"];
 
 }
@@ -102,7 +102,7 @@
         cell.textLabel.text = [[obj allKeys] firstObject];
         
         return cell;
-    } else if ([kind isEqualToString:[CSElementKind stickyHeaderParallaxHeader]]) {
+    } else if ([kind isEqualToString:[CSStickyHeaderFlowLayout elementKindStickyHeaderParallaxHeader]]) {
         UICollectionReusableView *cell = [collectionView dequeueReusableSupplementaryViewOfKind:kind
                                                                             withReuseIdentifier:@"header"
                                                                                    forIndexPath:indexPath];
