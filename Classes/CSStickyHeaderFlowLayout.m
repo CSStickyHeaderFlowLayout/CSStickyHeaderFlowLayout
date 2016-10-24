@@ -154,7 +154,7 @@ static const NSInteger kHeaderZIndex = 1024;
                 
                 UICollectionViewLayoutAttributes *header = headers[indexPathKey];
                 // CollectionView automatically removes headers not in bounds
-                if ( ! header) {
+                if ( ! header && visibleParallexHeader) {
                     header = [self layoutAttributesForSupplementaryViewOfKind:UICollectionElementKindSectionHeader
                                                                   atIndexPath:[NSIndexPath indexPathForItem:0 inSection:indexPath.section]];
                     
