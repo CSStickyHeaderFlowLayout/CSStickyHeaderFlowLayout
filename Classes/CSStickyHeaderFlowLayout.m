@@ -104,7 +104,7 @@ static const NSInteger kHeaderZIndex = 1024;
                 UICollectionViewLayoutAttributes *currentAttribute = [lastCells objectForKey:@(indexPath.section)];
                 
                 // Get the bottom most cell of that section
-                if ( ! currentAttribute || indexPath.row > currentAttribute.indexPath.row) {
+                if ( ! currentAttribute || (indexPath.row > currentAttribute.indexPath.row && indexPath.section == currentAttribute.indexPath.section)) {
                     [lastCells setObject:obj forKey:@(indexPath.section)];
                 }
                 
