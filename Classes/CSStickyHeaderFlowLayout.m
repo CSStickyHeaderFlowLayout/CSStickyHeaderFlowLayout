@@ -185,6 +185,14 @@ static const NSInteger kHeaderZIndex = 1024;
     return attributes;
 }
 
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+   if([self.delegate respondsToSelector:@selector(collectionView:layout:sizeForItemAtIndexPath:)]) {
+      return [self.delegate collectionView:collectionView layout:collectionViewLayout sizeForItemAtIndexPath:indexPath];
+   } else {
+      return [self itemSize];
+   }
+}
+
 - (CGSize)collectionViewContentSize {
     // If not part of view hierarchy then return CGSizeZero (as in docs).
     // Call [super collectionViewContentSize] can cause EXC_BAD_ACCESS when collectionView has no superview.

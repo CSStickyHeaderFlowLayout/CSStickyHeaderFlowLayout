@@ -21,8 +21,17 @@ FOUNDATION_EXPORT const unsigned char CSStickyHeaderFlowLayoutVersionString[];
 
 extern NSString *const CSStickyHeaderParallaxHeader;
 
+@protocol CSStickyHeaderFlowLayoutDelegate <NSObject>
+
+@optional
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath;
+
+@end
+
+
 @interface CSStickyHeaderFlowLayout : UICollectionViewFlowLayout
 
+@property (nonatomic, weak) id<CSStickyHeaderFlowLayoutDelegate> delegate;
 @property (nonatomic) CGSize parallaxHeaderReferenceSize;
 @property (nonatomic) CGSize parallaxHeaderMinimumReferenceSize;
 @property (nonatomic) BOOL parallaxHeaderAlwaysOnTop;
