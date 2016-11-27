@@ -278,7 +278,8 @@ static const NSInteger kHeaderZIndex = 1024;
         frame.size.width,
         self.disableStretching && height > maxHeight ? maxHeight : height,
     };
-    
+ 
+    self.currentParallaxHeaderFrame = currentAttribute.frame;
 }
 
 @end
