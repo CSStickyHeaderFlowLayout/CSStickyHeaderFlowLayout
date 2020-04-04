@@ -20,6 +20,7 @@ class CollectionViewController: UICollectionViewController {
         super.viewDidLoad()
 
         self.collectionView?.alwaysBounceVertical = true
+        self.collectionView.backgroundColor = .groupTableViewBackground
         self.view.backgroundColor = UIColor.white
 
         // Setup Cell
