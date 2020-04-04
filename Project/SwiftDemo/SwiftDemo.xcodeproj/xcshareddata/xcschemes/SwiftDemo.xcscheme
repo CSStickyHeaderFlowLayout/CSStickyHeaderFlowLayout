@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "32CF90DBE2A4842932209237BC634C11"
-               BuildableName = "libCSStickyHeaderFlowLayout.a"
-               BlueprintName = "CSStickyHeaderFlowLayout"
-               ReferencedContainer = "container:Pods.xcodeproj">
+               BlueprintIdentifier = "1A4B2F2A1B56C513007F67CC"
+               BuildableName = "SwiftDemo.app"
+               BlueprintName = "SwiftDemo"
+               ReferencedContainer = "container:SwiftDemo.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -28,6 +28,16 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "1A4B2F3F1B56C513007F67CC"
+               BuildableName = "SwiftDemoTests.xctest"
+               BlueprintName = "SwiftDemoTests"
+               ReferencedContainer = "container:SwiftDemo.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction
@@ -40,15 +50,16 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
-      <MacroExpansion>
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "32CF90DBE2A4842932209237BC634C11"
-            BuildableName = "libCSStickyHeaderFlowLayout.a"
-            BlueprintName = "CSStickyHeaderFlowLayout"
-            ReferencedContainer = "container:Pods.xcodeproj">
+            BlueprintIdentifier = "1A4B2F2A1B56C513007F67CC"
+            BuildableName = "SwiftDemo.app"
+            BlueprintName = "SwiftDemo"
+            ReferencedContainer = "container:SwiftDemo.xcodeproj">
          </BuildableReference>
-      </MacroExpansion>
+      </BuildableProductRunnable>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
@@ -56,6 +67,16 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "1A4B2F2A1B56C513007F67CC"
+            BuildableName = "SwiftDemo.app"
+            BlueprintName = "SwiftDemo"
+            ReferencedContainer = "container:SwiftDemo.xcodeproj">
+         </BuildableReference>
+      </BuildableProductRunnable>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">
