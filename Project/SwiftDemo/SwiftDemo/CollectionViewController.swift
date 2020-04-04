@@ -20,19 +20,19 @@ class CollectionViewController: UICollectionViewController {
         super.viewDidLoad()
 
         self.collectionView?.alwaysBounceVertical = true
-        self.view.backgroundColor = UIColor.whiteColor()
+        self.view.backgroundColor = UIColor.white
 
         // Setup Cell
-        self.collectionView?.registerClass(CollectionViewCell.self, forCellWithReuseIdentifier: "cell")
-        self.layout?.itemSize = CGSizeMake(self.view.frame.size.width, 44)
+        self.collectionView?.register(CollectionViewCell.self, forCellWithReuseIdentifier: "cell")
+        self.layout?.itemSize = CGSize(width: self.view.frame.size.width, height: 44)
 
         // Setup Header
-        self.collectionView?.registerClass(CollectionParallaxHeader.self, forSupplementaryViewOfKind: CSStickyHeaderParallaxHeader, withReuseIdentifier: "parallaxHeader")
-        self.layout?.parallaxHeaderReferenceSize = CGSizeMake(self.view.frame.size.width, 100)
+        self.collectionView?.register(CollectionParallaxHeader.self, forSupplementaryViewOfKind: CSStickyHeaderParallaxHeader, withReuseIdentifier: "parallaxHeader")
+        self.layout?.parallaxHeaderReferenceSize = CGSize(width: self.view.frame.size.width, height: 100)
 
         // Setup Section Header
-        self.collectionView?.registerClass(CollectionViewSectionHeader.self, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "sectionHeader")
-        self.layout?.headerReferenceSize = CGSizeMake(320, 40)
+        self.collectionView?.register(CollectionViewSectionHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "sectionHeader")
+        self.layout?.headerReferenceSize = CGSize(width: 320, height: 40)
     }
 
     // Cells
