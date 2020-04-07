@@ -225,6 +225,10 @@ static const NSInteger kHeaderZIndex = 1024;
 
     CGFloat sectionMaxY = CGRectGetMaxY(lastCellAttributes.frame) - attributes.frame.size.height;
     CGFloat y = CGRectGetMaxY(currentBounds) - currentBounds.size.height + self.collectionView.contentInset.top;
+    
+    if (@available(iOS 11.0, *)) {
+        y += self.collectionView.adjustedContentInset.top;
+    }
 
     if (self.parallaxHeaderAlwaysOnTop) {
         y += self.parallaxHeaderMinimumReferenceSize.height;
