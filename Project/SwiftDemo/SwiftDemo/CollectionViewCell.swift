@@ -21,11 +21,11 @@ class CollectionViewCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
 
-        self.backgroundColor = UIColor.whiteColor()
+        self.backgroundColor = UIColor.white
         
-        let bounds = CGRectMake(0, 0, CGRectGetMaxX(frame), CGRectGetMaxY(frame))
+        let bounds = CGRect(x: 0, y: 0, width: frame.maxX, height: frame.maxY)
         let label = UILabel(frame: bounds)
-        label.autoresizingMask = [UIViewAutoresizing.FlexibleHeight, UIViewAutoresizing.FlexibleWidth]
+        label.autoresizingMask = [UIView.AutoresizingMask.flexibleHeight, UIView.AutoresizingMask.flexibleWidth]
         self.textLabel = label
         self.addSubview(label)
     }

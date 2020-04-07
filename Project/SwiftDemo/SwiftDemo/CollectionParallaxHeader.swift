@@ -15,14 +15,14 @@ class CollectionParallaxHeader: UICollectionReusableView {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.backgroundColor = UIColor.lightGrayColor()
+        self.backgroundColor = UIColor.lightGray
 
         self.clipsToBounds = true
 
-        let bounds = CGRectMake(0, 0, CGRectGetMaxX(frame), CGRectGetMaxY(frame))
+        let bounds = CGRect(x: 0, y: 0, width: frame.maxX, height: frame.maxY)
 
         let imageView = UIImageView(frame: bounds)
-        imageView.contentMode = UIViewContentMode.ScaleAspectFill
+        imageView.contentMode = UIView.ContentMode.scaleAspectFill
         imageView.image = UIImage(named: "success-baby")
         self.imageView = imageView
         self.addSubview(imageView)
