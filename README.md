@@ -122,6 +122,8 @@ Run the project examples and it'll shows you exactly how you achieve different e
 ![](http://f.cl.ly/items/313D2n3R0H0e0x090B3X/different-header.jpeg)
 
 ## Updates
+- 0.2.12: Add Swift 5 Demo
+
 - 0.2.11: Add support for carthage.
 
 - 0.2.10: Fixed issue because attributes were not copied and datasource might have been niled

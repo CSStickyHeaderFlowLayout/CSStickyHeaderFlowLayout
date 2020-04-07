@@ -24,6 +24,6 @@ class CollectionViewSectionHeader: UICollectionReusableView {
     func commonInit() {
         self.addSubview(label)
         label.frame = self.bounds
-        label.text = UICollectionElementKindSectionHeader
+        label.text = UICollectionView.elementKindSectionHeader
     }
 }
