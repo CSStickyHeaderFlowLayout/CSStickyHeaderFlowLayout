@@ -104,7 +104,7 @@ static const NSInteger kHeaderZIndex = 1024;
                 UICollectionViewLayoutAttributes *currentAttribute = [lastCells objectForKey:@(indexPath.section)];
                 
                 // Get the bottom most cell of that section
-                if ( ! currentAttribute || indexPath.row > currentAttribute.indexPath.row) {
+                if ( ! currentAttribute || (indexPath.row > currentAttribute.indexPath.row && indexPath.section == currentAttribute.indexPath.section)) {
                     [lastCells setObject:obj forKey:@(indexPath.section)];
                 }
                 
@@ -154,7 +154,7 @@ static const NSInteger kHeaderZIndex = 1024;
                 
                 UICollectionViewLayoutAttributes *header = headers[indexPathKey];
                 // CollectionView automatically removes headers not in bounds
-                if ( ! header) {
+                if ( ! header && visibleParallexHeader) {
                     header = [self layoutAttributesForSupplementaryViewOfKind:UICollectionElementKindSectionHeader
                                                                   atIndexPath:[NSIndexPath indexPathForItem:0 inSection:indexPath.section]];
                     
